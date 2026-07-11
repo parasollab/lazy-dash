@@ -1,0 +1,163 @@
+
+#ifndef PPL_MODE_HYPERPATH_QUERY_H_
+#define PPL_MODE_HYPERPATH_QUERY_H_
+
+#include "SubmodeQuery.h"
+
+#include "ConfigurationSpace/GenericStateGraph.h"
+
+#include "TMPLibrary/Solution/Plan.h"
+
+class ModeHyperpathQuery : public SubmodeQuery {
+
+  public:
+
+    ///@name Local Types
+    ///@{
+
+    typedef SubmodeQuery::ActionHistory          ActionHistory;
+    typedef size_t                               VID;
+    typedef size_t                               HID;
+    typedef GenericStateGraph<ActionHistory,HID> HistoryGraph;
+
+    ///@}
+    ///@name Construction
+    ///@{
+
+    ModeHyperpathQuery();
+
+    ModeHyperpathQuery(XMLNode& _node);
+
+    ~ModeHyperpathQuery();
+
+    ///@}
+    ///@name Task Evaluator Interface
+    ///@{
+
+    virtual void Initialize();
+
+    ///@}
+
+  protected:
+
+    ///@name Task Evaluator Functions
+    ///@{
+
+    virtual bool Run(Plan* _plan = nullptr) override;
+
+    ///@}
+    ///@name Helper Functions
+    ///@{
+
+    VID DFS(const VID _source);
+
+    VID Termination(const VID _vid);
+
+    std::vector<ModeHyperpathQuery::VID> Frontier(const VID _vid);
+
+    std::set<VID> BuildQuantumFrontier(std::set<VID> _frontier, ActionHistory _history);
+
+    void ExpandVertex(const VID _source, const VID _vid, const std::set<VID> _frontier, 
+                      const ActionHistory _history,
+                      std::priority_queue<std::pair<double,VID>,std::vector<std::pair<double,VID>>>& _transNeighbors,
+                      std::priority_queue<std::pair<double,VID>,std::vector<std::pair<double,VID>>>& _motionNeighbors);
+
+    bool IsValidHistory(const ActionHistory& _history);
+
+    bool ConvertToPlan(std::vector<size_t> _path);
+
+
+    ///@}
+    ///@name Internal State
+    ///@{
+    ActionExtendedHypergraph m_motionExtendedHypergraph;
+
+    std::unique_ptr<HistoryGraph> m_historyGraph;
+
+    std::unordered_map<VID,double> m_heuristicValues;
+
+    ///@}
+
+};
+
+#endif
+
+
+// #ifndef PPL_GREEDY_HYPERPATH_QUERY_H_
+// #define PPL_GREEDY_HYPERPATH_QUERY_H_
+
+// #include "SubmodeQuery.h"
+
+// #include "ConfigurationSpace/GenericStateGraph.h"
+
+// #include "TMPLibrary/Solution/Plan.h"
+
+// class ModeHyperpathQuery : public SubmodeQuery {
+
+//   public:
+
+//     ///@name Local Types
+//     ///@{
+
+//     typedef SubmodeQuery::ActionHistory          ActionHistory;
+//     typedef size_t                               VID;
+//     typedef size_t                               HID;
+//     typedef GenericStateGraph<ActionHistory,HID> HistoryGraph;
+
+//     ///@}
+//     ///@name Construction
+//     ///@{
+
+//     ModeHyperpathQuery();
+
+//     ModeHyperpathQuery(XMLNode& _node);
+
+//     ~ModeHyperpathQuery();
+
+//     ///@}
+//     ///@name Task Evaluator Interface
+//     ///@{
+
+//     virtual void Initialize();
+
+//     ///@}
+
+//   protected:
+
+//     ///@name Task Evaluator Functions
+//     ///@{
+
+//     virtual bool Run(Plan* _plan = nullptr) override;
+
+//     ///@}
+//     ///@name Helper Functions
+//     ///@{
+
+//     VID DFS(const VID _source);
+
+//     VID Termination(const VID _vid);
+
+//     std::vector<ModeHyperpathQuery::VID> Frontier(const VID _vid);
+
+//     std::set<VID> BuildQuantumFrontier(std::set<VID> _frontier, ActionHistory _history);
+
+//     void ExpandVertex(const VID _source, const VID _vid, const std::set<VID> _frontier, 
+//                       const ActionHistory _history,
+//                       std::priority_queue<std::pair<double,VID>,std::vector<std::pair<double,VID>>>& _transNeighbors,
+//                       std::priority_queue<std::pair<double,VID>,std::vector<std::pair<double,VID>>>& _motionNeighbors);
+
+//     bool IsValidHistory(const ActionHistory& _history);
+
+//     ///@}
+//     ///@name Internal State
+//     ///@{
+
+//     std::unique_ptr<HistoryGraph> m_historyGraph;
+
+//     std::unordered_map<VID,double> m_heuristicValues;
+
+//     ///@}
+
+// };
+
+// #endif

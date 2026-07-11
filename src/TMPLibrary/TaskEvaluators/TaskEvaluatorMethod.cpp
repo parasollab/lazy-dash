@@ -1,0 +1,67 @@
+#include "TaskEvaluatorMethod.h"
+
+#include "TMPLibrary/Solution/Plan.h"
+#include "Simulator/Simulation.h"
+#include "Utilities/MetricUtils.h"
+/*------------------------------ Construction --------------------------------*/
+
+TaskEvaluatorMethod::
+TaskEvaluatorMethod() {}
+
+TaskEvaluatorMethod::
+TaskEvaluatorMethod(XMLNode& _node) : TMPBaseObject(_node) {
+  m_sgLabel = _node.Read("sgLabel", false, "",
+                         "Label for the state graph used by the TMPStrategy");
+}
+
+TaskEvaluatorMethod::
+~TaskEvaluatorMethod() {}
+
+void
+TaskEvaluatorMethod::
+Initialize() { }
+
+bool
+TaskEvaluatorMethod::
+operator()(Plan* _plan) {
+  this->GetPlan()->GetStatClass()->StartClock(this->GetNameAndLabel());
+  auto ret = Run(_plan);
+  this->GetPlan()->GetStatClass()->StopClock(this->GetNameAndLabel());
+  return ret;
+}
+
+bool
+TaskEvaluatorMethod::
+Run(Plan* _plan) {
+  return false;
+}
+
+void 
+TaskEvaluatorMethod::
+SetGeometricConstraints(std::unordered_map<size_t,std::set<size_t>> _gc) {
+}
+
+void 
+TaskEvaluatorMethod::
+SetGeometricConstraints2(std::unordered_map<size_t,std::set<size_t>> _gc) {
+}
+
+void 
+TaskEvaluatorMethod::
+SetNonMonotonicConstraints(std::unordered_map<size_t,std::set<size_t>> _gc) {
+}
+
+void 
+TaskEvaluatorMethod::
+SetTaskOrderConstraints(std::set<std::vector<size_t>> _tc) {
+}
+
+void
+TaskEvaluatorMethod::
+SetReplanSource(size_t _rs) {
+}
+
+void
+TaskEvaluatorMethod::
+SetInteractionConstraints(std::set<size_t> _tcSet) {
+}

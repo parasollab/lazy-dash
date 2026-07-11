@@ -1,0 +1,90 @@
+0,1: not assigned 
+2: blue_1
+3: blue_1
+4: blue_0
+5: stack
+6: stack
+7: stack
+8: gantry_0
+9: blue_0--gantry_0--
+10: gantry_0
+11: blue_1--gantry_0--
+12: gantry_0
+13: blue_1--gantry_0--
+14: gantry_0
+15: blue_0
+16: blue_1--gantry_0--
+17: gantry_0
+18: blue_0
+19: blue_1--gantry_0--
+20: gantry_0
+21: gantry_0
+22: blue_0--gantry_0--
+23: gantry_0
+24: blue_0--gantry_0--
+
+
+
+55 : {Tail:[6(stack)], Head:[1(...)]}
+54 : {Tail:[0(...)], Head:[5(stack),20(gantry_0)]}
+53 : {Tail:[8(gantry_0)], Head:[10(gantry_0)]}
+52 : {Tail:[8(gantry_0)], Head:[12(gantry_0)]}
+51 : {Tail:[8(gantry_0)], Head:[14(gantry_0)]}
+50 : {Tail:[8(gantry_0)], Head:[17(gantry_0)]}
+49 : {Tail:[8(gantry_0)], Head:[20(gantry_0)]}
+48 : {Tail:[10(gantry_0)], Head:[8(gantry_0)]}
+47 : {Tail:[10(gantry_0)], Head:[12(gantry_0)]}
+46 : {Tail:[10(gantry_0)], Head:[14(gantry_0)]}
+45 : {Tail:[10(gantry_0)], Head:[17(gantry_0)]}
+44 : {Tail:[10(gantry_0)], Head:[20(gantry_0)]}
+43 : {Tail:[12(gantry_0)], Head:[8(gantry_0)]}
+42 : {Tail:[12(gantry_0)], Head:[10(gantry_0)]}
+41 : {Tail:[12(gantry_0)], Head:[14(gantry_0)]}
+40 : {Tail:[12(gantry_0)], Head:[17(gantry_0)]}
+39 : {Tail:[12(gantry_0)], Head:[20(gantry_0)]}
+38 : {Tail:[14(gantry_0)], Head:[8(gantry_0)]}
+37 : {Tail:[14(gantry_0)], Head:[10(gantry_0)]}
+36 : {Tail:[14(gantry_0)], Head:[12(gantry_0)]}
+35 : {Tail:[14(gantry_0)], Head:[17(gantry_0)]}
+34 : {Tail:[14(gantry_0)], Head:[20(gantry_0)]}
+33 : {Tail:[17(gantry_0)], Head:[8(gantry_0)]}
+32 : {Tail:[17(gantry_0)], Head:[10(gantry_0)]}
+31 : {Tail:[17(gantry_0)], Head:[12(gantry_0)]}
+30 : {Tail:[17(gantry_0)], Head:[14(gantry_0)]}
+29 : {Tail:[17(gantry_0)], Head:[20(gantry_0)]}
+12 : {Tail:[19(blue_1--gantry_0--)], Head:[16(blue_1--gantry_0--)]}
+11 : {Tail:[18(blue_0),19(blue_1--gantry_0--)], Head:[5(stack),17(gantry_0)]}
+10 : {Tail:[5(stack),17(gantry_0)], Head:[18(blue_0),19(blue_1--gantry_0--)]}
+9 : {Tail:[15(blue_0),16(blue_1--gantry_0--)], Head:[6(stack),14(gantry_0)]}
+8 : {Tail:[6(stack),14(gantry_0)], Head:[15(blue_0),16(blue_1--gantry_0--)]}
+7 : {Tail:[4(blue_0),11(blue_1--gantry_0--)], Head:[7(stack),10(gantry_0)]}
+6 : {Tail:[7(stack),10(gantry_0)], Head:[4(blue_0),11(blue_1--gantry_0--)]}
+5 : {Tail:[13(blue_1--gantry_0--)], Head:[2(blue_1),12(gantry_0)]}
+4 : {Tail:[2(blue_1),12(gantry_0)], Head:[13(blue_1--gantry_0--)]}
+3 : {Tail:[11(blue_1--gantry_0--)], Head:[3(blue_1),10(gantry_0)]}
+2 : {Tail:[3(blue_1),10(gantry_0)], Head:[11(blue_1--gantry_0--)]}
+1 : {Tail:[9(blue_0--gantry_0--)], Head:[4(blue_0),8(gantry_0)]}
+0 : {Tail:[4(blue_0),8(gantry_0)], Head:[9(blue_0--gantry_0--)]}
+13 : {Tail:[19(blue_1--gantry_0--)], Head:[13(blue_1--gantry_0--)]}
+14 : {Tail:[19(blue_1--gantry_0--)], Head:[11(blue_1--gantry_0--)]}
+15 : {Tail:[16(blue_1--gantry_0--)], Head:[19(blue_1--gantry_0--)]}
+16 : {Tail:[16(blue_1--gantry_0--)], Head:[13(blue_1--gantry_0--)]}
+17 : {Tail:[16(blue_1--gantry_0--)], Head:[11(blue_1--gantry_0--)]}
+18 : {Tail:[13(blue_1--gantry_0--)], Head:[19(blue_1--gantry_0--)]}
+19 : {Tail:[13(blue_1--gantry_0--)], Head:[16(blue_1--gantry_0--)]}
+20 : {Tail:[13(blue_1--gantry_0--)], Head:[11(blue_1--gantry_0--)]}
+21 : {Tail:[11(blue_1--gantry_0--)], Head:[19(blue_1--gantry_0--)]}
+22 : {Tail:[11(blue_1--gantry_0--)], Head:[16(blue_1--gantry_0--)]}
+23 : {Tail:[11(blue_1--gantry_0--)], Head:[13(blue_1--gantry_0--)]}
+24 : {Tail:[20(gantry_0)], Head:[17(gantry_0)]}
+25 : {Tail:[20(gantry_0)], Head:[14(gantry_0)]}
+26 : {Tail:[20(gantry_0)], Head:[12(gantry_0)]}
+27 : {Tail:[20(gantry_0)], Head:[10(gantry_0)]}
+28 : {Tail:[20(gantry_0)], Head:[8(gantry_0)]}
+
+
+||| (56) GVID 21 -->> GVID 22 
+
+||| (2) GVID 10 -->> GVID 11 
+
+

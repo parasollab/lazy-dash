@@ -1,0 +1,79 @@
+#ifndef PPL_ACTION_H_
+#define PPL_ACTION_H_
+
+#include "Condition.h"
+
+#include "TMPLibrary/TMPBaseObject.h"
+
+class Action : public TMPBaseObject {
+  public:
+    ///@name Local Types
+    ///@{
+
+    typedef Condition::State State;
+
+    ///@}
+    ///@name Construction
+    ///@{
+
+    Action();
+
+    Action(XMLNode& _node);
+
+    ~Action();
+
+    ///@}
+    ///@name Interface
+    ///@{
+
+    virtual bool Valid(const State& _state);
+
+    ///@}
+    ///@name Accessors
+    ///@{
+
+    const std::vector<std::string>& GetStages() const;
+
+    const std::vector<std::string>& GetStageConditions(const std::string& _stage) const;
+
+    const bool IsReversible() const;
+
+    const bool IsTransfer() const;
+
+    const bool IsDirectReverseAllowed() const;
+
+    void SetDirectReverseAllowed(bool _isDirectReverseAllowed);
+
+    const size_t GetDelay(const std::string _stage) const;
+
+    bool m_isDirectReverseAllowed{false};
+
+    ///@}
+
+  protected:
+    ///@name Helper Functions
+    ///@{
+
+    virtual void SetClassName();
+  
+    virtual void ParseXMLNode(XMLNode& _node);
+
+    ///@}
+    ///@name Internal State
+    ///@{
+
+    std::vector<std::string> m_stages;
+
+    std::unordered_map<std::string,std::vector<std::string>> m_stageConditions;
+
+    std::unordered_map<std::string,size_t> m_postStageDelays;
+
+    bool m_isReversible{false};
+
+    bool m_isTransfer{false};
+
+
+    ///@}
+};
+
+#endif

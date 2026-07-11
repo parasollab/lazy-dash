@@ -1,0 +1,722 @@
+#include "HandoffWorkstationStrategy.h"
+
+#include "Behaviors/Agents/Coordinator.h"
+
+#include "TMPLibrary/ActionSpace/ActionSpace.h"
+#include "TMPLibrary/ActionSpace/Interaction.h"
+#include "TMPLibrary/ActionSpace/MotionCondition.h"
+#include "TMPLibrary/Solution/Plan.h"
+
+/*----------------------- Construction -----------------------*/
+
+HandoffWorkstationStrategy::
+HandoffWorkstationStrategy() {
+  this->SetName("HandoffWorkstationStrategy");
+}
+
+HandoffWorkstationStrategy::
+HandoffWorkstationStrategy(XMLNode& _node) : GraspStrategy(_node) {
+  this->SetName("HandoffWorkstationStrategy");
+
+  m_minX = _node.Read("minX",false,-1 * MAX_DBL,-1 * MAX_DBL, MAX_DBL,
+            "Minumum z value for a handoff to occur.");
+  m_maxX = _node.Read("maxX",false,MAX_DBL,-1 * MAX_DBL, MAX_DBL,
+            "Minumum z value for a handoff to occur.");
+  m_minY = _node.Read("minY",false,-1 * MAX_DBL,-1 * MAX_DBL, MAX_DBL,
+            "Minumum z value for a handoff to occur.");
+  m_maxY = _node.Read("maxY",false,MAX_DBL,-1 * MAX_DBL, MAX_DBL,
+            "Minumum z value for a handoff to occur.");
+  m_minZ = _node.Read("minZ",false,-1 * MAX_DBL,-1 * MAX_DBL, MAX_DBL,
+            "Minumum z value for a handoff to occur.");
+  m_maxZ = _node.Read("maxZ",false,MAX_DBL,-1 * MAX_DBL, MAX_DBL,
+            "Minumum z value for a handoff to occur.");
+
+  m_minRR = _node.Read("minRR",false,-1.,-1.,1.,
+            "Minumum z value for a handoff to occur.");
+  m_maxRR = _node.Read("maxRR",false,1.,-1.,1.,
+            "Minumum z value for a handoff to occur.");
+  m_minPP = _node.Read("minPP",false,-1.,-1.,1.,
+            "Minumum z value for a handoff to occur.");
+  m_maxPP = _node.Read("maxPP",false,1.,-1.,1.,
+            "Minumum z value for a handoff to occur.");
+  m_minYY = _node.Read("minYY",false,-1.,-1.,1.,
+            "Minumum z value for a handoff to occur.");
+  m_maxYY = _node.Read("maxYY",false,1.,-1.,1.,
+            "Minumum z value for a handoff to occur.");
+}
+
+HandoffWorkstationStrategy::
+~HandoffWorkstationStrategy() {}
+
+/*------------------------ Interface -------------------------*/
+
+bool
+HandoffWorkstationStrategy::
+operator()(Interaction* _interaction, State& _start) {
+
+  auto plan = this->GetPlan();
+  auto coord = plan->GetCoordinator();
+
+  // Set all robots to virtual
+  for(auto kv : coord->GetInitialRobotGroups()) {
+    for(auto robot : kv.first->GetRobots()) {
+      robot->SetVirtual(true);
+    }
+  } 
+
+  // Set all involved robots back to non virtual
+  for(auto kv : _start) {
+    auto group = kv.first;
+    for(auto robot : group->GetRobots()) {
+      robot->SetVirtual(false);
+    }
+  }
+
+  _interaction->Initialize();
+  auto stages = _interaction->GetStages();
+
+  // Assign initial roles
+  auto initialConditions = _interaction->GetStageConditions(stages[0]);
+  AssignRoles(_start,initialConditions);
+
+  // Set the active formations for the planning problem.
+  auto& startConditions = _interaction->GetStageConditions(stages[1]);
+  SetActiveFormations(startConditions,_interaction->GetToStageSolution(stages[2]));
+  _start = GenerateInitialState(_interaction,_start,2);
+
+
+  // if(_start.empty()) {
+  //   std::cout << "No initial state." << std::endl;
+  //   return false;
+  // }
+
+  // Making assumptions that first and last stage are used to specify 
+  // entry/exit modes only
+  size_t finalStage = stages.size() - 1;
+  bool success = true;
+  for(size_t i = 2; i < finalStage; i++) {
+    std::cout << "<<<<<<<< " << stages[i] << " start " << std::endl;
+
+    auto current = stages[i-1];
+    auto next = stages[i];
+
+    // Set the active formations for the planning problem.
+    auto& startConditions = _interaction->GetStageConditions(current);
+    SetActiveFormations(startConditions,_interaction->GetToStageSolution(next));
+
+    // Get start constraints
+    std::cout << "__ start constraints __ " << std::endl;
+    auto startConstraintMap = GenerateConstraints(_start);
+    if(startConstraintMap.empty()) {
+      success = false;
+      break;
+    }
+
+    // Get path constraints
+    GeneratePathConstraints(startConditions,_interaction->GetStageConditions(next));
+
+    // Get goal constraints
+    auto solution = _interaction->GetToStageSolution(next);
+    std::cout << "__ goal transitionState __ " << std::endl;
+    auto nextState = GenerateTransitionState(_interaction,_start,i,solution);
+    std::cout << "__ goal constraints __ " << std::endl;
+    auto goalConstraintMap = GenerateConstraints(nextState);
+    if(goalConstraintMap.empty()) {
+      success = false;
+      break;
+    }
+
+    // Get static robots
+    auto staticRobots = GetStaticRobots(startConditions);
+
+    // Solve tasks
+
+    // Construct toNextStage tasks with current stage robot groups.
+    std::cout << "__ Genrate Tasks __ " << std::endl;
+    auto toNextStageTasks = GenerateTasks(startConditions,
+                                          startConstraintMap,
+                                          goalConstraintMap);
+    _interaction->SetToStageTasks(next,toNextStageTasks);
+
+    // Ensure that all groups are in solution
+    for(auto task : toNextStageTasks) {
+      auto group = task->GetRobotGroup();
+      solution->AddRobotGroup(group);
+    }
+
+    // Configure static robots as obstacles
+    std::cout << "__ Configure static robots __ " << std::endl;
+    ConfigureStaticRobots(staticRobots,_start);
+
+    // Compute motions from pre to interim conditions.
+    std::cout << "__ Plan Motions __ " << std::endl;
+    auto toNextStagePaths = PlanMotions(toNextStageTasks,solution,
+                  "PlanInteraction::"+_interaction->GetLabel()+"::To"+next,staticRobots,_start);
+
+    if(toNextStagePaths.empty()) {
+      success = false;
+      std::cout << "need to find a valid path -- 1" << std::endl;
+      break;
+    }
+
+    size_t delay = _interaction->GetDelay(next);
+    if(delay > 0) {
+      for(auto path : toNextStagePaths) {
+        auto pair = path->VIDsWaiting();
+        auto vids = pair.first;
+        auto wait = pair.second;
+        if(wait.empty()) {
+          auto last = vids.back();
+          std::vector<size_t> add(delay,last);
+          *path += add;
+          path->SetTimeSteps(path->TimeSteps() + delay);
+        }
+        else {
+          wait = std::vector<size_t>(vids.size(),0);
+          wait[wait.size()-1] += delay;
+          path->SetWaitTimes(wait);
+        }
+      }
+    }
+
+    ResetStaticRobots(staticRobots);
+
+    // Check if a valid solution was found.
+    if(toNextStagePaths.empty()) {
+      success = false;
+      std::cout << "need to find a valid path -- 2" << std::endl;
+      break;
+    }
+
+    // Save plan information.
+    _interaction->SetToStagePaths(next,toNextStagePaths);
+
+    if(i+1 < finalStage)
+      _start = InterimState(_interaction,next,stages[i+1],toNextStagePaths);
+    else {
+    //  _start = InterimState(_interaction,next,next,toNextStagePaths);
+      _start = InterimState(_interaction,stages[i+1],next,toNextStagePaths);
+    }
+  }
+  std::cout << "=====================================" << std::endl;
+  // Clear information from this planning run.
+  m_roleMap.clear();
+  m_interimCfgMap.clear();
+  m_individualPaths.clear();
+  m_finalState.clear();
+
+  // Set all uninvolved robots back to non virtual
+  for(auto kv : coord->GetInitialRobotGroups()) {
+    for(auto robot : kv.first->GetRobots()) {
+      robot->SetVirtual(false);
+    }
+  } 
+
+  if(!success)
+    return false;
+
+  if(m_debug) {
+    std::cout << "Final interaction state:" << std::endl;
+    for(auto kv : _start) {
+      std::cout << kv.first->GetLabel() << " at "
+                << kv.second.first->GetVertex(kv.second.second).PrettyPrint()
+                << std::endl;
+    }
+  }
+  std::cout << "PATH FOUND FOR TASK " << _interaction->GetLabel() << std::endl;
+
+  return true;
+}
+
+/*--------------------- Helper Functions ---------------------*/
+
+HandoffWorkstationStrategy::State
+HandoffWorkstationStrategy::
+GenerateInitialState(Interaction* _interaction, const State& _previous, const size_t _next) {
+
+  std::cout << "generate initial state" << std::endl;
+  auto as = this->GetTMPLibrary()->GetActionSpace();
+  auto lib = this->GetMPLibrary();
+  lib->SetTask(nullptr);
+  // auto sampler = lib->GetSampler(m_smLabel);
+  auto stages = _interaction->GetStages();
+  auto solution = _interaction->GetToStageSolution(stages[_next]);
+  lib->SetMPSolution(solution);
+
+  if(m_debug) {
+    std::cout << "Planning interaction: " << _interaction->GetLabel()
+              << " with stages:" << std::endl;
+    for(auto s : stages) {
+      std::cout << "\t" << s << std::endl;
+    }
+    std::cout << "Initial State: " <<std::endl;
+    for(auto kv : _previous) {
+      auto group = kv.first;
+      auto pair = kv.second;
+      auto rm = pair.first;
+      auto vid = pair.second;
+
+      std::cout << group->GetLabel() << " : ";
+      if(!rm)
+        std::cout << " null" << std::endl;
+      else 
+        std::cout << rm->GetVertex(vid).PrettyPrint() << std::endl;
+    }
+  } 
+
+  // Initialize boundary map from interaction conditions
+  std::map<Robot*,const Boundary*> boundaryMap;
+  for(const auto label : _interaction->GetStageConditions(stages[_next])) {
+    auto constraint = as->GetCondition(label);
+
+    // Check if the condition is a motion condition.
+    auto m = dynamic_cast<MotionCondition*>(constraint);
+    if(!m)
+      continue;
+    // Match constraints to robots.
+    const auto& constraints = m->GetConstraints();
+    for(const auto c : constraints) {
+      std::cout << "constraint " << c.first << std::endl;
+      // Check if the constraint role has been assigned.
+      auto role = m->GetRole(c.second);
+      auto iter = m_roleMap.find(role);
+      if(iter == m_roleMap.end())
+        throw RunTimeException(WHERE) << "Role "
+                                      << role
+                                      << " is unassigned.";
+      
+      auto robot = m_roleMap[role];
+      std::cout << "constrained robot: " << robot->GetLabel() << ", role: " << role << std::endl;
+      boundaryMap[robot] = c.second->GetBoundary();
+    }
+  }
+
+  // Identify who are the deliverers and who are the receivers
+  std::vector<RobotGroup*> deliverers;
+  std::vector<RobotGroup*> receivers;
+  for(auto kv : _previous) {
+    auto group = kv.first;
+    bool deliver = false;
+    for(auto robot : group->GetRobots()) {
+      if(robot->GetMultiBody()->IsPassive()) {
+        deliverers.push_back(group);
+        deliver = true;
+        break;
+      }
+    }
+    if(!deliver)
+      receivers.push_back(group);
+
+    // Make sure all groups are in the solution
+    solution->AddRobotGroup(group);
+  }
+
+  double x = 0;
+  double y = 0;
+  double z = 0;
+
+  std::cout << "get x, y, z of ws" << std::endl;
+  for(auto group : receivers) {
+    for(auto robot : group->GetRobots()) {
+      if(robot->GetMultiBody()->IsPassive())
+        continue;
+      auto transform = robot->GetMultiBody()->GetBase()->GetWorldTransformation();
+      auto translation = transform.translation();
+      x += translation[0];
+      y += translation[1];
+      z += translation[2];
+    }
+  }
+  std::cout << "Workstation position: " << x << " " << y << " " << z << std::endl;
+
+
+  for(size_t i = 0; i < m_maxAttempts; i++) {
+    std::cout << "attempt: " << i << std::endl;
+    State start;
+
+    std::vector<std::pair<GroupRoadmapType*,size_t>> vidsToDelete;
+
+    // Sample a cfg for each deliverer
+    for(auto group : deliverers) {
+      std::cout << "deliverer: " << group->GetLabel() << std::endl;
+      // Configure library 
+      GroupTask task(group);
+      lib->SetGroupTask(&task);
+      solution->AddRobotGroup(group);
+      auto rm = solution->GetGroupRoadmap(group);
+
+      // Check formation
+      GroupCfgType cfg(rm);
+
+      // bool replan = false;
+
+      if(!m_physicalDemo) {
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
+        // Get mean distance between robots
+        double x = 0;
+        double y = 0;
+        double z = 0;
+        // double count = 0;
+
+        std::cout << "get x, y, z of ws" << std::endl;
+        for(auto group : receivers) {
+          for(auto robot : group->GetRobots()) {
+            if(robot->GetMultiBody()->IsPassive())
+              continue;
+            auto transform = robot->GetMultiBody()->GetBase()->GetWorldTransformation();
+            auto translation = transform.translation();
+            x += translation[0];
+            y += translation[1];
+            z += translation[2];
+          }
+        }
+        std::cout << "Workstation position: " << x << " " << y << " " << z << std::endl;
+
+        // Get passive robot  
+        Robot* object = nullptr;
+        for(auto robot : group->GetRobots()) {
+          if(robot->GetMultiBody()->IsPassive()) {
+            object = robot;
+            break;
+          }
+        }
+
+        Cfg objectCfg(object);
+        std::map<Robot*,Cfg> objectCfgs;
+
+        objectCfg[0] = x;
+        objectCfg[1] = y;
+        objectCfg[2] = z + 0.1;
+        objectCfg[3] = 0; // All ojects arriving to the ws are in unprocessed states
+        objectCfg[4] = 0;
+        objectCfg[5] = 0;
+
+        std::cout << "Meet point: " << objectCfg.PrettyPrint() << std::endl;
+
+        objectCfgs[object] = objectCfg;
+        cfg.SetRobotCfg(object,std::move(objectCfg));
+
+
+        // Sample pregrasp joint angles
+        auto eeFrames = ComputeEEFrames(_interaction,objectCfgs,_next);
+
+        for(auto kv : eeFrames) {
+          if(!group->GetRobot(kv.first->GetLabel()))
+            continue;
+
+          auto manipCfg = ComputeManipulatorCfg(kv.first,kv.second);
+          if(!manipCfg.GetRobot()) {
+            if(m_debug) {
+              std::cout << "Failed to find a valid grasp pose for " << kv.first->GetLabel() << std::endl;
+            }
+            return State();
+          }
+
+          SetEEDOF(_interaction,kv.first,manipCfg,stages[_next]);
+          cfg.SetRobotCfg(kv.first,std::move(manipCfg));
+          // sampleMap[kv.first] = cfg;
+        }
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////////////////////////////////////////////       
+        // std::vector<GroupCfgType> samples;
+        // sampler->Sample(1,1,boundaryMap,std::back_inserter(samples));
+        // if(samples.empty())
+        //   break;
+
+        // cfg = samples[0];
+
+        // for(auto r : group->GetRobots()) {
+        //   if(!r->GetMultiBody()->IsPassive())
+        //     continue;
+
+        //   auto c = cfg.GetRobotCfg(r);
+        //   // Cfg c(r);
+        //   c[0] = x + 0.1;
+        //   c[1] = y;
+        //   c[2] = z + 0.1;
+        //   c[3] = 0;
+        //   c[4] = 0;
+        //   c[5] = 0;
+
+        //   cfg.SetRobotCfg(r,std::move(c));
+        // }
+      }
+
+      auto vid = rm->AddVertex(cfg);
+      vidsToDelete.emplace_back(rm,vid);
+      start[group] = std::make_pair(rm,vid);
+    }
+
+    // Make sure all deliverers are given a start state
+    if(start.size() != deliverers.size())
+      continue;
+
+    // Add arbitrary nodes for receivers
+    for(auto group : receivers) {
+      start[group] = std::make_pair(nullptr,MAX_INT);
+    }
+
+    // Attempt to create full state
+    auto state = GenerateTransitionState(_interaction,start,_next-1,solution);
+
+    // if(!m_physicalDemo) {
+    //   for(auto pair : vidsToDelete) {
+    //     std::cout << "delete the vids" << std::endl;
+    //     pair.first->DeleteVertex(pair.second);
+    //   }
+    // }
+  
+    if(!state.empty()){
+      std::cout << "return a vaild state" << std::endl;
+      return state;
+    }
+  }
+
+  return State();
+
+
+}
+
+HandoffWorkstationStrategy::State
+HandoffWorkstationStrategy::
+GenerateTransitionState(Interaction* _interaction, const State& _previous, const size_t _next, MPSolution* _solution) {
+  std::cout << "Generate transition state: " << std::endl;
+  auto as = this->GetTMPLibrary()->GetActionSpace();
+  auto stages = _interaction->GetStages();
+
+  // Seprate deliverers and receivers
+  std::vector<Robot*> deliverers;
+  std::vector<Robot*> receivers;
+  for(auto kv : _previous) {
+    auto group = kv.first;
+    bool deliverer = false;
+    for(auto robot : group->GetRobots()) {
+      if(robot->GetMultiBody()->IsPassive()) {
+        deliverer = true;
+        break;
+      }
+    }
+    if(!deliverer) {
+      for(auto robot : group->GetRobots()) {
+        receivers.push_back(robot);
+        std::cout << robot->GetLabel() << " is reciever" << std::endl;
+      }
+    }
+    else {
+      for(auto robot : group->GetRobots()) {
+        deliverers.push_back(robot);
+        std::cout << robot->GetLabel() << " is deliverers" << std::endl;
+      }
+    }
+  }
+
+  // Collect constraint boundaries
+  std::map<Robot*,const Boundary*> boundaryMap;
+  auto conditions = _interaction->GetStageConditions(stages[_next]);
+  for(auto c : conditions) {
+    auto m = dynamic_cast<MotionCondition*>(as->GetCondition(c));
+    if(!m)
+      continue;
+
+    for(auto role : m->GetRoles()) {
+      auto robot = m_roleMap[role];
+      auto constraint = m->GetRoleConstraint(role);
+      auto boundary = constraint->GetBoundary();
+      boundaryMap[robot] = boundary;
+    }
+  }
+
+  // Grab object poses from previous state
+  std::map<Robot*,Cfg> objectPoses;
+  std::cout << "Finding the object pose" << std::endl;
+  for(auto kv : _previous) {
+    auto group = kv.first;
+    std::cout << "group: " << group->GetLabel() << std::endl;
+    auto grm = kv.second.first;
+    if(!grm)
+      continue;
+    auto gcfg = grm->GetVertex(kv.second.second);
+    gcfg.ConfigureRobot();
+    for(auto robot : group->GetRobots()) {
+      if(!robot->GetMultiBody()->IsPassive())
+        continue;
+      objectPoses[robot] = gcfg.GetRobotCfg(robot);
+      std::cout << "object pose is: " << gcfg.GetRobotCfg(robot).PrettyPrint() << std::endl;
+    }
+  }
+
+  //for(size_t i = 0; i < m_maxAttempts; i++) {
+  for(size_t i = 0; i < 1; i++) {
+
+    std::map<Robot*,Cfg> sampleMap;
+    bool failed = false;
+
+    // Sample pregrasp joint angles
+    auto eeFrames = ComputeEEFrames(_interaction,objectPoses,_next);
+
+    std::cout << "computing cfgs ... " << std::endl;
+    for(auto kv : eeFrames) {
+      std::cout << kv.first->GetLabel() << std::endl;
+      
+      auto cfg = ComputeManipulatorCfg(kv.first,kv.second);
+      if(!cfg.GetRobot()) {
+        if(m_debug) {
+          std::cout << "Failed to find a valid grasp pose for " << kv.first->GetLabel() << std::endl;
+        }
+      	failed = true;
+        break;
+      }
+      else {
+        std::cout << "  computed cfg: " << cfg.PrettyPrint() << std::endl;
+      }
+      if(kv.first->GetMultiBody()->DOF() > 5)
+        SetEEDOF(_interaction,kv.first,cfg,stages[_next]);
+      sampleMap[kv.first] = cfg;
+    }
+
+    if(failed){
+      std::cout << "invalid path" << std::endl;
+      continue;
+    } 
+
+    // If !failed, create return state
+    // Convert samples cfgs into group cfgs
+    State transition;
+    for(auto kv : _previous) {
+      auto group = kv.first;
+      auto grm = _solution->GetGroupRoadmap(group);
+      GroupCfgType gcfg(grm);
+      for(auto robot : group->GetRobots()) {
+        Cfg cfg(robot);
+        if(robot->GetMultiBody()->IsPassive())
+          cfg = objectPoses[robot];
+        else 
+          cfg = sampleMap[robot];
+        std::cout << "Setting transitions... " << group->GetLabel() << " (" << robot->GetLabel() << ") :" << cfg.PrettyPrint() << std::endl;
+        gcfg.SetRobotCfg(robot,std::move(cfg));
+      }
+      auto vid = grm->AddVertex(gcfg);
+      transition[group] = std::make_pair(grm,vid);
+    }
+
+    return transition;
+  }
+
+  return State();
+}
+    
+std::vector<std::shared_ptr<GroupTask>> 
+HandoffWorkstationStrategy::
+GenerateTasks(std::vector<std::string> _conditions, 
+              std::unordered_map<Robot*,Constraint*> _startConstraints,
+              std::unordered_map<Robot*,Constraint*> _goalConstraints) {
+
+  // As all robots are specified with a formation involving the object
+  // as a child node, the underlying generate tasks will create overlapping
+  // groups with varied motions for the object.
+  // In this function, all static robots will be put into one group, and
+  // all active robots will be given their own task.
+
+  // TODO::Decide if active robots should be one composite task or individual tasks
+  
+  auto staticRobots = GetStaticRobots(_conditions);
+  
+  // Collect robot groups and labels
+  std::vector<Robot*> sr; // static robots
+  std::vector<Robot*> ar; // active robots
+
+  std::string staticLabel;
+  std::string activeLabel;
+
+  for(auto kv : _startConstraints) {
+    auto robot = kv.first; 
+    if(staticRobots.count(robot)) {
+      sr.push_back(robot);
+      staticLabel = staticLabel + robot->GetLabel() + "--";
+    }
+    else {
+      ar.push_back(robot);
+      activeLabel = activeLabel + robot->GetLabel() + "--";
+    }
+  }
+
+  // Add robot groups to problem
+  auto problem = this->GetMPProblem();
+  auto activeGroup = problem->AddRobotGroup(sr,staticLabel);
+  auto staticGroup = problem->AddRobotGroup(ar,activeLabel);
+
+  // Create GroupTask for each group
+  auto staticTask = std::shared_ptr<GroupTask>(new GroupTask(staticGroup));
+  
+  for(auto robot : staticGroup->GetRobots()) {
+    MPTask task(robot);
+    task.SetStartConstraint(std::move(_startConstraints[robot]->Clone()));
+    task.AddGoalConstraint(std::move(_goalConstraints[robot]->Clone()));
+
+    auto iter = m_pathConstraintMap.find(robot);
+    if(iter != m_pathConstraintMap.end()) {
+      task.AddPathConstraint(std::move(m_pathConstraintMap[robot]->Clone()));
+    }
+
+    staticTask->AddTask(task);
+  }
+
+  auto activeTask = std::shared_ptr<GroupTask>(new GroupTask(activeGroup));
+  
+  for(auto robot : activeGroup->GetRobots()) {
+    MPTask task(robot);
+    task.SetStartConstraint(std::move(_startConstraints[robot]->Clone()));
+    task.AddGoalConstraint(std::move(_goalConstraints[robot]->Clone()));
+
+    auto iter = m_pathConstraintMap.find(robot);
+    if(iter != m_pathConstraintMap.end()) {
+      task.AddPathConstraint(std::move(m_pathConstraintMap[robot]->Clone()));
+    }
+
+    activeTask->AddTask(task);
+  }
+
+  m_pathConstraintMap.clear();
+
+  return {staticTask,activeTask};
+}
+
+void
+HandoffWorkstationStrategy::
+GeneratePathConstraints(std::vector<std::string> _startConditions, 
+                        std::vector<std::string> _endConditions) {
+
+  auto as = this->GetTMPLibrary()->GetActionSpace();
+
+  // Check if any motion conditions exist in both condition sets
+  for(auto label1 : _startConditions) {
+    auto c = as->GetCondition(label1);
+    auto m = dynamic_cast<MotionCondition*>(c);
+    if(!m)
+      continue;
+
+    for(auto label2 : _endConditions) {
+      if(label1 != label2)
+        continue;
+
+      auto constraints = m->GetConstraints();
+      for(auto pair : constraints) {
+        auto constraint = pair.second;
+        auto role = m->GetRole(constraint);
+
+        auto robot = m_roleMap[role];
+        if(!robot)
+          throw RunTimeException(WHERE) << "Generating path constraint for role without a robot.";
+
+        m_pathConstraintMap[robot] = constraint;
+        m_pathConstraintMap[robot]->SetRobot(robot);
+      }
+
+      break;
+    }
+  }
+}
+/*------------------------------------------------------------*/

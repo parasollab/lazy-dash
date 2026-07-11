@@ -1,0 +1,5 @@
+PRINTING HYPERGRAPH
+Hyperarcs
+1 : {Tail:[2], Head:[0,1]}
+0 : {Tail:[0,1], Head:[2]}
+END OF HYPERGRAPH

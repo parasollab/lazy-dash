@@ -1,0 +1,8442 @@
+{
+ "format": "lazydash.scene/1",
+ "name": "shelf-wall-4robots-4objects",
+ "environment": {
+  "min": [
+   -4.0,
+   -4.0,
+   0.0
+  ],
+  "max": [
+   4.0,
+   4.0,
+   2.5
+  ]
+ },
+ "obstacles": [
+  {
+   "id": "plane_3",
+   "type": "cylinder",
+   "center": [
+    0.0,
+    0.0,
+    0.3375
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 5.656854,
+   "half_height": 0.3475
+  },
+  {
+   "id": "double_shelf4_5_0_0",
+   "type": "cylinder",
+   "center": [
+    0.00441,
+    0.072648,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_5_0_1",
+   "type": "cylinder",
+   "center": [
+    0.014517,
+    0.072648,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_5_0_2",
+   "type": "cylinder",
+   "center": [
+    0.024625,
+    0.072648,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_5_0_3",
+   "type": "cylinder",
+   "center": [
+    0.034732,
+    0.072648,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_5_0_4",
+   "type": "cylinder",
+   "center": [
+    0.044839,
+    0.072648,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_5_0_5",
+   "type": "cylinder",
+   "center": [
+    0.054946,
+    0.072648,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_5_0_6",
+   "type": "cylinder",
+   "center": [
+    0.065054,
+    0.072648,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_5_0_7",
+   "type": "cylinder",
+   "center": [
+    0.075161,
+    0.072648,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_5_0_8",
+   "type": "cylinder",
+   "center": [
+    0.085268,
+    0.072648,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_5_0_9",
+   "type": "cylinder",
+   "center": [
+    0.095375,
+    0.072648,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_5_0_10",
+   "type": "cylinder",
+   "center": [
+    0.105483,
+    0.072648,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_5_0_11",
+   "type": "cylinder",
+   "center": [
+    0.11559,
+    0.072648,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_5_1_0",
+   "type": "cylinder",
+   "center": [
+    0.00441,
+    1.327352,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_5_1_1",
+   "type": "cylinder",
+   "center": [
+    0.014517,
+    1.327352,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_5_1_2",
+   "type": "cylinder",
+   "center": [
+    0.024625,
+    1.327352,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_5_1_3",
+   "type": "cylinder",
+   "center": [
+    0.034732,
+    1.327352,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_5_1_4",
+   "type": "cylinder",
+   "center": [
+    0.044839,
+    1.327352,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_5_1_5",
+   "type": "cylinder",
+   "center": [
+    0.054946,
+    1.327352,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_5_1_6",
+   "type": "cylinder",
+   "center": [
+    0.065054,
+    1.327352,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_5_1_7",
+   "type": "cylinder",
+   "center": [
+    0.075161,
+    1.327352,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_5_1_8",
+   "type": "cylinder",
+   "center": [
+    0.085268,
+    1.327352,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_5_1_9",
+   "type": "cylinder",
+   "center": [
+    0.095375,
+    1.327352,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_5_1_10",
+   "type": "cylinder",
+   "center": [
+    0.105483,
+    1.327352,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_5_1_11",
+   "type": "cylinder",
+   "center": [
+    0.11559,
+    1.327352,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_5_2_0",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    0.7,
+    0.843415
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_2_1",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    0.7,
+    0.850793
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_2_2",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    0.7,
+    0.858171
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_2_3",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    0.7,
+    0.865549
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_2_4",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    0.7,
+    0.872927
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_2_5",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    0.7,
+    0.880305
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_2_6",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    0.7,
+    0.887683
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_2_7",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    0.7,
+    0.895061
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_2_8",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    0.7,
+    0.902439
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_2_9",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    0.7,
+    0.909817
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_2_10",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    0.7,
+    0.917195
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_2_11",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    0.7,
+    0.924573
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_2_12",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    0.7,
+    0.931951
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_2_13",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    0.7,
+    0.939329
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_2_14",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    0.7,
+    0.946707
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_2_15",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    0.7,
+    0.954085
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_2_16",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    0.7,
+    0.961463
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_2_17",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    0.7,
+    0.968842
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_2_18",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    0.7,
+    0.97622
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_2_19",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    0.7,
+    0.983598
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_2_20",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    0.7,
+    0.990976
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_2_21",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    0.7,
+    0.998354
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_2_22",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    0.7,
+    1.005732
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_2_23",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    0.7,
+    1.01311
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_2_24",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    0.7,
+    1.020488
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_2_25",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    0.7,
+    1.027866
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_2_26",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    0.7,
+    1.035244
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_2_27",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    0.7,
+    1.042622
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_2_28",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    0.7,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_2_29",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    0.7,
+    1.057378
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_2_30",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    0.7,
+    1.064756
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_2_31",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    0.7,
+    1.072134
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_2_32",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    0.7,
+    1.079512
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_2_33",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    0.7,
+    1.08689
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_2_34",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    0.7,
+    1.094268
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_2_35",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    0.7,
+    1.101646
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_2_36",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    0.7,
+    1.109024
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_2_37",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    0.7,
+    1.116402
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_2_38",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    0.7,
+    1.12378
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_2_39",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    0.7,
+    1.131158
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_2_40",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    0.7,
+    1.138537
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_2_41",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    0.7,
+    1.145915
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_2_42",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    0.7,
+    1.153293
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_2_43",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    0.7,
+    1.160671
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_2_44",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    0.7,
+    1.168049
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_2_45",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    0.7,
+    1.175427
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_2_46",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    0.7,
+    1.182805
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_2_47",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    0.7,
+    1.190183
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_2_48",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    0.7,
+    1.197561
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_2_49",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    0.7,
+    1.204939
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_2_50",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    0.7,
+    1.212317
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_2_51",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    0.7,
+    1.219695
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_2_52",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    0.7,
+    1.227073
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_2_53",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    0.7,
+    1.234451
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_2_54",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    0.7,
+    1.241829
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_2_55",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    0.7,
+    1.249207
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_2_56",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    0.7,
+    1.256585
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_3_0",
+   "type": "cylinder",
+   "center": [
+    0.004869,
+    0.7,
+    0.847085
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_3_1",
+   "type": "cylinder",
+   "center": [
+    0.015895,
+    0.7,
+    0.847085
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_3_2",
+   "type": "cylinder",
+   "center": [
+    0.026922,
+    0.7,
+    0.847085
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_3_3",
+   "type": "cylinder",
+   "center": [
+    0.037948,
+    0.7,
+    0.847085
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_3_4",
+   "type": "cylinder",
+   "center": [
+    0.048974,
+    0.7,
+    0.847085
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_3_5",
+   "type": "cylinder",
+   "center": [
+    0.06,
+    0.7,
+    0.847085
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_3_6",
+   "type": "cylinder",
+   "center": [
+    0.071026,
+    0.7,
+    0.847085
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_3_7",
+   "type": "cylinder",
+   "center": [
+    0.082052,
+    0.7,
+    0.847085
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_3_8",
+   "type": "cylinder",
+   "center": [
+    0.093078,
+    0.7,
+    0.847085
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_3_9",
+   "type": "cylinder",
+   "center": [
+    0.104105,
+    0.7,
+    0.847085
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_3_10",
+   "type": "cylinder",
+   "center": [
+    0.115131,
+    0.7,
+    0.847085
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_4_0",
+   "type": "cylinder",
+   "center": [
+    0.004869,
+    0.7,
+    1.252915
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_4_1",
+   "type": "cylinder",
+   "center": [
+    0.015895,
+    0.7,
+    1.252915
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_4_2",
+   "type": "cylinder",
+   "center": [
+    0.026922,
+    0.7,
+    1.252915
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_4_3",
+   "type": "cylinder",
+   "center": [
+    0.037948,
+    0.7,
+    1.252915
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_4_4",
+   "type": "cylinder",
+   "center": [
+    0.048974,
+    0.7,
+    1.252915
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_4_5",
+   "type": "cylinder",
+   "center": [
+    0.06,
+    0.7,
+    1.252915
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_4_6",
+   "type": "cylinder",
+   "center": [
+    0.071026,
+    0.7,
+    1.252915
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_4_7",
+   "type": "cylinder",
+   "center": [
+    0.082052,
+    0.7,
+    1.252915
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_4_8",
+   "type": "cylinder",
+   "center": [
+    0.093078,
+    0.7,
+    1.252915
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_4_9",
+   "type": "cylinder",
+   "center": [
+    0.104105,
+    0.7,
+    1.252915
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_4_10",
+   "type": "cylinder",
+   "center": [
+    0.115131,
+    0.7,
+    1.252915
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_5_5_0",
+   "type": "cylinder",
+   "center": [
+    0.008366,
+    0.7,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005438,
+   "half_height": 0.621015
+  },
+  {
+   "id": "double_shelf4_5_5_1",
+   "type": "cylinder",
+   "center": [
+    0.016683,
+    0.7,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005438,
+   "half_height": 0.621015
+  },
+  {
+   "id": "double_shelf4_5_5_2",
+   "type": "cylinder",
+   "center": [
+    0.025,
+    0.7,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005438,
+   "half_height": 0.621015
+  },
+  {
+   "id": "double_shelf4_5_5_3",
+   "type": "cylinder",
+   "center": [
+    0.033317,
+    0.7,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005438,
+   "half_height": 0.621015
+  },
+  {
+   "id": "double_shelf4_5_5_4",
+   "type": "cylinder",
+   "center": [
+    0.041634,
+    0.7,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005438,
+   "half_height": 0.621015
+  },
+  {
+   "id": "double_shelf4_5_5_5",
+   "type": "cylinder",
+   "center": [
+    0.04995,
+    0.7,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005438,
+   "half_height": 0.621015
+  },
+  {
+   "id": "double_shelf4_5_5_6",
+   "type": "cylinder",
+   "center": [
+    0.058267,
+    0.7,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005438,
+   "half_height": 0.621015
+  },
+  {
+   "id": "double_shelf4_5_5_7",
+   "type": "cylinder",
+   "center": [
+    0.066584,
+    0.7,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005438,
+   "half_height": 0.621015
+  },
+  {
+   "id": "double_shelf4_5_5_8",
+   "type": "cylinder",
+   "center": [
+    0.074901,
+    0.7,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005438,
+   "half_height": 0.621015
+  },
+  {
+   "id": "double_shelf4_5_5_9",
+   "type": "cylinder",
+   "center": [
+    0.083218,
+    0.7,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005438,
+   "half_height": 0.621015
+  },
+  {
+   "id": "double_shelf4_5_5_10",
+   "type": "cylinder",
+   "center": [
+    0.091535,
+    0.7,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005438,
+   "half_height": 0.621015
+  },
+  {
+   "id": "double_shelf4_5_5_11",
+   "type": "cylinder",
+   "center": [
+    0.099852,
+    0.7,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005438,
+   "half_height": 0.621015
+  },
+  {
+   "id": "double_shelf4_5_5_12",
+   "type": "cylinder",
+   "center": [
+    0.108168,
+    0.7,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005438,
+   "half_height": 0.621015
+  },
+  {
+   "id": "double_shelf4_5_5_13",
+   "type": "cylinder",
+   "center": [
+    0.116485,
+    0.7,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005438,
+   "half_height": 0.621015
+  },
+  {
+   "id": "double_shelf4_7_0_0",
+   "type": "cylinder",
+   "center": [
+    -0.11559,
+    1.327352,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_7_0_1",
+   "type": "cylinder",
+   "center": [
+    -0.105483,
+    1.327352,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_7_0_2",
+   "type": "cylinder",
+   "center": [
+    -0.095375,
+    1.327352,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_7_0_3",
+   "type": "cylinder",
+   "center": [
+    -0.085268,
+    1.327352,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_7_0_4",
+   "type": "cylinder",
+   "center": [
+    -0.075161,
+    1.327352,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_7_0_5",
+   "type": "cylinder",
+   "center": [
+    -0.065054,
+    1.327352,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_7_0_6",
+   "type": "cylinder",
+   "center": [
+    -0.054946,
+    1.327352,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_7_0_7",
+   "type": "cylinder",
+   "center": [
+    -0.044839,
+    1.327352,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_7_0_8",
+   "type": "cylinder",
+   "center": [
+    -0.034732,
+    1.327352,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_7_0_9",
+   "type": "cylinder",
+   "center": [
+    -0.024625,
+    1.327352,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_7_0_10",
+   "type": "cylinder",
+   "center": [
+    -0.014517,
+    1.327352,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_7_0_11",
+   "type": "cylinder",
+   "center": [
+    -0.00441,
+    1.327352,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_7_1_0",
+   "type": "cylinder",
+   "center": [
+    -0.11559,
+    0.072648,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_7_1_1",
+   "type": "cylinder",
+   "center": [
+    -0.105483,
+    0.072648,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_7_1_2",
+   "type": "cylinder",
+   "center": [
+    -0.095375,
+    0.072648,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_7_1_3",
+   "type": "cylinder",
+   "center": [
+    -0.085268,
+    0.072648,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_7_1_4",
+   "type": "cylinder",
+   "center": [
+    -0.075161,
+    0.072648,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_7_1_5",
+   "type": "cylinder",
+   "center": [
+    -0.065054,
+    0.072648,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_7_1_6",
+   "type": "cylinder",
+   "center": [
+    -0.054946,
+    0.072648,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_7_1_7",
+   "type": "cylinder",
+   "center": [
+    -0.044839,
+    0.072648,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_7_1_8",
+   "type": "cylinder",
+   "center": [
+    -0.034732,
+    0.072648,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_7_1_9",
+   "type": "cylinder",
+   "center": [
+    -0.024625,
+    0.072648,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_7_1_10",
+   "type": "cylinder",
+   "center": [
+    -0.014517,
+    0.072648,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_7_1_11",
+   "type": "cylinder",
+   "center": [
+    -0.00441,
+    0.072648,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_7_2_0",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    0.7,
+    0.843415
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_2_1",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    0.7,
+    0.850793
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_2_2",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    0.7,
+    0.858171
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_2_3",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    0.7,
+    0.865549
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_2_4",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    0.7,
+    0.872927
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_2_5",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    0.7,
+    0.880305
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_2_6",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    0.7,
+    0.887683
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_2_7",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    0.7,
+    0.895061
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_2_8",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    0.7,
+    0.902439
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_2_9",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    0.7,
+    0.909817
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_2_10",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    0.7,
+    0.917195
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_2_11",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    0.7,
+    0.924573
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_2_12",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    0.7,
+    0.931951
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_2_13",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    0.7,
+    0.939329
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_2_14",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    0.7,
+    0.946707
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_2_15",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    0.7,
+    0.954085
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_2_16",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    0.7,
+    0.961463
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_2_17",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    0.7,
+    0.968842
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_2_18",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    0.7,
+    0.97622
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_2_19",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    0.7,
+    0.983598
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_2_20",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    0.7,
+    0.990976
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_2_21",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    0.7,
+    0.998354
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_2_22",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    0.7,
+    1.005732
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_2_23",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    0.7,
+    1.01311
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_2_24",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    0.7,
+    1.020488
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_2_25",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    0.7,
+    1.027866
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_2_26",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    0.7,
+    1.035244
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_2_27",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    0.7,
+    1.042622
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_2_28",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    0.7,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_2_29",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    0.7,
+    1.057378
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_2_30",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    0.7,
+    1.064756
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_2_31",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    0.7,
+    1.072134
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_2_32",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    0.7,
+    1.079512
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_2_33",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    0.7,
+    1.08689
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_2_34",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    0.7,
+    1.094268
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_2_35",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    0.7,
+    1.101646
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_2_36",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    0.7,
+    1.109024
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_2_37",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    0.7,
+    1.116402
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_2_38",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    0.7,
+    1.12378
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_2_39",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    0.7,
+    1.131158
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_2_40",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    0.7,
+    1.138537
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_2_41",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    0.7,
+    1.145915
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_2_42",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    0.7,
+    1.153293
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_2_43",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    0.7,
+    1.160671
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_2_44",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    0.7,
+    1.168049
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_2_45",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    0.7,
+    1.175427
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_2_46",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    0.7,
+    1.182805
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_2_47",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    0.7,
+    1.190183
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_2_48",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    0.7,
+    1.197561
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_2_49",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    0.7,
+    1.204939
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_2_50",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    0.7,
+    1.212317
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_2_51",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    0.7,
+    1.219695
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_2_52",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    0.7,
+    1.227073
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_2_53",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    0.7,
+    1.234451
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_2_54",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    0.7,
+    1.241829
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_2_55",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    0.7,
+    1.249207
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_2_56",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    0.7,
+    1.256585
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_3_0",
+   "type": "cylinder",
+   "center": [
+    -0.115131,
+    0.7,
+    0.847085
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_3_1",
+   "type": "cylinder",
+   "center": [
+    -0.104105,
+    0.7,
+    0.847085
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_3_2",
+   "type": "cylinder",
+   "center": [
+    -0.093078,
+    0.7,
+    0.847085
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_3_3",
+   "type": "cylinder",
+   "center": [
+    -0.082052,
+    0.7,
+    0.847085
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_3_4",
+   "type": "cylinder",
+   "center": [
+    -0.071026,
+    0.7,
+    0.847085
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_3_5",
+   "type": "cylinder",
+   "center": [
+    -0.06,
+    0.7,
+    0.847085
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_3_6",
+   "type": "cylinder",
+   "center": [
+    -0.048974,
+    0.7,
+    0.847085
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_3_7",
+   "type": "cylinder",
+   "center": [
+    -0.037948,
+    0.7,
+    0.847085
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_3_8",
+   "type": "cylinder",
+   "center": [
+    -0.026922,
+    0.7,
+    0.847085
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_3_9",
+   "type": "cylinder",
+   "center": [
+    -0.015895,
+    0.7,
+    0.847085
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_3_10",
+   "type": "cylinder",
+   "center": [
+    -0.004869,
+    0.7,
+    0.847085
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_4_0",
+   "type": "cylinder",
+   "center": [
+    -0.115131,
+    0.7,
+    1.252915
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_4_1",
+   "type": "cylinder",
+   "center": [
+    -0.104105,
+    0.7,
+    1.252915
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_4_2",
+   "type": "cylinder",
+   "center": [
+    -0.093078,
+    0.7,
+    1.252915
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_4_3",
+   "type": "cylinder",
+   "center": [
+    -0.082052,
+    0.7,
+    1.252915
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_4_4",
+   "type": "cylinder",
+   "center": [
+    -0.071026,
+    0.7,
+    1.252915
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_4_5",
+   "type": "cylinder",
+   "center": [
+    -0.06,
+    0.7,
+    1.252915
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_4_6",
+   "type": "cylinder",
+   "center": [
+    -0.048974,
+    0.7,
+    1.252915
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_4_7",
+   "type": "cylinder",
+   "center": [
+    -0.037948,
+    0.7,
+    1.252915
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_4_8",
+   "type": "cylinder",
+   "center": [
+    -0.026922,
+    0.7,
+    1.252915
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_4_9",
+   "type": "cylinder",
+   "center": [
+    -0.015895,
+    0.7,
+    1.252915
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_4_10",
+   "type": "cylinder",
+   "center": [
+    -0.004869,
+    0.7,
+    1.252915
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_7_5_0",
+   "type": "cylinder",
+   "center": [
+    -0.116485,
+    0.7,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005438,
+   "half_height": 0.621015
+  },
+  {
+   "id": "double_shelf4_7_5_1",
+   "type": "cylinder",
+   "center": [
+    -0.108168,
+    0.7,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005438,
+   "half_height": 0.621015
+  },
+  {
+   "id": "double_shelf4_7_5_2",
+   "type": "cylinder",
+   "center": [
+    -0.099852,
+    0.7,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005438,
+   "half_height": 0.621015
+  },
+  {
+   "id": "double_shelf4_7_5_3",
+   "type": "cylinder",
+   "center": [
+    -0.091535,
+    0.7,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005438,
+   "half_height": 0.621015
+  },
+  {
+   "id": "double_shelf4_7_5_4",
+   "type": "cylinder",
+   "center": [
+    -0.083218,
+    0.7,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005438,
+   "half_height": 0.621015
+  },
+  {
+   "id": "double_shelf4_7_5_5",
+   "type": "cylinder",
+   "center": [
+    -0.074901,
+    0.7,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005438,
+   "half_height": 0.621015
+  },
+  {
+   "id": "double_shelf4_7_5_6",
+   "type": "cylinder",
+   "center": [
+    -0.066584,
+    0.7,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005438,
+   "half_height": 0.621015
+  },
+  {
+   "id": "double_shelf4_7_5_7",
+   "type": "cylinder",
+   "center": [
+    -0.058267,
+    0.7,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005438,
+   "half_height": 0.621015
+  },
+  {
+   "id": "double_shelf4_7_5_8",
+   "type": "cylinder",
+   "center": [
+    -0.04995,
+    0.7,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005438,
+   "half_height": 0.621015
+  },
+  {
+   "id": "double_shelf4_7_5_9",
+   "type": "cylinder",
+   "center": [
+    -0.041634,
+    0.7,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005438,
+   "half_height": 0.621015
+  },
+  {
+   "id": "double_shelf4_7_5_10",
+   "type": "cylinder",
+   "center": [
+    -0.033317,
+    0.7,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005438,
+   "half_height": 0.621015
+  },
+  {
+   "id": "double_shelf4_7_5_11",
+   "type": "cylinder",
+   "center": [
+    -0.025,
+    0.7,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005438,
+   "half_height": 0.621015
+  },
+  {
+   "id": "double_shelf4_7_5_12",
+   "type": "cylinder",
+   "center": [
+    -0.016683,
+    0.7,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005438,
+   "half_height": 0.621015
+  },
+  {
+   "id": "double_shelf4_7_5_13",
+   "type": "cylinder",
+   "center": [
+    -0.008366,
+    0.7,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005438,
+   "half_height": 0.621015
+  },
+  {
+   "id": "double_shelf4_9_0_0",
+   "type": "cylinder",
+   "center": [
+    0.00441,
+    -1.327352,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_9_0_1",
+   "type": "cylinder",
+   "center": [
+    0.014517,
+    -1.327352,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_9_0_2",
+   "type": "cylinder",
+   "center": [
+    0.024625,
+    -1.327352,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_9_0_3",
+   "type": "cylinder",
+   "center": [
+    0.034732,
+    -1.327352,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_9_0_4",
+   "type": "cylinder",
+   "center": [
+    0.044839,
+    -1.327352,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_9_0_5",
+   "type": "cylinder",
+   "center": [
+    0.054946,
+    -1.327352,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_9_0_6",
+   "type": "cylinder",
+   "center": [
+    0.065054,
+    -1.327352,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_9_0_7",
+   "type": "cylinder",
+   "center": [
+    0.075161,
+    -1.327352,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_9_0_8",
+   "type": "cylinder",
+   "center": [
+    0.085268,
+    -1.327352,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_9_0_9",
+   "type": "cylinder",
+   "center": [
+    0.095375,
+    -1.327352,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_9_0_10",
+   "type": "cylinder",
+   "center": [
+    0.105483,
+    -1.327352,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_9_0_11",
+   "type": "cylinder",
+   "center": [
+    0.11559,
+    -1.327352,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_9_1_0",
+   "type": "cylinder",
+   "center": [
+    0.00441,
+    -0.072648,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_9_1_1",
+   "type": "cylinder",
+   "center": [
+    0.014517,
+    -0.072648,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_9_1_2",
+   "type": "cylinder",
+   "center": [
+    0.024625,
+    -0.072648,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_9_1_3",
+   "type": "cylinder",
+   "center": [
+    0.034732,
+    -0.072648,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_9_1_4",
+   "type": "cylinder",
+   "center": [
+    0.044839,
+    -0.072648,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_9_1_5",
+   "type": "cylinder",
+   "center": [
+    0.054946,
+    -0.072648,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_9_1_6",
+   "type": "cylinder",
+   "center": [
+    0.065054,
+    -0.072648,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_9_1_7",
+   "type": "cylinder",
+   "center": [
+    0.075161,
+    -0.072648,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_9_1_8",
+   "type": "cylinder",
+   "center": [
+    0.085268,
+    -0.072648,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_9_1_9",
+   "type": "cylinder",
+   "center": [
+    0.095375,
+    -0.072648,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_9_1_10",
+   "type": "cylinder",
+   "center": [
+    0.105483,
+    -0.072648,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_9_1_11",
+   "type": "cylinder",
+   "center": [
+    0.11559,
+    -0.072648,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_9_2_0",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    -0.7,
+    0.843415
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_2_1",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    -0.7,
+    0.850793
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_2_2",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    -0.7,
+    0.858171
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_2_3",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    -0.7,
+    0.865549
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_2_4",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    -0.7,
+    0.872927
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_2_5",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    -0.7,
+    0.880305
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_2_6",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    -0.7,
+    0.887683
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_2_7",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    -0.7,
+    0.895061
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_2_8",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    -0.7,
+    0.902439
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_2_9",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    -0.7,
+    0.909817
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_2_10",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    -0.7,
+    0.917195
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_2_11",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    -0.7,
+    0.924573
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_2_12",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    -0.7,
+    0.931951
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_2_13",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    -0.7,
+    0.939329
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_2_14",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    -0.7,
+    0.946707
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_2_15",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    -0.7,
+    0.954085
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_2_16",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    -0.7,
+    0.961463
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_2_17",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    -0.7,
+    0.968842
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_2_18",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    -0.7,
+    0.97622
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_2_19",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    -0.7,
+    0.983598
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_2_20",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    -0.7,
+    0.990976
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_2_21",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    -0.7,
+    0.998354
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_2_22",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    -0.7,
+    1.005732
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_2_23",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    -0.7,
+    1.01311
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_2_24",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    -0.7,
+    1.020488
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_2_25",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    -0.7,
+    1.027866
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_2_26",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    -0.7,
+    1.035244
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_2_27",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    -0.7,
+    1.042622
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_2_28",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    -0.7,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_2_29",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    -0.7,
+    1.057378
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_2_30",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    -0.7,
+    1.064756
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_2_31",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    -0.7,
+    1.072134
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_2_32",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    -0.7,
+    1.079512
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_2_33",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    -0.7,
+    1.08689
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_2_34",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    -0.7,
+    1.094268
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_2_35",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    -0.7,
+    1.101646
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_2_36",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    -0.7,
+    1.109024
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_2_37",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    -0.7,
+    1.116402
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_2_38",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    -0.7,
+    1.12378
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_2_39",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    -0.7,
+    1.131158
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_2_40",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    -0.7,
+    1.138537
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_2_41",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    -0.7,
+    1.145915
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_2_42",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    -0.7,
+    1.153293
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_2_43",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    -0.7,
+    1.160671
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_2_44",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    -0.7,
+    1.168049
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_2_45",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    -0.7,
+    1.175427
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_2_46",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    -0.7,
+    1.182805
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_2_47",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    -0.7,
+    1.190183
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_2_48",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    -0.7,
+    1.197561
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_2_49",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    -0.7,
+    1.204939
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_2_50",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    -0.7,
+    1.212317
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_2_51",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    -0.7,
+    1.219695
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_2_52",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    -0.7,
+    1.227073
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_2_53",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    -0.7,
+    1.234451
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_2_54",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    -0.7,
+    1.241829
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_2_55",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    -0.7,
+    1.249207
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_2_56",
+   "type": "cylinder",
+   "center": [
+    0.001782,
+    -0.7,
+    1.256585
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_3_0",
+   "type": "cylinder",
+   "center": [
+    0.004869,
+    -0.7,
+    0.847085
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_3_1",
+   "type": "cylinder",
+   "center": [
+    0.015895,
+    -0.7,
+    0.847085
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_3_2",
+   "type": "cylinder",
+   "center": [
+    0.026922,
+    -0.7,
+    0.847085
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_3_3",
+   "type": "cylinder",
+   "center": [
+    0.037948,
+    -0.7,
+    0.847085
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_3_4",
+   "type": "cylinder",
+   "center": [
+    0.048974,
+    -0.7,
+    0.847085
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_3_5",
+   "type": "cylinder",
+   "center": [
+    0.06,
+    -0.7,
+    0.847085
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_3_6",
+   "type": "cylinder",
+   "center": [
+    0.071026,
+    -0.7,
+    0.847085
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_3_7",
+   "type": "cylinder",
+   "center": [
+    0.082052,
+    -0.7,
+    0.847085
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_3_8",
+   "type": "cylinder",
+   "center": [
+    0.093078,
+    -0.7,
+    0.847085
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_3_9",
+   "type": "cylinder",
+   "center": [
+    0.104105,
+    -0.7,
+    0.847085
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_3_10",
+   "type": "cylinder",
+   "center": [
+    0.115131,
+    -0.7,
+    0.847085
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_4_0",
+   "type": "cylinder",
+   "center": [
+    0.004869,
+    -0.7,
+    1.252915
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_4_1",
+   "type": "cylinder",
+   "center": [
+    0.015895,
+    -0.7,
+    1.252915
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_4_2",
+   "type": "cylinder",
+   "center": [
+    0.026922,
+    -0.7,
+    1.252915
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_4_3",
+   "type": "cylinder",
+   "center": [
+    0.037948,
+    -0.7,
+    1.252915
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_4_4",
+   "type": "cylinder",
+   "center": [
+    0.048974,
+    -0.7,
+    1.252915
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_4_5",
+   "type": "cylinder",
+   "center": [
+    0.06,
+    -0.7,
+    1.252915
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_4_6",
+   "type": "cylinder",
+   "center": [
+    0.071026,
+    -0.7,
+    1.252915
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_4_7",
+   "type": "cylinder",
+   "center": [
+    0.082052,
+    -0.7,
+    1.252915
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_4_8",
+   "type": "cylinder",
+   "center": [
+    0.093078,
+    -0.7,
+    1.252915
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_4_9",
+   "type": "cylinder",
+   "center": [
+    0.104105,
+    -0.7,
+    1.252915
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_4_10",
+   "type": "cylinder",
+   "center": [
+    0.115131,
+    -0.7,
+    1.252915
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_9_5_0",
+   "type": "cylinder",
+   "center": [
+    0.008366,
+    -0.7,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005438,
+   "half_height": 0.621015
+  },
+  {
+   "id": "double_shelf4_9_5_1",
+   "type": "cylinder",
+   "center": [
+    0.016683,
+    -0.7,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005438,
+   "half_height": 0.621015
+  },
+  {
+   "id": "double_shelf4_9_5_2",
+   "type": "cylinder",
+   "center": [
+    0.025,
+    -0.7,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005438,
+   "half_height": 0.621015
+  },
+  {
+   "id": "double_shelf4_9_5_3",
+   "type": "cylinder",
+   "center": [
+    0.033317,
+    -0.7,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005438,
+   "half_height": 0.621015
+  },
+  {
+   "id": "double_shelf4_9_5_4",
+   "type": "cylinder",
+   "center": [
+    0.041634,
+    -0.7,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005438,
+   "half_height": 0.621015
+  },
+  {
+   "id": "double_shelf4_9_5_5",
+   "type": "cylinder",
+   "center": [
+    0.04995,
+    -0.7,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005438,
+   "half_height": 0.621015
+  },
+  {
+   "id": "double_shelf4_9_5_6",
+   "type": "cylinder",
+   "center": [
+    0.058267,
+    -0.7,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005438,
+   "half_height": 0.621015
+  },
+  {
+   "id": "double_shelf4_9_5_7",
+   "type": "cylinder",
+   "center": [
+    0.066584,
+    -0.7,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005438,
+   "half_height": 0.621015
+  },
+  {
+   "id": "double_shelf4_9_5_8",
+   "type": "cylinder",
+   "center": [
+    0.074901,
+    -0.7,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005438,
+   "half_height": 0.621015
+  },
+  {
+   "id": "double_shelf4_9_5_9",
+   "type": "cylinder",
+   "center": [
+    0.083218,
+    -0.7,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005438,
+   "half_height": 0.621015
+  },
+  {
+   "id": "double_shelf4_9_5_10",
+   "type": "cylinder",
+   "center": [
+    0.091535,
+    -0.7,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005438,
+   "half_height": 0.621015
+  },
+  {
+   "id": "double_shelf4_9_5_11",
+   "type": "cylinder",
+   "center": [
+    0.099852,
+    -0.7,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005438,
+   "half_height": 0.621015
+  },
+  {
+   "id": "double_shelf4_9_5_12",
+   "type": "cylinder",
+   "center": [
+    0.108168,
+    -0.7,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005438,
+   "half_height": 0.621015
+  },
+  {
+   "id": "double_shelf4_9_5_13",
+   "type": "cylinder",
+   "center": [
+    0.116485,
+    -0.7,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005438,
+   "half_height": 0.621015
+  },
+  {
+   "id": "double_shelf4_11_0_0",
+   "type": "cylinder",
+   "center": [
+    -0.11559,
+    -0.072648,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_11_0_1",
+   "type": "cylinder",
+   "center": [
+    -0.105483,
+    -0.072648,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_11_0_2",
+   "type": "cylinder",
+   "center": [
+    -0.095375,
+    -0.072648,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_11_0_3",
+   "type": "cylinder",
+   "center": [
+    -0.085268,
+    -0.072648,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_11_0_4",
+   "type": "cylinder",
+   "center": [
+    -0.075161,
+    -0.072648,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_11_0_5",
+   "type": "cylinder",
+   "center": [
+    -0.065054,
+    -0.072648,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_11_0_6",
+   "type": "cylinder",
+   "center": [
+    -0.054946,
+    -0.072648,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_11_0_7",
+   "type": "cylinder",
+   "center": [
+    -0.044839,
+    -0.072648,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_11_0_8",
+   "type": "cylinder",
+   "center": [
+    -0.034732,
+    -0.072648,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_11_0_9",
+   "type": "cylinder",
+   "center": [
+    -0.024625,
+    -0.072648,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_11_0_10",
+   "type": "cylinder",
+   "center": [
+    -0.014517,
+    -0.072648,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_11_0_11",
+   "type": "cylinder",
+   "center": [
+    -0.00441,
+    -0.072648,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_11_1_0",
+   "type": "cylinder",
+   "center": [
+    -0.11559,
+    -1.327352,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_11_1_1",
+   "type": "cylinder",
+   "center": [
+    -0.105483,
+    -1.327352,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_11_1_2",
+   "type": "cylinder",
+   "center": [
+    -0.095375,
+    -1.327352,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_11_1_3",
+   "type": "cylinder",
+   "center": [
+    -0.085268,
+    -1.327352,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_11_1_4",
+   "type": "cylinder",
+   "center": [
+    -0.075161,
+    -1.327352,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_11_1_5",
+   "type": "cylinder",
+   "center": [
+    -0.065054,
+    -1.327352,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_11_1_6",
+   "type": "cylinder",
+   "center": [
+    -0.054946,
+    -1.327352,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_11_1_7",
+   "type": "cylinder",
+   "center": [
+    -0.044839,
+    -1.327352,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_11_1_8",
+   "type": "cylinder",
+   "center": [
+    -0.034732,
+    -1.327352,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_11_1_9",
+   "type": "cylinder",
+   "center": [
+    -0.024625,
+    -1.327352,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_11_1_10",
+   "type": "cylinder",
+   "center": [
+    -0.014517,
+    -1.327352,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_11_1_11",
+   "type": "cylinder",
+   "center": [
+    -0.00441,
+    -1.327352,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.008105,
+   "half_height": 0.210274
+  },
+  {
+   "id": "double_shelf4_11_2_0",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    -0.7,
+    0.843415
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_2_1",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    -0.7,
+    0.850793
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_2_2",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    -0.7,
+    0.858171
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_2_3",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    -0.7,
+    0.865549
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_2_4",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    -0.7,
+    0.872927
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_2_5",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    -0.7,
+    0.880305
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_2_6",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    -0.7,
+    0.887683
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_2_7",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    -0.7,
+    0.895061
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_2_8",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    -0.7,
+    0.902439
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_2_9",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    -0.7,
+    0.909817
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_2_10",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    -0.7,
+    0.917195
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_2_11",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    -0.7,
+    0.924573
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_2_12",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    -0.7,
+    0.931951
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_2_13",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    -0.7,
+    0.939329
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_2_14",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    -0.7,
+    0.946707
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_2_15",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    -0.7,
+    0.954085
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_2_16",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    -0.7,
+    0.961463
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_2_17",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    -0.7,
+    0.968842
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_2_18",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    -0.7,
+    0.97622
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_2_19",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    -0.7,
+    0.983598
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_2_20",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    -0.7,
+    0.990976
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_2_21",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    -0.7,
+    0.998354
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_2_22",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    -0.7,
+    1.005732
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_2_23",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    -0.7,
+    1.01311
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_2_24",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    -0.7,
+    1.020488
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_2_25",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    -0.7,
+    1.027866
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_2_26",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    -0.7,
+    1.035244
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_2_27",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    -0.7,
+    1.042622
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_2_28",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    -0.7,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_2_29",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    -0.7,
+    1.057378
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_2_30",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    -0.7,
+    1.064756
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_2_31",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    -0.7,
+    1.072134
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_2_32",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    -0.7,
+    1.079512
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_2_33",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    -0.7,
+    1.08689
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_2_34",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    -0.7,
+    1.094268
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_2_35",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    -0.7,
+    1.101646
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_2_36",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    -0.7,
+    1.109024
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_2_37",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    -0.7,
+    1.116402
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_2_38",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    -0.7,
+    1.12378
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_2_39",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    -0.7,
+    1.131158
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_2_40",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    -0.7,
+    1.138537
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_2_41",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    -0.7,
+    1.145915
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_2_42",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    -0.7,
+    1.153293
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_2_43",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    -0.7,
+    1.160671
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_2_44",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    -0.7,
+    1.168049
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_2_45",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    -0.7,
+    1.175427
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_2_46",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    -0.7,
+    1.182805
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_2_47",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    -0.7,
+    1.190183
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_2_48",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    -0.7,
+    1.197561
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_2_49",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    -0.7,
+    1.204939
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_2_50",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    -0.7,
+    1.212317
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_2_51",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    -0.7,
+    1.219695
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_2_52",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    -0.7,
+    1.227073
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_2_53",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    -0.7,
+    1.234451
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_2_54",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    -0.7,
+    1.241829
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_2_55",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    -0.7,
+    1.249207
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_2_56",
+   "type": "cylinder",
+   "center": [
+    -0.001782,
+    -0.7,
+    1.256585
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.004415,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_3_0",
+   "type": "cylinder",
+   "center": [
+    -0.115131,
+    -0.7,
+    0.847085
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_3_1",
+   "type": "cylinder",
+   "center": [
+    -0.104105,
+    -0.7,
+    0.847085
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_3_2",
+   "type": "cylinder",
+   "center": [
+    -0.093078,
+    -0.7,
+    0.847085
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_3_3",
+   "type": "cylinder",
+   "center": [
+    -0.082052,
+    -0.7,
+    0.847085
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_3_4",
+   "type": "cylinder",
+   "center": [
+    -0.071026,
+    -0.7,
+    0.847085
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_3_5",
+   "type": "cylinder",
+   "center": [
+    -0.06,
+    -0.7,
+    0.847085
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_3_6",
+   "type": "cylinder",
+   "center": [
+    -0.048974,
+    -0.7,
+    0.847085
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_3_7",
+   "type": "cylinder",
+   "center": [
+    -0.037948,
+    -0.7,
+    0.847085
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_3_8",
+   "type": "cylinder",
+   "center": [
+    -0.026922,
+    -0.7,
+    0.847085
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_3_9",
+   "type": "cylinder",
+   "center": [
+    -0.015895,
+    -0.7,
+    0.847085
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_3_10",
+   "type": "cylinder",
+   "center": [
+    -0.004869,
+    -0.7,
+    0.847085
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_4_0",
+   "type": "cylinder",
+   "center": [
+    -0.115131,
+    -0.7,
+    1.252915
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_4_1",
+   "type": "cylinder",
+   "center": [
+    -0.104105,
+    -0.7,
+    1.252915
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_4_2",
+   "type": "cylinder",
+   "center": [
+    -0.093078,
+    -0.7,
+    1.252915
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_4_3",
+   "type": "cylinder",
+   "center": [
+    -0.082052,
+    -0.7,
+    1.252915
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_4_4",
+   "type": "cylinder",
+   "center": [
+    -0.071026,
+    -0.7,
+    1.252915
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_4_5",
+   "type": "cylinder",
+   "center": [
+    -0.06,
+    -0.7,
+    1.252915
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_4_6",
+   "type": "cylinder",
+   "center": [
+    -0.048974,
+    -0.7,
+    1.252915
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_4_7",
+   "type": "cylinder",
+   "center": [
+    -0.037948,
+    -0.7,
+    1.252915
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_4_8",
+   "type": "cylinder",
+   "center": [
+    -0.026922,
+    -0.7,
+    1.252915
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_4_9",
+   "type": "cylinder",
+   "center": [
+    -0.015895,
+    -0.7,
+    1.252915
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_4_10",
+   "type": "cylinder",
+   "center": [
+    -0.004869,
+    -0.7,
+    1.252915
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.009196,
+   "half_height": 0.633689
+  },
+  {
+   "id": "double_shelf4_11_5_0",
+   "type": "cylinder",
+   "center": [
+    -0.116485,
+    -0.7,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005438,
+   "half_height": 0.621015
+  },
+  {
+   "id": "double_shelf4_11_5_1",
+   "type": "cylinder",
+   "center": [
+    -0.108168,
+    -0.7,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005438,
+   "half_height": 0.621015
+  },
+  {
+   "id": "double_shelf4_11_5_2",
+   "type": "cylinder",
+   "center": [
+    -0.099852,
+    -0.7,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005438,
+   "half_height": 0.621015
+  },
+  {
+   "id": "double_shelf4_11_5_3",
+   "type": "cylinder",
+   "center": [
+    -0.091535,
+    -0.7,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005438,
+   "half_height": 0.621015
+  },
+  {
+   "id": "double_shelf4_11_5_4",
+   "type": "cylinder",
+   "center": [
+    -0.083218,
+    -0.7,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005438,
+   "half_height": 0.621015
+  },
+  {
+   "id": "double_shelf4_11_5_5",
+   "type": "cylinder",
+   "center": [
+    -0.074901,
+    -0.7,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005438,
+   "half_height": 0.621015
+  },
+  {
+   "id": "double_shelf4_11_5_6",
+   "type": "cylinder",
+   "center": [
+    -0.066584,
+    -0.7,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005438,
+   "half_height": 0.621015
+  },
+  {
+   "id": "double_shelf4_11_5_7",
+   "type": "cylinder",
+   "center": [
+    -0.058267,
+    -0.7,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005438,
+   "half_height": 0.621015
+  },
+  {
+   "id": "double_shelf4_11_5_8",
+   "type": "cylinder",
+   "center": [
+    -0.04995,
+    -0.7,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005438,
+   "half_height": 0.621015
+  },
+  {
+   "id": "double_shelf4_11_5_9",
+   "type": "cylinder",
+   "center": [
+    -0.041634,
+    -0.7,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005438,
+   "half_height": 0.621015
+  },
+  {
+   "id": "double_shelf4_11_5_10",
+   "type": "cylinder",
+   "center": [
+    -0.033317,
+    -0.7,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005438,
+   "half_height": 0.621015
+  },
+  {
+   "id": "double_shelf4_11_5_11",
+   "type": "cylinder",
+   "center": [
+    -0.025,
+    -0.7,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005438,
+   "half_height": 0.621015
+  },
+  {
+   "id": "double_shelf4_11_5_12",
+   "type": "cylinder",
+   "center": [
+    -0.016683,
+    -0.7,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005438,
+   "half_height": 0.621015
+  },
+  {
+   "id": "double_shelf4_11_5_13",
+   "type": "cylinder",
+   "center": [
+    -0.008366,
+    -0.7,
+    1.05
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005438,
+   "half_height": 0.621015
+  }
+ ],
+ "robots": [
+  {
+   "type": "ur5e_hande",
+   "name": "ur5e_0",
+   "base": {
+    "position": [
+     -0.7,
+     0.7,
+     0.705
+    ],
+    "quaternion_xyzw": [
+     0.0,
+     0.0,
+     1.0,
+     0.0
+    ]
+   },
+   "start": [
+    0.0,
+    -1.570796,
+    1.570796,
+    1.570796,
+    1.570796,
+    0.0
+   ],
+   "joint_limits": {
+    "lower": [
+     -3.141592653589793,
+     -3.141592653589793,
+     -3.141592653589793,
+     -3.141592653589793,
+     -3.141592653589793,
+     -3.141592653589793
+    ],
+    "upper": [
+     3.141592653589793,
+     3.141592653589793,
+     3.141592653589793,
+     3.141592653589793,
+     3.141592653589793,
+     3.141592653589793
+    ]
+   }
+  },
+  {
+   "type": "ur5e_hande",
+   "name": "ur5e_1",
+   "base": {
+    "position": [
+     0.7,
+     0.7,
+     0.705
+    ],
+    "quaternion_xyzw": [
+     0.0,
+     0.0,
+     1.0,
+     0.0
+    ]
+   },
+   "start": [
+    0.0,
+    -1.570796,
+    1.570796,
+    1.570796,
+    1.570796,
+    0.0
+   ],
+   "joint_limits": {
+    "lower": [
+     -3.141592653589793,
+     -3.141592653589793,
+     -3.141592653589793,
+     -3.141592653589793,
+     -3.141592653589793,
+     -3.141592653589793
+    ],
+    "upper": [
+     3.141592653589793,
+     3.141592653589793,
+     3.141592653589793,
+     3.141592653589793,
+     3.141592653589793,
+     3.141592653589793
+    ]
+   }
+  },
+  {
+   "type": "ur5e_hande",
+   "name": "ur5e_2",
+   "base": {
+    "position": [
+     0.7,
+     -0.7,
+     0.705
+    ],
+    "quaternion_xyzw": [
+     0.0,
+     0.0,
+     1.0,
+     0.0
+    ]
+   },
+   "start": [
+    0.0,
+    -1.570796,
+    1.570796,
+    1.570796,
+    1.570796,
+    0.0
+   ],
+   "joint_limits": {
+    "lower": [
+     -3.141592653589793,
+     -3.141592653589793,
+     -3.141592653589793,
+     -3.141592653589793,
+     -3.141592653589793,
+     -3.141592653589793
+    ],
+    "upper": [
+     3.141592653589793,
+     3.141592653589793,
+     3.141592653589793,
+     3.141592653589793,
+     3.141592653589793,
+     3.141592653589793
+    ]
+   }
+  },
+  {
+   "type": "ur5e_hande",
+   "name": "ur5e_3",
+   "base": {
+    "position": [
+     -0.7,
+     -0.7,
+     0.705
+    ],
+    "quaternion_xyzw": [
+     0.0,
+     0.0,
+     1.0,
+     0.0
+    ]
+   },
+   "start": [
+    0.0,
+    -1.570796,
+    1.570796,
+    1.570796,
+    1.570796,
+    0.0
+   ],
+   "joint_limits": {
+    "lower": [
+     -3.141592653589793,
+     -3.141592653589793,
+     -3.141592653589793,
+     -3.141592653589793,
+     -3.141592653589793,
+     -3.141592653589793
+    ],
+    "upper": [
+     3.141592653589793,
+     3.141592653589793,
+     3.141592653589793,
+     3.141592653589793,
+     3.141592653589793,
+     3.141592653589793
+    ]
+   }
+  }
+ ],
+ "lazydash": {
+  "objects": [
+   {
+    "name": "block_0",
+    "shape": {
+     "type": "box",
+     "size": [
+      0.038,
+      0.038,
+      0.038
+     ]
+    },
+    "collision_radius": 0.033,
+    "start": {
+     "position": [
+      -0.5,
+      0.4,
+      0.75
+     ],
+     "rpy": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "goals": [
+     {
+      "position": [
+       0.07,
+       -0.4,
+       1.1
+      ],
+      "rpy": [
+       0.0,
+       1.570796,
+       0.0
+      ]
+     },
+     {
+      "position": [
+       0.07,
+       -0.4,
+       1.1
+      ],
+      "rpy": [
+       0.0,
+       -1.570796,
+       0.0
+      ]
+     }
+    ]
+   },
+   {
+    "name": "block_1",
+    "shape": {
+     "type": "box",
+     "size": [
+      0.038,
+      0.038,
+      0.038
+     ]
+    },
+    "collision_radius": 0.033,
+    "start": {
+     "position": [
+      -0.4,
+      0.4,
+      0.75
+     ],
+     "rpy": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "goals": [
+     {
+      "position": [
+       0.15,
+       -0.4,
+       1.1
+      ],
+      "rpy": [
+       0.0,
+       1.570796,
+       0.0
+      ]
+     },
+     {
+      "position": [
+       0.15,
+       -0.4,
+       1.1
+      ],
+      "rpy": [
+       0.0,
+       -1.570796,
+       0.0
+      ]
+     }
+    ]
+   },
+   {
+    "name": "block_2",
+    "shape": {
+     "type": "box",
+     "size": [
+      0.038,
+      0.038,
+      0.038
+     ]
+    },
+    "collision_radius": 0.033,
+    "start": {
+     "position": [
+      0.4,
+      -0.4,
+      0.75
+     ],
+     "rpy": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "goals": [
+     {
+      "position": [
+       -0.15,
+       0.4,
+       1.1
+      ],
+      "rpy": [
+       0.0,
+       1.570796,
+       0.0
+      ]
+     },
+     {
+      "position": [
+       -0.15,
+       0.4,
+       1.1
+      ],
+      "rpy": [
+       0.0,
+       -1.570796,
+       0.0
+      ]
+     }
+    ]
+   },
+   {
+    "name": "block_3",
+    "shape": {
+     "type": "box",
+     "size": [
+      0.038,
+      0.038,
+      0.038
+     ]
+    },
+    "collision_radius": 0.033,
+    "start": {
+     "position": [
+      0.5,
+      -0.4,
+      0.75
+     ],
+     "rpy": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "goals": [
+     {
+      "position": [
+       -0.07,
+       0.4,
+       1.1
+      ],
+      "rpy": [
+       0.0,
+       1.570796,
+       0.0
+      ]
+     },
+     {
+      "position": [
+       -0.07,
+       0.4,
+       1.1
+      ],
+      "rpy": [
+       0.0,
+       -1.570796,
+       0.0
+      ]
+     }
+    ]
+   }
+  ],
+  "grasps": [
+   {
+    "name": "upright",
+    "link": "flange",
+    "translation": [
+     0.15,
+     0.0,
+     0.0
+    ],
+    "rpy": [
+     0.0,
+     -1.57,
+     0.0
+    ],
+    "approach_translation": [
+     0.22,
+     0.0,
+     0.0
+    ]
+   },
+   {
+    "name": "upright_r90",
+    "link": "flange",
+    "translation": [
+     0.15,
+     0.0,
+     0.0
+    ],
+    "rpy": [
+     1.570796,
+     -0.0,
+     -1.57
+    ],
+    "approach_translation": [
+     0.22,
+     0.0,
+     0.0
+    ]
+   },
+   {
+    "name": "flipped",
+    "link": "flange",
+    "translation": [
+     0.15,
+     0.0,
+     0.0
+    ],
+    "rpy": [
+     1.57,
+     0.0,
+     1.57
+    ],
+    "approach_translation": [
+     0.22,
+     0.0,
+     0.0
+    ]
+   },
+   {
+    "name": "flipped_r90",
+    "link": "flange",
+    "translation": [
+     0.15,
+     0.0,
+     0.0
+    ],
+    "rpy": [
+     3.140796,
+     -1.57,
+     0.0
+    ],
+    "approach_translation": [
+     0.22,
+     0.0,
+     0.0
+    ]
+   }
+  ],
+  "params": {
+   "robot_range": 2.0,
+   "handover_max_base_distance": 1.5,
+   "planning_padding": 0.01,
+   "handover_region": {
+    "xy_half_width": 0.1,
+    "z_above_base": [
+     0.5,
+     0.8
+    ],
+    "attempts": 1000
+   }
+  },
+  "placement_regions": [
+   {
+    "min": [
+     -0.4,
+     -0.4,
+     0.705
+    ],
+    "max": [
+     0.4,
+     0.4,
+     0.705
+    ],
+    "yaw": [
+     -3.141593,
+     3.141593
+    ],
+    "source": "passive"
+   }
+  ],
+  "approximations": [
+   {
+    "label": "plane_3",
+    "box": {
+     "min": [
+      -4.0,
+      -4.0,
+      -0.01
+     ],
+     "max": [
+      4.0,
+      4.0,
+      0.685
+     ]
+    },
+    "primitives": 1,
+    "max_outward_error": 1.656854,
+    "note": "top/bottom exact; side error only beyond the slab edges"
+   },
+   {
+    "label": "double_shelf4_5_0",
+    "box": {
+     "min": [
+      -0.000644,
+      0.066311,
+      0.839726
+     ],
+     "max": [
+      0.120644,
+      0.078985,
+      1.260274
+     ]
+    },
+    "primitives": 12,
+    "max_outward_error": 0.001768
+   },
+   {
+    "label": "double_shelf4_5_1",
+    "box": {
+     "min": [
+      -0.000644,
+      1.321015,
+      0.839726
+     ],
+     "max": [
+      0.120644,
+      1.333689,
+      1.260274
+     ]
+    },
+    "primitives": 12,
+    "max_outward_error": 0.001768
+   },
+   {
+    "label": "double_shelf4_5_2",
+    "box": {
+     "min": [
+      -0.000644,
+      0.066311,
+      0.839726
+     ],
+     "max": [
+      0.004208,
+      1.333689,
+      1.260274
+     ]
+    },
+    "primitives": 57,
+    "max_outward_error": 0.001989
+   },
+   {
+    "label": "double_shelf4_5_3",
+    "box": {
+     "min": [
+      -0.000644,
+      0.066311,
+      0.839726
+     ],
+     "max": [
+      0.120644,
+      1.333689,
+      0.854445
+     ]
+    },
+    "primitives": 11,
+    "max_outward_error": 0.001836
+   },
+   {
+    "label": "double_shelf4_5_4",
+    "box": {
+     "min": [
+      -0.000644,
+      0.066311,
+      1.245555
+     ],
+     "max": [
+      0.120644,
+      1.333689,
+      1.260274
+     ]
+    },
+    "primitives": 11,
+    "max_outward_error": 0.001836
+   },
+   {
+    "label": "double_shelf4_5_5",
+    "box": {
+     "min": [
+      0.004208,
+      0.078985,
+      1.046495
+     ],
+     "max": [
+      0.120644,
+      1.321015,
+      1.053505
+     ]
+    },
+    "primitives": 14,
+    "max_outward_error": 0.001934
+   },
+   {
+    "label": "double_shelf4_7_0",
+    "box": {
+     "min": [
+      -0.120644,
+      1.321015,
+      0.839726
+     ],
+     "max": [
+      0.000644,
+      1.333689,
+      1.260274
+     ]
+    },
+    "primitives": 12,
+    "max_outward_error": 0.001768
+   },
+   {
+    "label": "double_shelf4_7_1",
+    "box": {
+     "min": [
+      -0.120644,
+      0.066311,
+      0.839726
+     ],
+     "max": [
+      0.000644,
+      0.078985,
+      1.260274
+     ]
+    },
+    "primitives": 12,
+    "max_outward_error": 0.001768
+   },
+   {
+    "label": "double_shelf4_7_2",
+    "box": {
+     "min": [
+      -0.004208,
+      0.066311,
+      0.839726
+     ],
+     "max": [
+      0.000644,
+      1.333689,
+      1.260274
+     ]
+    },
+    "primitives": 57,
+    "max_outward_error": 0.001989
+   },
+   {
+    "label": "double_shelf4_7_3",
+    "box": {
+     "min": [
+      -0.120644,
+      0.066311,
+      0.839726
+     ],
+     "max": [
+      0.000644,
+      1.333689,
+      0.854445
+     ]
+    },
+    "primitives": 11,
+    "max_outward_error": 0.001836
+   },
+   {
+    "label": "double_shelf4_7_4",
+    "box": {
+     "min": [
+      -0.120644,
+      0.066311,
+      1.245555
+     ],
+     "max": [
+      0.000644,
+      1.333689,
+      1.260274
+     ]
+    },
+    "primitives": 11,
+    "max_outward_error": 0.001836
+   },
+   {
+    "label": "double_shelf4_7_5",
+    "box": {
+     "min": [
+      -0.120644,
+      0.078985,
+      1.046495
+     ],
+     "max": [
+      -0.004208,
+      1.321015,
+      1.053505
+     ]
+    },
+    "primitives": 14,
+    "max_outward_error": 0.001934
+   },
+   {
+    "label": "double_shelf4_9_0",
+    "box": {
+     "min": [
+      -0.000644,
+      -1.333689,
+      0.839726
+     ],
+     "max": [
+      0.120644,
+      -1.321015,
+      1.260274
+     ]
+    },
+    "primitives": 12,
+    "max_outward_error": 0.001768
+   },
+   {
+    "label": "double_shelf4_9_1",
+    "box": {
+     "min": [
+      -0.000644,
+      -0.078985,
+      0.839726
+     ],
+     "max": [
+      0.120644,
+      -0.066311,
+      1.260274
+     ]
+    },
+    "primitives": 12,
+    "max_outward_error": 0.001768
+   },
+   {
+    "label": "double_shelf4_9_2",
+    "box": {
+     "min": [
+      -0.000644,
+      -1.333689,
+      0.839726
+     ],
+     "max": [
+      0.004208,
+      -0.066311,
+      1.260274
+     ]
+    },
+    "primitives": 57,
+    "max_outward_error": 0.001989
+   },
+   {
+    "label": "double_shelf4_9_3",
+    "box": {
+     "min": [
+      -0.000644,
+      -1.333689,
+      0.839726
+     ],
+     "max": [
+      0.120644,
+      -0.066311,
+      0.854445
+     ]
+    },
+    "primitives": 11,
+    "max_outward_error": 0.001836
+   },
+   {
+    "label": "double_shelf4_9_4",
+    "box": {
+     "min": [
+      -0.000644,
+      -1.333689,
+      1.245555
+     ],
+     "max": [
+      0.120644,
+      -0.066311,
+      1.260274
+     ]
+    },
+    "primitives": 11,
+    "max_outward_error": 0.001836
+   },
+   {
+    "label": "double_shelf4_9_5",
+    "box": {
+     "min": [
+      0.004208,
+      -1.321015,
+      1.046495
+     ],
+     "max": [
+      0.120644,
+      -0.078985,
+      1.053505
+     ]
+    },
+    "primitives": 14,
+    "max_outward_error": 0.001934
+   },
+   {
+    "label": "double_shelf4_11_0",
+    "box": {
+     "min": [
+      -0.120644,
+      -0.078985,
+      0.839726
+     ],
+     "max": [
+      0.000644,
+      -0.066311,
+      1.260274
+     ]
+    },
+    "primitives": 12,
+    "max_outward_error": 0.001768
+   },
+   {
+    "label": "double_shelf4_11_1",
+    "box": {
+     "min": [
+      -0.120644,
+      -1.333689,
+      0.839726
+     ],
+     "max": [
+      0.000644,
+      -1.321015,
+      1.260274
+     ]
+    },
+    "primitives": 12,
+    "max_outward_error": 0.001768
+   },
+   {
+    "label": "double_shelf4_11_2",
+    "box": {
+     "min": [
+      -0.004208,
+      -1.333689,
+      0.839726
+     ],
+     "max": [
+      0.000644,
+      -0.066311,
+      1.260274
+     ]
+    },
+    "primitives": 57,
+    "max_outward_error": 0.001989
+   },
+   {
+    "label": "double_shelf4_11_3",
+    "box": {
+     "min": [
+      -0.120644,
+      -1.333689,
+      0.839726
+     ],
+     "max": [
+      0.000644,
+      -0.066311,
+      0.854445
+     ]
+    },
+    "primitives": 11,
+    "max_outward_error": 0.001836
+   },
+   {
+    "label": "double_shelf4_11_4",
+    "box": {
+     "min": [
+      -0.120644,
+      -1.333689,
+      1.245555
+     ],
+     "max": [
+      0.000644,
+      -0.066311,
+      1.260274
+     ]
+    },
+    "primitives": 11,
+    "max_outward_error": 0.001836
+   },
+   {
+    "label": "double_shelf4_11_5",
+    "box": {
+     "min": [
+      -0.120644,
+      -1.321015,
+      1.046495
+     ],
+     "max": [
+      -0.004208,
+      -0.078985,
+      1.053505
+     ]
+    },
+    "primitives": 14,
+    "max_outward_error": 0.001934
+   }
+  ],
+  "source": {
+   "scenario": "Shelf-wall: 4 robots / 4 shelves",
+   "objects": 4
+  }
+ }
+}

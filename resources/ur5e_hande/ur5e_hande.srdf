@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="ur5e_hande">
+  <disable_collisions link1="base_link_inertia" link2="shoulder_link" reason="Adjacent" />
+  <disable_collisions link1="forearm_link" link2="upper_arm_link" reason="Adjacent" />
+  <disable_collisions link1="forearm_link" link2="wrist_1_link" reason="Adjacent" />
+  <disable_collisions link1="forearm_link" link2="wrist_2_link" reason="Never (100000 samples)" />
+  <disable_collisions link1="left_finger" link2="right_finger" reason="Same rigid body" />
+  <disable_collisions link1="left_finger" link2="robotiq_hande_base_link" reason="Same rigid body" />
+  <disable_collisions link1="left_finger" link2="wrist_1_link" reason="Never (100000 samples)" />
+  <disable_collisions link1="left_finger" link2="wrist_2_link" reason="Adjacent" />
+  <disable_collisions link1="left_finger" link2="wrist_3_link" reason="Same rigid body" />
+  <disable_collisions link1="right_finger" link2="robotiq_hande_base_link" reason="Same rigid body" />
+  <disable_collisions link1="right_finger" link2="wrist_1_link" reason="Never (100000 samples)" />
+  <disable_collisions link1="right_finger" link2="wrist_2_link" reason="Adjacent" />
+  <disable_collisions link1="right_finger" link2="wrist_3_link" reason="Same rigid body" />
+  <disable_collisions link1="robotiq_hande_base_link" link2="wrist_1_link" reason="Never (100000 samples)" />
+  <disable_collisions link1="robotiq_hande_base_link" link2="wrist_2_link" reason="Adjacent" />
+  <disable_collisions link1="robotiq_hande_base_link" link2="wrist_3_link" reason="Same rigid body" />
+  <disable_collisions link1="shoulder_link" link2="upper_arm_link" reason="Adjacent" />
+  <disable_collisions link1="wrist_1_link" link2="wrist_2_link" reason="Adjacent" />
+  <disable_collisions link1="wrist_1_link" link2="wrist_3_link" reason="Never (100000 samples)" />
+  <disable_collisions link1="wrist_2_link" link2="wrist_3_link" reason="Adjacent" />
+</robot>

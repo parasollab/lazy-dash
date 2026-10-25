@@ -1,0 +1,5651 @@
+{
+ "format": "lazydash.scene/1",
+ "name": "stocking-3layers-3objects",
+ "environment": {
+  "min": [
+   -4.0,
+   -4.0,
+   0.0
+  ],
+  "max": [
+   4.0,
+   4.0,
+   2.5
+  ]
+ },
+ "obstacles": [
+  {
+   "id": "plane_3",
+   "type": "cylinder",
+   "center": [
+    0.0,
+    0.0,
+    0.3375
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 5.656854,
+   "half_height": 0.3475
+  },
+  {
+   "id": "stocking_5_0_0",
+   "type": "cylinder",
+   "center": [
+    0.026876,
+    1.191832,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_5_0_1",
+   "type": "cylinder",
+   "center": [
+    0.036251,
+    1.191832,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_5_0_2",
+   "type": "cylinder",
+   "center": [
+    0.045626,
+    1.191832,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_5_0_3",
+   "type": "cylinder",
+   "center": [
+    0.055001,
+    1.191832,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_5_0_4",
+   "type": "cylinder",
+   "center": [
+    0.064376,
+    1.191832,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_5_0_5",
+   "type": "cylinder",
+   "center": [
+    0.073751,
+    1.191832,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_5_0_6",
+   "type": "cylinder",
+   "center": [
+    0.083126,
+    1.191832,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_5_0_7",
+   "type": "cylinder",
+   "center": [
+    0.092501,
+    1.191832,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_5_0_8",
+   "type": "cylinder",
+   "center": [
+    0.101875,
+    1.191832,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_5_0_9",
+   "type": "cylinder",
+   "center": [
+    0.11125,
+    1.191832,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_5_0_10",
+   "type": "cylinder",
+   "center": [
+    0.120625,
+    1.191832,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_5_0_11",
+   "type": "cylinder",
+   "center": [
+    0.13,
+    1.191832,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_5_0_12",
+   "type": "cylinder",
+   "center": [
+    0.139375,
+    1.191832,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_5_0_13",
+   "type": "cylinder",
+   "center": [
+    0.14875,
+    1.191832,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_5_0_14",
+   "type": "cylinder",
+   "center": [
+    0.158125,
+    1.191832,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_5_0_15",
+   "type": "cylinder",
+   "center": [
+    0.167499,
+    1.191832,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_5_0_16",
+   "type": "cylinder",
+   "center": [
+    0.176874,
+    1.191832,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_5_0_17",
+   "type": "cylinder",
+   "center": [
+    0.186249,
+    1.191832,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_5_0_18",
+   "type": "cylinder",
+   "center": [
+    0.195624,
+    1.191832,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_5_0_19",
+   "type": "cylinder",
+   "center": [
+    0.204999,
+    1.191832,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_5_0_20",
+   "type": "cylinder",
+   "center": [
+    0.214374,
+    1.191832,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_5_0_21",
+   "type": "cylinder",
+   "center": [
+    0.223749,
+    1.191832,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_5_0_22",
+   "type": "cylinder",
+   "center": [
+    0.233124,
+    1.191832,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_5_1_0",
+   "type": "cylinder",
+   "center": [
+    0.026876,
+    0.208168,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_5_1_1",
+   "type": "cylinder",
+   "center": [
+    0.036251,
+    0.208168,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_5_1_2",
+   "type": "cylinder",
+   "center": [
+    0.045626,
+    0.208168,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_5_1_3",
+   "type": "cylinder",
+   "center": [
+    0.055001,
+    0.208168,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_5_1_4",
+   "type": "cylinder",
+   "center": [
+    0.064376,
+    0.208168,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_5_1_5",
+   "type": "cylinder",
+   "center": [
+    0.073751,
+    0.208168,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_5_1_6",
+   "type": "cylinder",
+   "center": [
+    0.083126,
+    0.208168,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_5_1_7",
+   "type": "cylinder",
+   "center": [
+    0.092501,
+    0.208168,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_5_1_8",
+   "type": "cylinder",
+   "center": [
+    0.101875,
+    0.208168,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_5_1_9",
+   "type": "cylinder",
+   "center": [
+    0.11125,
+    0.208168,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_5_1_10",
+   "type": "cylinder",
+   "center": [
+    0.120625,
+    0.208168,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_5_1_11",
+   "type": "cylinder",
+   "center": [
+    0.13,
+    0.208168,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_5_1_12",
+   "type": "cylinder",
+   "center": [
+    0.139375,
+    0.208168,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_5_1_13",
+   "type": "cylinder",
+   "center": [
+    0.14875,
+    0.208168,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_5_1_14",
+   "type": "cylinder",
+   "center": [
+    0.158125,
+    0.208168,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_5_1_15",
+   "type": "cylinder",
+   "center": [
+    0.167499,
+    0.208168,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_5_1_16",
+   "type": "cylinder",
+   "center": [
+    0.176874,
+    0.208168,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_5_1_17",
+   "type": "cylinder",
+   "center": [
+    0.186249,
+    0.208168,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_5_1_18",
+   "type": "cylinder",
+   "center": [
+    0.195624,
+    0.208168,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_5_1_19",
+   "type": "cylinder",
+   "center": [
+    0.204999,
+    0.208168,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_5_1_20",
+   "type": "cylinder",
+   "center": [
+    0.214374,
+    0.208168,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_5_1_21",
+   "type": "cylinder",
+   "center": [
+    0.223749,
+    0.208168,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_5_1_22",
+   "type": "cylinder",
+   "center": [
+    0.233124,
+    0.208168,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_5_2_0",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    0.7,
+    0.91854
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_2_1",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    0.7,
+    0.927617
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_2_2",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    0.7,
+    0.936694
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_2_3",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    0.7,
+    0.945771
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_2_4",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    0.7,
+    0.954848
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_2_5",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    0.7,
+    0.963925
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_2_6",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    0.7,
+    0.973001
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_2_7",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    0.7,
+    0.982078
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_2_8",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    0.7,
+    0.991155
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_2_9",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    0.7,
+    1.000232
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_2_10",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    0.7,
+    1.009309
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_2_11",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    0.7,
+    1.018386
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_2_12",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    0.7,
+    1.027463
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_2_13",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    0.7,
+    1.036539
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_2_14",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    0.7,
+    1.045616
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_2_15",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    0.7,
+    1.054693
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_2_16",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    0.7,
+    1.06377
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_2_17",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    0.7,
+    1.072847
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_2_18",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    0.7,
+    1.081924
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_2_19",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    0.7,
+    1.091
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_2_20",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    0.7,
+    1.100077
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_2_21",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    0.7,
+    1.109154
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_2_22",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    0.7,
+    1.118231
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_2_23",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    0.7,
+    1.127308
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_2_24",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    0.7,
+    1.136385
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_2_25",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    0.7,
+    1.145462
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_2_26",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    0.7,
+    1.154538
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_2_27",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    0.7,
+    1.163615
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_2_28",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    0.7,
+    1.172692
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_2_29",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    0.7,
+    1.181769
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_2_30",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    0.7,
+    1.190846
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_2_31",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    0.7,
+    1.199923
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_2_32",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    0.7,
+    1.209
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_2_33",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    0.7,
+    1.218076
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_2_34",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    0.7,
+    1.227153
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_2_35",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    0.7,
+    1.23623
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_2_36",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    0.7,
+    1.245307
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_2_37",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    0.7,
+    1.254384
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_2_38",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    0.7,
+    1.263461
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_2_39",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    0.7,
+    1.272537
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_2_40",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    0.7,
+    1.281614
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_2_41",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    0.7,
+    1.290691
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_2_42",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    0.7,
+    1.299768
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_2_43",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    0.7,
+    1.308845
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_2_44",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    0.7,
+    1.317922
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_2_45",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    0.7,
+    1.326999
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_2_46",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    0.7,
+    1.336075
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_2_47",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    0.7,
+    1.345152
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_2_48",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    0.7,
+    1.354229
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_2_49",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    0.7,
+    1.363306
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_2_50",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    0.7,
+    1.372383
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_2_51",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    0.7,
+    1.38146
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_3_0",
+   "type": "cylinder",
+   "center": [
+    0.028178,
+    0.7,
+    0.922262
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_3_1",
+   "type": "cylinder",
+   "center": [
+    0.040157,
+    0.7,
+    0.922262
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_3_2",
+   "type": "cylinder",
+   "center": [
+    0.052136,
+    0.7,
+    0.922262
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_3_3",
+   "type": "cylinder",
+   "center": [
+    0.064115,
+    0.7,
+    0.922262
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_3_4",
+   "type": "cylinder",
+   "center": [
+    0.076094,
+    0.7,
+    0.922262
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_3_5",
+   "type": "cylinder",
+   "center": [
+    0.088073,
+    0.7,
+    0.922262
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_3_6",
+   "type": "cylinder",
+   "center": [
+    0.100053,
+    0.7,
+    0.922262
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_3_7",
+   "type": "cylinder",
+   "center": [
+    0.112032,
+    0.7,
+    0.922262
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_3_8",
+   "type": "cylinder",
+   "center": [
+    0.124011,
+    0.7,
+    0.922262
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_3_9",
+   "type": "cylinder",
+   "center": [
+    0.13599,
+    0.7,
+    0.922262
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_3_10",
+   "type": "cylinder",
+   "center": [
+    0.147969,
+    0.7,
+    0.922262
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_3_11",
+   "type": "cylinder",
+   "center": [
+    0.159948,
+    0.7,
+    0.922262
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_3_12",
+   "type": "cylinder",
+   "center": [
+    0.171927,
+    0.7,
+    0.922262
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_3_13",
+   "type": "cylinder",
+   "center": [
+    0.183906,
+    0.7,
+    0.922262
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_3_14",
+   "type": "cylinder",
+   "center": [
+    0.195885,
+    0.7,
+    0.922262
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_3_15",
+   "type": "cylinder",
+   "center": [
+    0.207864,
+    0.7,
+    0.922262
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_3_16",
+   "type": "cylinder",
+   "center": [
+    0.219843,
+    0.7,
+    0.922262
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_3_17",
+   "type": "cylinder",
+   "center": [
+    0.231822,
+    0.7,
+    0.922262
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_4_0",
+   "type": "cylinder",
+   "center": [
+    0.028178,
+    0.7,
+    1.377738
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_4_1",
+   "type": "cylinder",
+   "center": [
+    0.040157,
+    0.7,
+    1.377738
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_4_2",
+   "type": "cylinder",
+   "center": [
+    0.052136,
+    0.7,
+    1.377738
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_4_3",
+   "type": "cylinder",
+   "center": [
+    0.064115,
+    0.7,
+    1.377738
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_4_4",
+   "type": "cylinder",
+   "center": [
+    0.076094,
+    0.7,
+    1.377738
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_4_5",
+   "type": "cylinder",
+   "center": [
+    0.088073,
+    0.7,
+    1.377738
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_4_6",
+   "type": "cylinder",
+   "center": [
+    0.100053,
+    0.7,
+    1.377738
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_4_7",
+   "type": "cylinder",
+   "center": [
+    0.112032,
+    0.7,
+    1.377738
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_4_8",
+   "type": "cylinder",
+   "center": [
+    0.124011,
+    0.7,
+    1.377738
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_4_9",
+   "type": "cylinder",
+   "center": [
+    0.13599,
+    0.7,
+    1.377738
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_4_10",
+   "type": "cylinder",
+   "center": [
+    0.147969,
+    0.7,
+    1.377738
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_4_11",
+   "type": "cylinder",
+   "center": [
+    0.159948,
+    0.7,
+    1.377738
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_4_12",
+   "type": "cylinder",
+   "center": [
+    0.171927,
+    0.7,
+    1.377738
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_4_13",
+   "type": "cylinder",
+   "center": [
+    0.183906,
+    0.7,
+    1.377738
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_4_14",
+   "type": "cylinder",
+   "center": [
+    0.195885,
+    0.7,
+    1.377738
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_4_15",
+   "type": "cylinder",
+   "center": [
+    0.207864,
+    0.7,
+    1.377738
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_4_16",
+   "type": "cylinder",
+   "center": [
+    0.219843,
+    0.7,
+    1.377738
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_4_17",
+   "type": "cylinder",
+   "center": [
+    0.231822,
+    0.7,
+    1.377738
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_5_5_0",
+   "type": "cylinder",
+   "center": [
+    0.026501,
+    0.7,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005837,
+   "half_height": 0.486864
+  },
+  {
+   "id": "stocking_5_5_1",
+   "type": "cylinder",
+   "center": [
+    0.035126,
+    0.7,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005837,
+   "half_height": 0.486864
+  },
+  {
+   "id": "stocking_5_5_2",
+   "type": "cylinder",
+   "center": [
+    0.043751,
+    0.7,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005837,
+   "half_height": 0.486864
+  },
+  {
+   "id": "stocking_5_5_3",
+   "type": "cylinder",
+   "center": [
+    0.052376,
+    0.7,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005837,
+   "half_height": 0.486864
+  },
+  {
+   "id": "stocking_5_5_4",
+   "type": "cylinder",
+   "center": [
+    0.061001,
+    0.7,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005837,
+   "half_height": 0.486864
+  },
+  {
+   "id": "stocking_5_5_5",
+   "type": "cylinder",
+   "center": [
+    0.069626,
+    0.7,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005837,
+   "half_height": 0.486864
+  },
+  {
+   "id": "stocking_5_5_6",
+   "type": "cylinder",
+   "center": [
+    0.078251,
+    0.7,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005837,
+   "half_height": 0.486864
+  },
+  {
+   "id": "stocking_5_5_7",
+   "type": "cylinder",
+   "center": [
+    0.086876,
+    0.7,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005837,
+   "half_height": 0.486864
+  },
+  {
+   "id": "stocking_5_5_8",
+   "type": "cylinder",
+   "center": [
+    0.0955,
+    0.7,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005837,
+   "half_height": 0.486864
+  },
+  {
+   "id": "stocking_5_5_9",
+   "type": "cylinder",
+   "center": [
+    0.104125,
+    0.7,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005837,
+   "half_height": 0.486864
+  },
+  {
+   "id": "stocking_5_5_10",
+   "type": "cylinder",
+   "center": [
+    0.11275,
+    0.7,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005837,
+   "half_height": 0.486864
+  },
+  {
+   "id": "stocking_5_5_11",
+   "type": "cylinder",
+   "center": [
+    0.121375,
+    0.7,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005837,
+   "half_height": 0.486864
+  },
+  {
+   "id": "stocking_5_5_12",
+   "type": "cylinder",
+   "center": [
+    0.13,
+    0.7,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005837,
+   "half_height": 0.486864
+  },
+  {
+   "id": "stocking_5_5_13",
+   "type": "cylinder",
+   "center": [
+    0.138625,
+    0.7,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005837,
+   "half_height": 0.486864
+  },
+  {
+   "id": "stocking_5_5_14",
+   "type": "cylinder",
+   "center": [
+    0.14725,
+    0.7,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005837,
+   "half_height": 0.486864
+  },
+  {
+   "id": "stocking_5_5_15",
+   "type": "cylinder",
+   "center": [
+    0.155875,
+    0.7,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005837,
+   "half_height": 0.486864
+  },
+  {
+   "id": "stocking_5_5_16",
+   "type": "cylinder",
+   "center": [
+    0.1645,
+    0.7,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005837,
+   "half_height": 0.486864
+  },
+  {
+   "id": "stocking_5_5_17",
+   "type": "cylinder",
+   "center": [
+    0.173124,
+    0.7,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005837,
+   "half_height": 0.486864
+  },
+  {
+   "id": "stocking_5_5_18",
+   "type": "cylinder",
+   "center": [
+    0.181749,
+    0.7,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005837,
+   "half_height": 0.486864
+  },
+  {
+   "id": "stocking_5_5_19",
+   "type": "cylinder",
+   "center": [
+    0.190374,
+    0.7,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005837,
+   "half_height": 0.486864
+  },
+  {
+   "id": "stocking_5_5_20",
+   "type": "cylinder",
+   "center": [
+    0.198999,
+    0.7,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005837,
+   "half_height": 0.486864
+  },
+  {
+   "id": "stocking_5_5_21",
+   "type": "cylinder",
+   "center": [
+    0.207624,
+    0.7,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005837,
+   "half_height": 0.486864
+  },
+  {
+   "id": "stocking_5_5_22",
+   "type": "cylinder",
+   "center": [
+    0.216249,
+    0.7,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005837,
+   "half_height": 0.486864
+  },
+  {
+   "id": "stocking_5_5_23",
+   "type": "cylinder",
+   "center": [
+    0.224874,
+    0.7,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005837,
+   "half_height": 0.486864
+  },
+  {
+   "id": "stocking_7_0_0",
+   "type": "cylinder",
+   "center": [
+    0.026876,
+    -0.208168,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_7_0_1",
+   "type": "cylinder",
+   "center": [
+    0.036251,
+    -0.208168,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_7_0_2",
+   "type": "cylinder",
+   "center": [
+    0.045626,
+    -0.208168,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_7_0_3",
+   "type": "cylinder",
+   "center": [
+    0.055001,
+    -0.208168,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_7_0_4",
+   "type": "cylinder",
+   "center": [
+    0.064376,
+    -0.208168,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_7_0_5",
+   "type": "cylinder",
+   "center": [
+    0.073751,
+    -0.208168,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_7_0_6",
+   "type": "cylinder",
+   "center": [
+    0.083126,
+    -0.208168,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_7_0_7",
+   "type": "cylinder",
+   "center": [
+    0.092501,
+    -0.208168,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_7_0_8",
+   "type": "cylinder",
+   "center": [
+    0.101875,
+    -0.208168,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_7_0_9",
+   "type": "cylinder",
+   "center": [
+    0.11125,
+    -0.208168,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_7_0_10",
+   "type": "cylinder",
+   "center": [
+    0.120625,
+    -0.208168,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_7_0_11",
+   "type": "cylinder",
+   "center": [
+    0.13,
+    -0.208168,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_7_0_12",
+   "type": "cylinder",
+   "center": [
+    0.139375,
+    -0.208168,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_7_0_13",
+   "type": "cylinder",
+   "center": [
+    0.14875,
+    -0.208168,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_7_0_14",
+   "type": "cylinder",
+   "center": [
+    0.158125,
+    -0.208168,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_7_0_15",
+   "type": "cylinder",
+   "center": [
+    0.167499,
+    -0.208168,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_7_0_16",
+   "type": "cylinder",
+   "center": [
+    0.176874,
+    -0.208168,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_7_0_17",
+   "type": "cylinder",
+   "center": [
+    0.186249,
+    -0.208168,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_7_0_18",
+   "type": "cylinder",
+   "center": [
+    0.195624,
+    -0.208168,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_7_0_19",
+   "type": "cylinder",
+   "center": [
+    0.204999,
+    -0.208168,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_7_0_20",
+   "type": "cylinder",
+   "center": [
+    0.214374,
+    -0.208168,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_7_0_21",
+   "type": "cylinder",
+   "center": [
+    0.223749,
+    -0.208168,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_7_0_22",
+   "type": "cylinder",
+   "center": [
+    0.233124,
+    -0.208168,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_7_1_0",
+   "type": "cylinder",
+   "center": [
+    0.026876,
+    -1.191832,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_7_1_1",
+   "type": "cylinder",
+   "center": [
+    0.036251,
+    -1.191832,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_7_1_2",
+   "type": "cylinder",
+   "center": [
+    0.045626,
+    -1.191832,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_7_1_3",
+   "type": "cylinder",
+   "center": [
+    0.055001,
+    -1.191832,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_7_1_4",
+   "type": "cylinder",
+   "center": [
+    0.064376,
+    -1.191832,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_7_1_5",
+   "type": "cylinder",
+   "center": [
+    0.073751,
+    -1.191832,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_7_1_6",
+   "type": "cylinder",
+   "center": [
+    0.083126,
+    -1.191832,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_7_1_7",
+   "type": "cylinder",
+   "center": [
+    0.092501,
+    -1.191832,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_7_1_8",
+   "type": "cylinder",
+   "center": [
+    0.101875,
+    -1.191832,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_7_1_9",
+   "type": "cylinder",
+   "center": [
+    0.11125,
+    -1.191832,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_7_1_10",
+   "type": "cylinder",
+   "center": [
+    0.120625,
+    -1.191832,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_7_1_11",
+   "type": "cylinder",
+   "center": [
+    0.13,
+    -1.191832,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_7_1_12",
+   "type": "cylinder",
+   "center": [
+    0.139375,
+    -1.191832,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_7_1_13",
+   "type": "cylinder",
+   "center": [
+    0.14875,
+    -1.191832,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_7_1_14",
+   "type": "cylinder",
+   "center": [
+    0.158125,
+    -1.191832,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_7_1_15",
+   "type": "cylinder",
+   "center": [
+    0.167499,
+    -1.191832,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_7_1_16",
+   "type": "cylinder",
+   "center": [
+    0.176874,
+    -1.191832,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_7_1_17",
+   "type": "cylinder",
+   "center": [
+    0.186249,
+    -1.191832,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_7_1_18",
+   "type": "cylinder",
+   "center": [
+    0.195624,
+    -1.191832,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_7_1_19",
+   "type": "cylinder",
+   "center": [
+    0.204999,
+    -1.191832,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_7_1_20",
+   "type": "cylinder",
+   "center": [
+    0.214374,
+    -1.191832,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_7_1_21",
+   "type": "cylinder",
+   "center": [
+    0.223749,
+    -1.191832,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_7_1_22",
+   "type": "cylinder",
+   "center": [
+    0.233124,
+    -1.191832,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "radius": 0.00683,
+   "half_height": 0.235998
+  },
+  {
+   "id": "stocking_7_2_0",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    -0.7,
+    0.91854
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_2_1",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    -0.7,
+    0.927617
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_2_2",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    -0.7,
+    0.936694
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_2_3",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    -0.7,
+    0.945771
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_2_4",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    -0.7,
+    0.954848
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_2_5",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    -0.7,
+    0.963925
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_2_6",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    -0.7,
+    0.973001
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_2_7",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    -0.7,
+    0.982078
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_2_8",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    -0.7,
+    0.991155
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_2_9",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    -0.7,
+    1.000232
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_2_10",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    -0.7,
+    1.009309
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_2_11",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    -0.7,
+    1.018386
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_2_12",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    -0.7,
+    1.027463
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_2_13",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    -0.7,
+    1.036539
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_2_14",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    -0.7,
+    1.045616
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_2_15",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    -0.7,
+    1.054693
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_2_16",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    -0.7,
+    1.06377
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_2_17",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    -0.7,
+    1.072847
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_2_18",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    -0.7,
+    1.081924
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_2_19",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    -0.7,
+    1.091
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_2_20",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    -0.7,
+    1.100077
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_2_21",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    -0.7,
+    1.109154
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_2_22",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    -0.7,
+    1.118231
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_2_23",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    -0.7,
+    1.127308
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_2_24",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    -0.7,
+    1.136385
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_2_25",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    -0.7,
+    1.145462
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_2_26",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    -0.7,
+    1.154538
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_2_27",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    -0.7,
+    1.163615
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_2_28",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    -0.7,
+    1.172692
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_2_29",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    -0.7,
+    1.181769
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_2_30",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    -0.7,
+    1.190846
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_2_31",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    -0.7,
+    1.199923
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_2_32",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    -0.7,
+    1.209
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_2_33",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    -0.7,
+    1.218076
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_2_34",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    -0.7,
+    1.227153
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_2_35",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    -0.7,
+    1.23623
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_2_36",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    -0.7,
+    1.245307
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_2_37",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    -0.7,
+    1.254384
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_2_38",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    -0.7,
+    1.263461
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_2_39",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    -0.7,
+    1.272537
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_2_40",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    -0.7,
+    1.281614
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_2_41",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    -0.7,
+    1.290691
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_2_42",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    -0.7,
+    1.299768
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_2_43",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    -0.7,
+    1.308845
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_2_44",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    -0.7,
+    1.317922
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_2_45",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    -0.7,
+    1.326999
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_2_46",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    -0.7,
+    1.336075
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_2_47",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    -0.7,
+    1.345152
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_2_48",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    -0.7,
+    1.354229
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_2_49",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    -0.7,
+    1.363306
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_2_50",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    -0.7,
+    1.372383
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_2_51",
+   "type": "cylinder",
+   "center": [
+    0.233499,
+    -0.7,
+    1.38146
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.006261,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_3_0",
+   "type": "cylinder",
+   "center": [
+    0.028178,
+    -0.7,
+    0.922262
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_3_1",
+   "type": "cylinder",
+   "center": [
+    0.040157,
+    -0.7,
+    0.922262
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_3_2",
+   "type": "cylinder",
+   "center": [
+    0.052136,
+    -0.7,
+    0.922262
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_3_3",
+   "type": "cylinder",
+   "center": [
+    0.064115,
+    -0.7,
+    0.922262
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_3_4",
+   "type": "cylinder",
+   "center": [
+    0.076094,
+    -0.7,
+    0.922262
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_3_5",
+   "type": "cylinder",
+   "center": [
+    0.088073,
+    -0.7,
+    0.922262
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_3_6",
+   "type": "cylinder",
+   "center": [
+    0.100053,
+    -0.7,
+    0.922262
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_3_7",
+   "type": "cylinder",
+   "center": [
+    0.112032,
+    -0.7,
+    0.922262
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_3_8",
+   "type": "cylinder",
+   "center": [
+    0.124011,
+    -0.7,
+    0.922262
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_3_9",
+   "type": "cylinder",
+   "center": [
+    0.13599,
+    -0.7,
+    0.922262
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_3_10",
+   "type": "cylinder",
+   "center": [
+    0.147969,
+    -0.7,
+    0.922262
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_3_11",
+   "type": "cylinder",
+   "center": [
+    0.159948,
+    -0.7,
+    0.922262
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_3_12",
+   "type": "cylinder",
+   "center": [
+    0.171927,
+    -0.7,
+    0.922262
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_3_13",
+   "type": "cylinder",
+   "center": [
+    0.183906,
+    -0.7,
+    0.922262
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_3_14",
+   "type": "cylinder",
+   "center": [
+    0.195885,
+    -0.7,
+    0.922262
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_3_15",
+   "type": "cylinder",
+   "center": [
+    0.207864,
+    -0.7,
+    0.922262
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_3_16",
+   "type": "cylinder",
+   "center": [
+    0.219843,
+    -0.7,
+    0.922262
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_3_17",
+   "type": "cylinder",
+   "center": [
+    0.231822,
+    -0.7,
+    0.922262
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_4_0",
+   "type": "cylinder",
+   "center": [
+    0.028178,
+    -0.7,
+    1.377738
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_4_1",
+   "type": "cylinder",
+   "center": [
+    0.040157,
+    -0.7,
+    1.377738
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_4_2",
+   "type": "cylinder",
+   "center": [
+    0.052136,
+    -0.7,
+    1.377738
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_4_3",
+   "type": "cylinder",
+   "center": [
+    0.064115,
+    -0.7,
+    1.377738
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_4_4",
+   "type": "cylinder",
+   "center": [
+    0.076094,
+    -0.7,
+    1.377738
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_4_5",
+   "type": "cylinder",
+   "center": [
+    0.088073,
+    -0.7,
+    1.377738
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_4_6",
+   "type": "cylinder",
+   "center": [
+    0.100053,
+    -0.7,
+    1.377738
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_4_7",
+   "type": "cylinder",
+   "center": [
+    0.112032,
+    -0.7,
+    1.377738
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_4_8",
+   "type": "cylinder",
+   "center": [
+    0.124011,
+    -0.7,
+    1.377738
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_4_9",
+   "type": "cylinder",
+   "center": [
+    0.13599,
+    -0.7,
+    1.377738
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_4_10",
+   "type": "cylinder",
+   "center": [
+    0.147969,
+    -0.7,
+    1.377738
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_4_11",
+   "type": "cylinder",
+   "center": [
+    0.159948,
+    -0.7,
+    1.377738
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_4_12",
+   "type": "cylinder",
+   "center": [
+    0.171927,
+    -0.7,
+    1.377738
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_4_13",
+   "type": "cylinder",
+   "center": [
+    0.183906,
+    -0.7,
+    1.377738
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_4_14",
+   "type": "cylinder",
+   "center": [
+    0.195885,
+    -0.7,
+    1.377738
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_4_15",
+   "type": "cylinder",
+   "center": [
+    0.207864,
+    -0.7,
+    1.377738
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_4_16",
+   "type": "cylinder",
+   "center": [
+    0.219843,
+    -0.7,
+    1.377738
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_4_17",
+   "type": "cylinder",
+   "center": [
+    0.231822,
+    -0.7,
+    1.377738
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.010203,
+   "half_height": 0.4968
+  },
+  {
+   "id": "stocking_7_5_0",
+   "type": "cylinder",
+   "center": [
+    0.026501,
+    -0.7,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005837,
+   "half_height": 0.486864
+  },
+  {
+   "id": "stocking_7_5_1",
+   "type": "cylinder",
+   "center": [
+    0.035126,
+    -0.7,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005837,
+   "half_height": 0.486864
+  },
+  {
+   "id": "stocking_7_5_2",
+   "type": "cylinder",
+   "center": [
+    0.043751,
+    -0.7,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005837,
+   "half_height": 0.486864
+  },
+  {
+   "id": "stocking_7_5_3",
+   "type": "cylinder",
+   "center": [
+    0.052376,
+    -0.7,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005837,
+   "half_height": 0.486864
+  },
+  {
+   "id": "stocking_7_5_4",
+   "type": "cylinder",
+   "center": [
+    0.061001,
+    -0.7,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005837,
+   "half_height": 0.486864
+  },
+  {
+   "id": "stocking_7_5_5",
+   "type": "cylinder",
+   "center": [
+    0.069626,
+    -0.7,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005837,
+   "half_height": 0.486864
+  },
+  {
+   "id": "stocking_7_5_6",
+   "type": "cylinder",
+   "center": [
+    0.078251,
+    -0.7,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005837,
+   "half_height": 0.486864
+  },
+  {
+   "id": "stocking_7_5_7",
+   "type": "cylinder",
+   "center": [
+    0.086876,
+    -0.7,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005837,
+   "half_height": 0.486864
+  },
+  {
+   "id": "stocking_7_5_8",
+   "type": "cylinder",
+   "center": [
+    0.0955,
+    -0.7,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005837,
+   "half_height": 0.486864
+  },
+  {
+   "id": "stocking_7_5_9",
+   "type": "cylinder",
+   "center": [
+    0.104125,
+    -0.7,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005837,
+   "half_height": 0.486864
+  },
+  {
+   "id": "stocking_7_5_10",
+   "type": "cylinder",
+   "center": [
+    0.11275,
+    -0.7,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005837,
+   "half_height": 0.486864
+  },
+  {
+   "id": "stocking_7_5_11",
+   "type": "cylinder",
+   "center": [
+    0.121375,
+    -0.7,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005837,
+   "half_height": 0.486864
+  },
+  {
+   "id": "stocking_7_5_12",
+   "type": "cylinder",
+   "center": [
+    0.13,
+    -0.7,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005837,
+   "half_height": 0.486864
+  },
+  {
+   "id": "stocking_7_5_13",
+   "type": "cylinder",
+   "center": [
+    0.138625,
+    -0.7,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005837,
+   "half_height": 0.486864
+  },
+  {
+   "id": "stocking_7_5_14",
+   "type": "cylinder",
+   "center": [
+    0.14725,
+    -0.7,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005837,
+   "half_height": 0.486864
+  },
+  {
+   "id": "stocking_7_5_15",
+   "type": "cylinder",
+   "center": [
+    0.155875,
+    -0.7,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005837,
+   "half_height": 0.486864
+  },
+  {
+   "id": "stocking_7_5_16",
+   "type": "cylinder",
+   "center": [
+    0.1645,
+    -0.7,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005837,
+   "half_height": 0.486864
+  },
+  {
+   "id": "stocking_7_5_17",
+   "type": "cylinder",
+   "center": [
+    0.173124,
+    -0.7,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005837,
+   "half_height": 0.486864
+  },
+  {
+   "id": "stocking_7_5_18",
+   "type": "cylinder",
+   "center": [
+    0.181749,
+    -0.7,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005837,
+   "half_height": 0.486864
+  },
+  {
+   "id": "stocking_7_5_19",
+   "type": "cylinder",
+   "center": [
+    0.190374,
+    -0.7,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005837,
+   "half_height": 0.486864
+  },
+  {
+   "id": "stocking_7_5_20",
+   "type": "cylinder",
+   "center": [
+    0.198999,
+    -0.7,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005837,
+   "half_height": 0.486864
+  },
+  {
+   "id": "stocking_7_5_21",
+   "type": "cylinder",
+   "center": [
+    0.207624,
+    -0.7,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005837,
+   "half_height": 0.486864
+  },
+  {
+   "id": "stocking_7_5_22",
+   "type": "cylinder",
+   "center": [
+    0.216249,
+    -0.7,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005837,
+   "half_height": 0.486864
+  },
+  {
+   "id": "stocking_7_5_23",
+   "type": "cylinder",
+   "center": [
+    0.224874,
+    -0.7,
+    1.15
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "radius": 0.005837,
+   "half_height": 0.486864
+  }
+ ],
+ "robots": [
+  {
+   "type": "ur5e_hande",
+   "name": "ur5e_0",
+   "base": {
+    "position": [
+     -0.5,
+     0.72,
+     0.75
+    ],
+    "quaternion_xyzw": [
+     0.0,
+     0.0,
+     1.0,
+     0.0
+    ]
+   },
+   "start": [
+    0.0,
+    -1.570796,
+    1.570796,
+    1.570796,
+    1.570796,
+    0.0
+   ],
+   "joint_limits": {
+    "lower": [
+     -3.141592653589793,
+     -3.141592653589793,
+     -3.141592653589793,
+     -3.141592653589793,
+     -3.141592653589793,
+     -3.141592653589793
+    ],
+    "upper": [
+     3.141592653589793,
+     3.141592653589793,
+     3.141592653589793,
+     3.141592653589793,
+     3.141592653589793,
+     3.141592653589793
+    ]
+   }
+  },
+  {
+   "type": "ur5e_hande",
+   "name": "ur5e_1",
+   "base": {
+    "position": [
+     -0.5,
+     -0.72,
+     0.75
+    ],
+    "quaternion_xyzw": [
+     0.0,
+     0.0,
+     1.0,
+     0.0
+    ]
+   },
+   "start": [
+    0.0,
+    -1.570796,
+    1.570796,
+    1.570796,
+    1.570796,
+    0.0
+   ],
+   "joint_limits": {
+    "lower": [
+     -3.141592653589793,
+     -3.141592653589793,
+     -3.141592653589793,
+     -3.141592653589793,
+     -3.141592653589793,
+     -3.141592653589793
+    ],
+    "upper": [
+     3.141592653589793,
+     3.141592653589793,
+     3.141592653589793,
+     3.141592653589793,
+     3.141592653589793,
+     3.141592653589793
+    ]
+   }
+  }
+ ],
+ "lazydash": {
+  "objects": [
+   {
+    "name": "block_0",
+    "shape": {
+     "type": "box",
+     "size": [
+      0.038,
+      0.038,
+      0.038
+     ]
+    },
+    "collision_radius": 0.025,
+    "start": {
+     "position": [
+      0.02,
+      1.0,
+      1.22
+     ],
+     "rpy": [
+      0.0,
+      -1.570796,
+      0.0
+     ]
+    },
+    "goals": [
+     {
+      "position": [
+       0.01,
+       1.0,
+       1.22
+      ],
+      "rpy": [
+       0.0,
+       1.570796,
+       0.0
+      ]
+     },
+     {
+      "position": [
+       0.01,
+       1.0,
+       1.22
+      ],
+      "rpy": [
+       0.0,
+       -1.570796,
+       0.0
+      ]
+     }
+    ]
+   },
+   {
+    "name": "block_1",
+    "shape": {
+     "type": "box",
+     "size": [
+      0.038,
+      0.038,
+      0.038
+     ]
+    },
+    "collision_radius": 0.025,
+    "start": {
+     "position": [
+      0.08,
+      1.0,
+      1.22
+     ],
+     "rpy": [
+      0.0,
+      -1.570796,
+      0.0
+     ]
+    },
+    "goals": [
+     {
+      "position": [
+       0.07,
+       1.0,
+       1.22
+      ],
+      "rpy": [
+       0.0,
+       1.570796,
+       0.0
+      ]
+     },
+     {
+      "position": [
+       0.07,
+       1.0,
+       1.22
+      ],
+      "rpy": [
+       0.0,
+       -1.570796,
+       0.0
+      ]
+     }
+    ]
+   },
+   {
+    "name": "block_2",
+    "shape": {
+     "type": "box",
+     "size": [
+      0.038,
+      0.038,
+      0.038
+     ]
+    },
+    "collision_radius": 0.025,
+    "start": {
+     "position": [
+      -0.7,
+      -1.11,
+      0.75
+     ],
+     "rpy": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "goals": [
+     {
+      "position": [
+       0.13,
+       1.0,
+       1.22
+      ],
+      "rpy": [
+       0.0,
+       1.570796,
+       0.0
+      ]
+     },
+     {
+      "position": [
+       0.13,
+       1.0,
+       1.22
+      ],
+      "rpy": [
+       0.0,
+       -1.570796,
+       0.0
+      ]
+     }
+    ]
+   }
+  ],
+  "grasps": [
+   {
+    "name": "upright",
+    "link": "flange",
+    "translation": [
+     0.12,
+     0.0,
+     0.0
+    ],
+    "rpy": [
+     0.0,
+     -1.57,
+     0.0
+    ],
+    "approach_translation": [
+     0.19,
+     0.0,
+     0.0
+    ]
+   },
+   {
+    "name": "flipped",
+    "link": "flange",
+    "translation": [
+     0.12,
+     0.0,
+     0.0
+    ],
+    "rpy": [
+     1.57,
+     0.0,
+     1.57
+    ],
+    "approach_translation": [
+     0.19,
+     0.0,
+     0.0
+    ]
+   }
+  ],
+  "params": {
+   "robot_range": 1.0,
+   "handover_max_base_distance": 1.6,
+   "planning_padding": 0.005,
+   "handover_region": {
+    "xy_half_width": 0.05,
+    "z_above_base": [
+     0.65,
+     0.9
+    ],
+    "attempts": 1000
+   }
+  },
+  "placement_regions": [
+   {
+    "min": [
+     -1.1,
+     0.2,
+     0.75
+    ],
+    "max": [
+     -0.8,
+     0.8,
+     0.75
+    ],
+    "yaw": [
+     -3.141593,
+     3.141593
+    ],
+    "source": "passive_0",
+    "object": 0
+   },
+   {
+    "min": [
+     -0.2,
+     0.2,
+     0.75
+    ],
+    "max": [
+     -0.0,
+     0.8,
+     0.75
+    ],
+    "yaw": [
+     -3.141593,
+     3.141593
+    ],
+    "source": "passive_1",
+    "object": 1
+   }
+  ],
+  "approximations": [
+   {
+    "label": "plane_3",
+    "box": {
+     "min": [
+      -4.0,
+      -4.0,
+      -0.01
+     ],
+     "max": [
+      4.0,
+      4.0,
+      0.685
+     ]
+    },
+    "primitives": 1,
+    "max_outward_error": 1.656854,
+    "note": "top/bottom exact; side error only beyond the slab edges"
+   },
+   {
+    "label": "stocking_5_0",
+    "box": {
+     "min": [
+      0.022189,
+      1.186864,
+      0.914002
+     ],
+     "max": [
+      0.237811,
+      1.1968,
+      1.385998
+     ]
+    },
+    "primitives": 23,
+    "max_outward_error": 0.001862
+   },
+   {
+    "label": "stocking_5_1",
+    "box": {
+     "min": [
+      0.022189,
+      0.2032,
+      0.914002
+     ],
+     "max": [
+      0.237811,
+      0.213136,
+      1.385998
+     ]
+    },
+    "primitives": 23,
+    "max_outward_error": 0.001862
+   },
+   {
+    "label": "stocking_5_2",
+    "box": {
+     "min": [
+      0.229186,
+      0.2032,
+      0.914002
+     ],
+     "max": [
+      0.237811,
+      1.1968,
+      1.385998
+     ]
+    },
+    "primitives": 52,
+    "max_outward_error": 0.001948
+   },
+   {
+    "label": "stocking_5_3",
+    "box": {
+     "min": [
+      0.022189,
+      0.2032,
+      0.914002
+     ],
+     "max": [
+      0.237811,
+      1.1968,
+      0.930522
+     ]
+    },
+    "primitives": 18,
+    "max_outward_error": 0.001943
+   },
+   {
+    "label": "stocking_5_4",
+    "box": {
+     "min": [
+      0.022189,
+      0.2032,
+      1.369478
+     ],
+     "max": [
+      0.237811,
+      1.1968,
+      1.385998
+     ]
+    },
+    "primitives": 18,
+    "max_outward_error": 0.001943
+   },
+   {
+    "label": "stocking_5_5",
+    "box": {
+     "min": [
+      0.022189,
+      0.213136,
+      1.146067
+     ],
+     "max": [
+      0.229186,
+      1.186864,
+      1.153933
+     ]
+    },
+    "primitives": 24,
+    "max_outward_error": 0.001903
+   },
+   {
+    "label": "stocking_7_0",
+    "box": {
+     "min": [
+      0.022189,
+      -0.213136,
+      0.914002
+     ],
+     "max": [
+      0.237811,
+      -0.2032,
+      1.385998
+     ]
+    },
+    "primitives": 23,
+    "max_outward_error": 0.001862
+   },
+   {
+    "label": "stocking_7_1",
+    "box": {
+     "min": [
+      0.022189,
+      -1.1968,
+      0.914002
+     ],
+     "max": [
+      0.237811,
+      -1.186864,
+      1.385998
+     ]
+    },
+    "primitives": 23,
+    "max_outward_error": 0.001862
+   },
+   {
+    "label": "stocking_7_2",
+    "box": {
+     "min": [
+      0.229186,
+      -1.1968,
+      0.914002
+     ],
+     "max": [
+      0.237811,
+      -0.2032,
+      1.385998
+     ]
+    },
+    "primitives": 52,
+    "max_outward_error": 0.001948
+   },
+   {
+    "label": "stocking_7_3",
+    "box": {
+     "min": [
+      0.022189,
+      -1.1968,
+      0.914002
+     ],
+     "max": [
+      0.237811,
+      -0.2032,
+      0.930522
+     ]
+    },
+    "primitives": 18,
+    "max_outward_error": 0.001943
+   },
+   {
+    "label": "stocking_7_4",
+    "box": {
+     "min": [
+      0.022189,
+      -1.1968,
+      1.369478
+     ],
+     "max": [
+      0.237811,
+      -0.2032,
+      1.385998
+     ]
+    },
+    "primitives": 18,
+    "max_outward_error": 0.001943
+   },
+   {
+    "label": "stocking_7_5",
+    "box": {
+     "min": [
+      0.022189,
+      -1.186864,
+      1.146067
+     ],
+     "max": [
+      0.229186,
+      -0.213136,
+      1.153933
+     ]
+    },
+    "primitives": 24,
+    "max_outward_error": 0.001903
+   }
+  ],
+  "source": {
+   "scenario": "Stocking: 2 robots / 3 layers",
+   "objects": 3
+  }
+ }
+}

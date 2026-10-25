@@ -1,0 +1,139 @@
+{
+  "arm_joints": [
+    "ur5e_shoulder_pan_joint",
+    "ur5e_shoulder_lift_joint",
+    "ur5e_elbow_joint",
+    "ur5e_wrist_1_joint",
+    "ur5e_wrist_2_joint",
+    "ur5e_wrist_3_joint"
+  ],
+  "collision_meshes": {
+    "base_link_inertia": {
+      "source": "meshes/ur_description/meshes/ur5e/collision/base_v1.obj",
+      "triangles": 420
+    },
+    "shoulder_link": {
+      "source": "meshes/ur_description/meshes/ur5e/collision/shoulder_v1.obj",
+      "triangles": 1400
+    },
+    "upper_arm_link": {
+      "source": "meshes/ur_description/meshes/ur5e/collision/upperarm_v1.obj",
+      "triangles": 1992
+    },
+    "forearm_link": {
+      "source": "meshes/ur_description/meshes/ur5e/collision/forearm_v1.obj",
+      "triangles": 1064
+    },
+    "wrist_1_link": {
+      "source": "meshes/ur_description/meshes/ur5e/collision/wrist1_v1.obj",
+      "triangles": 1190
+    },
+    "wrist_2_link": {
+      "source": "meshes/ur_description/meshes/ur5e/collision/wrist2_v1.obj",
+      "triangles": 1350
+    },
+    "wrist_3_link": {
+      "source": "meshes/ur_description/meshes/ur5e/collision/wrist3_v1.obj",
+      "triangles": 142
+    },
+    "robotiq_hande_base_link": {
+      "source": "meshes/robotiq_hande_gripper_visualization/meshes/hande/hande-e.obj",
+      "triangles": 37094,
+      "hull_triangles": 162
+    },
+    "left_finger": {
+      "source": "meshes/robotiq_hande_gripper_visualization/meshes/hande/finger_1.obj",
+      "triangles": 3526,
+      "hull_triangles": 52
+    },
+    "right_finger": {
+      "source": "meshes/robotiq_hande_gripper_visualization/meshes/hande/finger_1.obj",
+      "triangles": 3526,
+      "hull_triangles": 52
+    }
+  },
+  "disabled_pairs": {
+    "base_link_inertia|shoulder_link": "Adjacent",
+    "forearm_link|upper_arm_link": "Adjacent",
+    "forearm_link|wrist_1_link": "Adjacent",
+    "forearm_link|wrist_2_link": "Never (100000 samples)",
+    "left_finger|right_finger": "Same rigid body",
+    "left_finger|robotiq_hande_base_link": "Same rigid body",
+    "left_finger|wrist_1_link": "Never (100000 samples)",
+    "left_finger|wrist_2_link": "Adjacent",
+    "left_finger|wrist_3_link": "Same rigid body",
+    "right_finger|robotiq_hande_base_link": "Same rigid body",
+    "right_finger|wrist_1_link": "Never (100000 samples)",
+    "right_finger|wrist_2_link": "Adjacent",
+    "right_finger|wrist_3_link": "Same rigid body",
+    "robotiq_hande_base_link|wrist_1_link": "Never (100000 samples)",
+    "robotiq_hande_base_link|wrist_2_link": "Adjacent",
+    "robotiq_hande_base_link|wrist_3_link": "Same rigid body",
+    "shoulder_link|upper_arm_link": "Adjacent",
+    "wrist_1_link|wrist_2_link": "Adjacent",
+    "wrist_1_link|wrist_3_link": "Never (100000 samples)",
+    "wrist_2_link|wrist_3_link": "Adjacent"
+  },
+  "spheres": {
+    "base_link_inertia": {
+      "spheres": 15,
+      "max_radius": 0.0508,
+      "surface_within_tol": 0.9679,
+      "max_gap": 0.0202
+    },
+    "shoulder_link": {
+      "spheres": 10,
+      "max_radius": 0.062,
+      "surface_within_tol": 0.9681,
+      "max_gap": 0.019
+    },
+    "upper_arm_link": {
+      "spheres": 24,
+      "max_radius": 0.0626,
+      "surface_within_tol": 0.8548,
+      "max_gap": 0.0309
+    },
+    "forearm_link": {
+      "spheres": 24,
+      "max_radius": 0.0525,
+      "surface_within_tol": 0.9475,
+      "max_gap": 0.0232
+    },
+    "wrist_1_link": {
+      "spheres": 4,
+      "max_radius": 0.0417,
+      "surface_within_tol": 0.9851,
+      "max_gap": 0.0145
+    },
+    "wrist_2_link": {
+      "spheres": 3,
+      "max_radius": 0.0418,
+      "surface_within_tol": 0.9721,
+      "max_gap": 0.0166
+    },
+    "wrist_3_link": {
+      "spheres": 3,
+      "max_radius": 0.0378,
+      "surface_within_tol": 0.9816,
+      "max_gap": 0.0142
+    },
+    "robotiq_hande_base_link": {
+      "spheres": 5,
+      "max_radius": 0.0416,
+      "surface_within_tol": 0.9921,
+      "max_gap": 0.014
+    },
+    "left_finger": {
+      "spheres": 3,
+      "max_radius": 0.0181,
+      "surface_within_tol": 0.9993,
+      "max_gap": 0.0123
+    },
+    "right_finger": {
+      "spheres": 3,
+      "max_radius": 0.0181,
+      "surface_within_tol": 0.9996,
+      "max_gap": 0.0125
+    }
+  }
+}

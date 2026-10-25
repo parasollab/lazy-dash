@@ -1,0 +1,6 @@
+# Source and data files are LF everywhere (builds run on Linux).
+* text=auto eol=lf
+*.obj -text
+*.dae -text
+*.stl -text
+*.png binary

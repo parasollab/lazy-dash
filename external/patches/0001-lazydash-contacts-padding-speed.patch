@@ -1,0 +1,1140 @@
+lazydash patches to CoMotion (public main 1240ba0). Applied by external/bootstrap_comotion.sh.
+
+1. RobotModel copies are safe: the copy constructor/assignment rebuild the
+   active-joint table (it pointed into the source's joints_) and give the copy
+   a new instanceId(). The Fcl and Vamp backends key per-model caches on
+   instanceId() instead of the model address, which a later model can reuse.
+2. Allowed inter-robot contacts: RobotModel::setContactId / allowContact /
+   contactAllowed. Every inter-robot check of the Spheres and Fcl backends
+   skips allowed link pairs (gripper fingers on the grasped object, a
+   receiver's fingers on a handed-over object). The Vamp backend refuses
+   models with allowed contacts (its kernels cannot skip link pairs).
+3. Collision padding: RobotModel::setCollisionPadding, added to sphere radii
+   in environment and inter-robot checks of the Spheres backend, never in
+   self-collision checks. Fcl and Vamp refuse a nonzero padding.
+4. Speed: Fcl tests geometry with the geometry-level fcl::collide plus a
+   bounding-sphere pretest (building a CollisionObject per test recomputed the
+   mesh AABB from every vertex: ~80% of all instructions); self-collision
+   pairs are looked up in a precomputed link mask instead of a string set;
+   FK reads joint values by precomputed index instead of a std::map; the
+   Spheres and Fcl backends skip robot pairs whose bounding spheres are
+   apart.
+   Measured (UR5e + Hand-e, one arm, clutter): Spheres 16.6k -> 120-217k
+   full checks/s, Fcl meshes 1.4k -> 29-35k full checks/s, same results.
+5. Composite path scans (findFirstCompositePathConflict, Spheres and Fcl):
+   each robot is posed once per timestep instead of once per pair, and a
+   pair whose robots both keep their configuration from the previous
+   timestep (valid then) is not re-checked. Fcl mesh geometry (loaded file +
+   BVH) is shared by every model using the same mesh, so model copies (new
+   instanceId) no longer reload and rebuild it.
+   Measured (16 arms, 4 blocks, layer-4 scans): 32.8 s -> 0.4 s, same
+   schedules.
+
+diff --git a/src/comotion/collision/CollisionChecker.cpp b/src/comotion/collision/CollisionChecker.cpp
+index 36631d6..57c9e28 100644
+--- a/src/comotion/collision/CollisionChecker.cpp
++++ b/src/comotion/collision/CollisionChecker.cpp
+@@ -1,4 +1,6 @@
+ #include "comotion/collision/CollisionChecker.h"
++
++#include <stdexcept>
+ #include "comotion/collision/detail/CollisionBackend.h"
+ 
+ #include <chrono>
+@@ -122,6 +124,29 @@ private:
+ 
+ } // namespace
+ 
++// Model options the backends cannot honour are refused rather than ignored:
++// allowed inter-robot contacts (RobotModel::allowContact) need per-link-pair
++// filtering, which the Vamp backend's SIMD kernels lack; collision padding is
++// implemented for spheres only (Fcl and Vamp check exact geometry).
++static void rejectUnsupportedModelOptions(
++    CollisionChecker::Backend backend,
++    const std::vector<const RobotModel *> &robots) {
++    for (const RobotModel *robot : robots) {
++        if (!robot)
++            continue;
++        if (backend == CollisionChecker::Backend::Vamp &&
++            robot->hasAllowedContacts())
++            throw std::invalid_argument(
++                "CollisionChecker: allowed inter-robot contacts are not "
++                "supported by the Vamp backend");
++        if (backend != CollisionChecker::Backend::Spheres &&
++            robot->collisionPadding() != 0.0)
++            throw std::invalid_argument(
++                "CollisionChecker: collision padding is only supported by "
++                "the Spheres backend");
++    }
++}
++
+ struct CollisionChecker::Impl {
+     std::unique_ptr<detail::CollisionBackend> backend;
+ 
+@@ -211,6 +236,7 @@ ValidationTimingStats CollisionChecker::validationTimingStats() {
+ 
+ bool CollisionChecker::isValidSingle(const RobotModel &robot,
+                                      const std::vector<double> &config) const {
++    rejectUnsupportedModelOptions(backend_, {&robot});
+     return impl_->backend->isValidSingle(robot, config, obstacles_, cylinders_);
+ }
+ 
+@@ -228,6 +254,7 @@ bool CollisionChecker::isValidPair(const RobotModel &robot_a,
+                                    const std::vector<double> &config_a,
+                                    const RobotModel &robot_b,
+                                    const std::vector<double> &config_b) const {
++    rejectUnsupportedModelOptions(backend_, {&robot_a, &robot_b});
+     return impl_->backend->isValidPair(robot_a, config_a, robot_b, config_b);
+ }
+ 
+@@ -254,12 +281,14 @@ bool CollisionChecker::isMotionValid(const RobotModel &robot,
+                                      const std::vector<double> &from,
+                                      const std::vector<double> &to,
+                                      int num_checks) const {
++    rejectUnsupportedModelOptions(backend_, {&robot});
+     return impl_->backend->isMotionValid(robot, from, to, num_checks,
+                                          obstacles_, cylinders_);
+ }
+ 
+ bool CollisionChecker::isRobotPathValid(const RobotModel &robot,
+                                         const Path &path) const {
++    rejectUnsupportedModelOptions(backend_, {&robot});
+     return impl_->backend->isRobotPathValid(robot, path, obstacles_,
+                                             cylinders_);
+ }
+@@ -270,6 +299,7 @@ bool CollisionChecker::isPairPathValid(
+     std::size_t t_begin, std::size_t t_end) const {
+     const ScopedValidationTiming timer(ValidationTimingOp::PairPath,
+                                        *impl_->backend);
++    rejectUnsupportedModelOptions(backend_, {&robot_a, &robot_b});
+     return impl_->backend->isPairPathValid(robot_a, path_a, robot_b, path_b,
+                                            t_begin, t_end);
+ }
+@@ -280,6 +310,7 @@ std::optional<PairPathConflict> CollisionChecker::findFirstPairPathConflict(
+     std::size_t t_begin, std::size_t t_end) const {
+     const ScopedValidationTiming timer(ValidationTimingOp::PairPathConflict,
+                                        *impl_->backend);
++    rejectUnsupportedModelOptions(backend_, {&robot_a, &robot_b});
+     return impl_->backend->findFirstPairPathConflict(
+         robot_a, path_a, robot_b, path_b, t_begin, t_end);
+ }
+@@ -291,6 +322,7 @@ GoalHoldConstraint CollisionChecker::computeGoalHoldConstraint(
+     const Path &prior_path) const {
+     const ScopedValidationTiming timer(ValidationTimingOp::GoalHoldConstraint,
+                                        *impl_->backend);
++    rejectUnsupportedModelOptions(backend_, {&goal_robot, &prior_robot});
+     return impl_->backend->computeGoalHoldConstraint(
+         goal_robot, goal_config, prior_robot, prior_path);
+ }
+@@ -302,6 +334,7 @@ bool CollisionChecker::isCompositeMotionValid(
+     const CompositePathValidationOptions &options) const {
+     const ScopedValidationTiming timer(ValidationTimingOp::CompositeMotion,
+                                        *impl_->backend);
++    rejectUnsupportedModelOptions(backend_, robots);
+     return impl_->backend->isCompositeMotionValid(robots, from, to, options,
+                                                   obstacles_, cylinders_);
+ }
+@@ -314,6 +347,7 @@ CollisionChecker::findFirstCompositeMotionConflict(
+     const CompositePathValidationOptions &options) const {
+     const ScopedValidationTiming timer(
+         ValidationTimingOp::CompositeMotionConflict, *impl_->backend);
++    rejectUnsupportedModelOptions(backend_, robots);
+     return impl_->backend->findFirstCompositeMotionConflict(
+         robots, from, to, options, obstacles_, cylinders_);
+ }
+@@ -324,6 +358,7 @@ bool CollisionChecker::validateCompositePaths(
+     const CompositePathValidationOptions &options) const {
+     const ScopedValidationTiming timer(ValidationTimingOp::CompositePaths,
+                                        *impl_->backend);
++    rejectUnsupportedModelOptions(backend_, robots);
+     return impl_->backend->validateCompositePaths(paths, robots, options,
+                                                   obstacles_, cylinders_);
+ }
+@@ -336,6 +371,7 @@ CollisionChecker::findFirstCompositePathConflict(
+     std::vector<std::size_t> *next_t_begin_by_robot_out) const {
+     const ScopedValidationTiming timer(ValidationTimingOp::CompositePathConflict,
+                                        *impl_->backend);
++    rejectUnsupportedModelOptions(backend_, robots);
+     return impl_->backend->findFirstCompositePathConflict(
+         paths, robots, options, obstacles_, cylinders_,
+         next_t_begin_by_robot_out);
+@@ -352,6 +388,7 @@ CollisionChecker::findInterRobotPathConflictsCompositeScan(
+     std::vector<std::size_t> *next_t_begin_by_pair_out) const {
+     const ScopedValidationTiming timer(
+         ValidationTimingOp::InterRobotPathConflictsScan, *impl_->backend);
++    rejectUnsupportedModelOptions(backend_, robots);
+     return impl_->backend->findInterRobotPathConflictsCompositeScan(
+         paths, robots, options, max_conflicts, unique, on_conflict, obstacles_,
+         cylinders_, next_t_begin_by_robot_out, next_t_begin_by_pair_out);
+diff --git a/src/comotion/collision/FclCollisionBackend.cpp b/src/comotion/collision/FclCollisionBackend.cpp
+index bddbe8b..707408a 100644
+--- a/src/comotion/collision/FclCollisionBackend.cpp
++++ b/src/comotion/collision/FclCollisionBackend.cpp
+@@ -2,6 +2,7 @@
+ #include "comotion/collision/detail/ValidationUtils.h"
+ #include "comotion/planning/detail/PosixProcess.h"
+ 
++#include <mutex>
+ #include <fcl/geometry/bvh/BVH_model.h>
+ #include <fcl/geometry/shape/box.h>
+ #include <fcl/geometry/shape/cylinder.h>
+@@ -710,6 +711,27 @@ static CollisionGeometryPtr makeMeshGeometry(const CollisionMesh &cm) {
+     return model;
+ }
+ 
++// Compute the local AABB / bounding sphere once (used by fclPairCollide).
++static CollisionGeometryPtr prepareGeometry(CollisionGeometryPtr geom) {
++    geom->computeLocalAABB();
++    return geom;
++}
++
++// One prepared BVH per distinct mesh (file, scale, origin), shared by every
++// model and copy that uses it.
++static CollisionGeometryPtr sharedMeshGeometry(const CollisionMesh &cm) {
++    static std::mutex mutex;
++    static std::map<std::string, CollisionGeometryPtr> cache;
++    std::ostringstream key;
++    key.precision(17);
++    key << cm.resolved_path << '|' << cm.scale.transpose() << '|' << cm.origin.matrix();
++    std::lock_guard<std::mutex> lock(mutex);
++    auto &geom = cache[key.str()];
++    if (!geom)
++        geom = prepareGeometry(makeMeshGeometry(cm));
++    return geom;
++}
++
+ struct GeomPrim {
+     CollisionGeometryPtr geom;
+     Transform3 tf_link;
+@@ -725,7 +747,7 @@ static std::vector<GeomPrim> buildPrimsForRobot(const RobotModel &robot) {
+     for (const auto &link : robot.links()) {
+         for (const auto &sph : link.collision_spheres) {
+             GeomPrim g;
+-            g.geom = std::make_shared<fcl::Sphere<S>>(sph.radius);
++            g.geom = prepareGeometry(std::make_shared<fcl::Sphere<S>>(sph.radius));
+             g.tf_link = Transform3(fcl::Translation3<S>(
+                 Vector3(sph.center.x(), sph.center.y(), sph.center.z())));
+             g.link_index = link.index;
+@@ -733,23 +755,23 @@ static std::vector<GeomPrim> buildPrimsForRobot(const RobotModel &robot) {
+         }
+         for (const auto &box : link.collision_boxes) {
+             GeomPrim g;
+-            g.geom = std::make_shared<fcl::Box<S>>(
+-                box.size.x(), box.size.y(), box.size.z());
++            g.geom = prepareGeometry(std::make_shared<fcl::Box<S>>(
++                box.size.x(), box.size.y(), box.size.z()));
+             g.tf_link = eigenAffineToFcl(box.origin);
+             g.link_index = link.index;
+             prims.push_back(std::move(g));
+         }
+         for (const auto &cylinder : link.collision_cylinders) {
+             GeomPrim g;
+-            g.geom = std::make_shared<fcl::Cylinder<S>>(cylinder.radius,
+-                                                        cylinder.length);
++            g.geom = prepareGeometry(std::make_shared<fcl::Cylinder<S>>(
++                cylinder.radius, cylinder.length));
+             g.tf_link = eigenAffineToFcl(cylinder.origin);
+             g.link_index = link.index;
+             prims.push_back(std::move(g));
+         }
+         for (const auto &mesh : link.collision_meshes) {
+             GeomPrim g;
+-            g.geom = makeMeshGeometry(mesh);
++            g.geom = sharedMeshGeometry(mesh);
+             g.tf_link = Transform3::Identity();
+             g.link_index = link.index;
+             prims.push_back(std::move(g));
+@@ -758,15 +780,49 @@ static std::vector<GeomPrim> buildPrimsForRobot(const RobotModel &robot) {
+     return prims;
+ }
+ 
++// Geometries must come from prepareGeometry().
++// Building an fcl::CollisionObject per test recomputes it from every mesh
++// vertex, which dominated the cost of a check; the geometry-level collide()
++// does not. A bounding-sphere test skips pairs that are far apart.
++/// World bounding sphere of a robot's primitives at the given link transforms.
++static std::pair<Vector3, S> robotBounds(const std::vector<GeomPrim> &prims,
++                                         const std::vector<Eigen::Affine3d> &link_tf) {
++    Vector3 c = Vector3::Zero();
++    std::vector<Vector3> centers;
++    centers.reserve(prims.size());
++    for (const auto &prim : prims) {
++        const Transform3 T = eigenAffineToFcl(link_tf[static_cast<std::size_t>(prim.link_index)]) * prim.tf_link;
++        centers.push_back(T * prim.geom->aabb_center);
++        c += centers.back();
++    }
++    c /= static_cast<S>(prims.size());
++    S r = 0;
++    for (std::size_t i = 0; i < prims.size(); ++i)
++        r = std::max(r, (centers[i] - c).norm() + prims[i].geom->aabb_radius);
++    return {c, r};
++}
++
++/// Two robots whose bounding spheres are apart cannot collide.
++static bool robotsApart(const std::vector<GeomPrim> &pa, const std::vector<Eigen::Affine3d> &tfa,
++                        const std::vector<GeomPrim> &pb, const std::vector<Eigen::Affine3d> &tfb) {
++    const auto [ca, ra] = robotBounds(pa, tfa);
++    const auto [cb, rb] = robotBounds(pb, tfb);
++    return (ca - cb).squaredNorm() > (ra + rb) * (ra + rb);
++}
++
+ static bool fclPairCollide(const CollisionGeometryPtr &ga, const Transform3 &Ta,
+                            const CollisionGeometryPtr &gb, const Transform3 &Tb) {
+-    fcl::CollisionObject<S> oa(ga, Ta);
+-    fcl::CollisionObject<S> ob(gb, Tb);
++    const Vector3 ca = Ta * ga->aabb_center;
++    const Vector3 cb = Tb * gb->aabb_center;
++    const S reach = ga->aabb_radius + gb->aabb_radius;
++    if ((ca - cb).squaredNorm() > reach * reach)
++        return false;
+     fcl::CollisionRequest<S> req(1, false);
+     fcl::CollisionResult<S> res;
+-    return fcl::collide(&oa, &ob, req, res) > 0;
++    return fcl::collide(ga.get(), Ta, gb.get(), Tb, req, res) > 0;
+ }
+ 
++
+ static Transform3 cylinderWorldPose(const ObstacleCylinder &cyl) {
+     Eigen::Vector3d ez(0, 0, 1);
+     Eigen::Matrix3d Rmat = Eigen::Matrix3d::Identity();
+@@ -810,7 +866,7 @@ public:
+         env_geoms_.clear();
+         env_transforms_.clear();
+         for (const auto &o : env_spheres_) {
+-            auto g = std::make_shared<fcl::Sphere<S>>(o.radius);
++            auto g = prepareGeometry(std::make_shared<fcl::Sphere<S>>(o.radius));
+             Transform3 T = Transform3::Identity();
+             T.translation() =
+                 Vector3(o.center.x(), o.center.y(), o.center.z());
+@@ -819,14 +875,14 @@ public:
+         }
+         for (const auto &c : env_cylinders_) {
+             double lz = 2.0 * c.half_height;
+-            auto g = std::make_shared<fcl::Cylinder<S>>(c.radius, lz);
++            auto g = prepareGeometry(std::make_shared<fcl::Cylinder<S>>(c.radius, lz));
+             env_geoms_.push_back(std::move(g));
+             env_transforms_.push_back(cylinderWorldPose(c));
+         }
+     }
+ 
+     const RobotPrimCache &robotCache(const RobotModel &robot) const {
+-        const RobotModel *key = &robot;
++        const std::uint64_t key = robot.instanceId();
+         auto it = robot_cache_.find(key);
+         if (it != robot_cache_.end())
+             return it->second;
+@@ -875,9 +931,8 @@ public:
+             for (size_t j = i + 1; j < prims.size(); ++j) {
+                 if (prims[i].link_index == prims[j].link_index)
+                     continue;
+-                const auto &li = robot.links()[static_cast<size_t>(prims[i].link_index)];
+-                const auto &lj = robot.links()[static_cast<size_t>(prims[j].link_index)];
+-                if (robot.isSelfCollisionDisabled(li.name, lj.name))
++                if (robot.isSelfCollisionDisabled(prims[i].link_index,
++                                                  prims[j].link_index))
+                     continue;
+                 Transform3 Twj =
+                     eigenAffineToFcl(
+@@ -890,6 +945,58 @@ public:
+         return true;
+     }
+ 
++    /// A robot posed once: world transform of every primitive and the
++    /// bounding sphere, shared by all pair checks at one timestep.
++    struct PosedRobot {
++        const RobotPrimCache *cache = nullptr;
++        std::vector<Transform3> world;
++        Vector3 center = Vector3::Zero();
++        S radius = 0;
++    };
++
++    void poseRobot(const RobotModel &robot, const std::vector<double> &config,
++                   PosedRobot &out) const {
++        out.cache = &robotCache(robot);
++        const auto &prims = out.cache->prims;
++        out.world.resize(prims.size());
++        if (prims.empty())
++            return;
++        const auto link_tf = robot.getLinkTransforms(config);
++        out.center = Vector3::Zero();
++        std::vector<Vector3> centers(prims.size());
++        for (std::size_t k = 0; k < prims.size(); ++k) {
++            out.world[k] = eigenAffineToFcl(link_tf[static_cast<std::size_t>(prims[k].link_index)]) *
++                           prims[k].tf_link;
++            centers[k] = out.world[k] * prims[k].geom->aabb_center;
++            out.center += centers[k];
++        }
++        out.center /= static_cast<S>(prims.size());
++        out.radius = 0;
++        for (std::size_t k = 0; k < prims.size(); ++k)
++            out.radius = std::max(out.radius, (centers[k] - out.center).norm() + prims[k].geom->aabb_radius);
++    }
++
++    /// isValidPair on posed robots (same tests, same order).
++    bool posedPairValid(const RobotModel &robot_a, const PosedRobot &a,
++                        const RobotModel &robot_b, const PosedRobot &b) const {
++        const auto &pa = a.cache->prims;
++        const auto &pb = b.cache->prims;
++        if (pa.empty() || pb.empty())
++            return true;
++        if ((a.center - b.center).squaredNorm() > (a.radius + b.radius) * (a.radius + b.radius))
++            return true;
++        const bool filter = RobotModel::mayAllowContact(robot_a, robot_b);
++        for (std::size_t x = 0; x < pa.size(); ++x)
++            for (std::size_t y = 0; y < pb.size(); ++y) {
++                if (filter && RobotModel::contactAllowed(robot_a, pa[x].link_index,
++                                                         robot_b, pb[y].link_index))
++                    continue;
++                if (fclPairCollide(pa[x].geom, a.world[x], pb[y].geom, b.world[y]))
++                    return false;
++            }
++        return true;
++    }
++
+     bool isValidPair(const RobotModel &robot_a,
+                      const std::vector<double> &config_a,
+                      const RobotModel &robot_b,
+@@ -901,6 +1008,9 @@ public:
+ 
+         auto tfa = robot_a.getLinkTransforms(config_a);
+         auto tfb = robot_b.getLinkTransforms(config_b);
++        if (robotsApart(ca.prims, tfa, cb.prims, tfb))
++            return true;
++        const bool filter = RobotModel::mayAllowContact(robot_a, robot_b);
+         for (const auto &pa : ca.prims) {
+             Transform3 Twa =
+                 eigenAffineToFcl(tfa[static_cast<size_t>(pa.link_index)]) *
+@@ -909,6 +1019,9 @@ public:
+                 Transform3 Twb =
+                     eigenAffineToFcl(tfb[static_cast<size_t>(pb.link_index)]) *
+                     pb.tf_link;
++                if (filter && RobotModel::contactAllowed(robot_a, pa.link_index,
++                                                         robot_b, pb.link_index))
++                    continue;
+                 if (fclPairCollide(pa.geom, Twa, pb.geom, Twb))
+                     return false;
+             }
+@@ -955,11 +1068,8 @@ public:
+             for (std::size_t j = i + 1; j < prims.size(); ++j) {
+                 if (prims[i].link_index == prims[j].link_index)
+                     continue;
+-                const auto &link_i =
+-                    robot.links()[static_cast<std::size_t>(prims[i].link_index)];
+-                const auto &link_j =
+-                    robot.links()[static_cast<std::size_t>(prims[j].link_index)];
+-                if (robot.isSelfCollisionDisabled(link_i.name, link_j.name))
++                if (robot.isSelfCollisionDisabled(prims[i].link_index,
++                                                  prims[j].link_index))
+                     continue;
+                 const Transform3 world_j =
+                     eigenAffineToFcl(
+@@ -986,12 +1096,17 @@ public:
+         bool valid = true;
+         const auto transforms_a = robot_a.getLinkTransforms(config_a);
+         const auto transforms_b = robot_b.getLinkTransforms(config_b);
++        const bool filter = RobotModel::mayAllowContact(robot_a, robot_b);
+         for (const auto &prim_a : prims_a) {
+             const Transform3 world_a =
+                 eigenAffineToFcl(
+                     transforms_a[static_cast<std::size_t>(prim_a.link_index)]) *
+                 prim_a.tf_link;
+             for (const auto &prim_b : prims_b) {
++                if (filter && RobotModel::contactAllowed(
++                                  robot_a, prim_a.link_index, robot_b,
++                                  prim_b.link_index))
++                    continue;
+                 const Transform3 world_b =
+                     eigenAffineToFcl(transforms_b[static_cast<std::size_t>(
+                                          prim_b.link_index)]) *
+@@ -1354,6 +1469,11 @@ public:
+             *std::min_element(effective_starts.begin(), effective_starts.end());
+         ActiveRobotSchedule schedule(effective_starts);
+         std::vector<std::size_t> active;
++        const std::size_t n = paths.size();
++        std::vector<std::vector<double>> scan_cfg(n), scan_prev(n);
++        std::vector<char> scan_posed(n, 0), scan_moved(n, 1);
++        std::vector<char> scan_pair_ok(n * (n - 1) / 2 + 1, 0);
++        std::vector<PosedRobot> scan_pose(n);
+         for (std::size_t t = global_begin; t < end; ++t) {
+             schedule.activateThrough(t, active);
+             if (options.check_environment) {
+@@ -1372,22 +1492,35 @@ public:
+                 }
+             }
+ 
++            // Each robot posed once per timestep (not once per pair); a pair
++            // whose robots both hold the configuration they had at t - 1,
++            // where the pair was valid, is valid again.
++            for (const std::size_t r : active) {
++                configAt(paths[r], t, scan_cfg[r]);
++                scan_moved[r] = !scan_posed[r] || scan_cfg[r] != scan_prev[r];
++                if (scan_moved[r]) {
++                    poseRobot(*robots[r], scan_cfg[r], scan_pose[r]);
++                    scan_prev[r] = scan_cfg[r];
++                    scan_posed[r] = 1;
++                }
++            }
+             for (std::size_t ai = 0; ai < active.size(); ++ai) {
+                 const std::size_t i = active[ai];
+                 for (std::size_t aj = ai + 1; aj < active.size(); ++aj) {
+                     const std::size_t j = active[aj];
+-                    if (effective_pair_starts[pairFrontierIndex(
+-                            i, j, paths.size())] > t)
++                    const std::size_t pair = pairFrontierIndex(i, j, paths.size());
++                    if (effective_pair_starts[pair] > t)
+                         continue;
+-                    const auto &config_i = configAt(paths[i], t);
+-                    const auto &config_j = configAt(paths[j], t);
+-                    if (!isValidPair(*robots[i], config_i, *robots[j], config_j)) {
++                    if (scan_pair_ok[pair] && !scan_moved[i] && !scan_moved[j])
++                        continue;
++                    if (!posedPairValid(*robots[i], scan_pose[i], *robots[j], scan_pose[j])) {
+                         return CompositeConflict{ConflictScope::InterRobot,
+                                                  static_cast<int>(i),
+                                                  static_cast<int>(j), t, 0.0,
+-                                                 ConflictKind::Vertex, config_i,
+-                                                 config_j};
++                                                 ConflictKind::Vertex, scan_cfg[i],
++                                                 scan_cfg[j]};
+                     }
++                    scan_pair_ok[pair] = 1;
+                 }
+             }
+             assignActivePathStarts(next_t_begin_by_robot_out, active, t + 1);
+@@ -1677,6 +1810,12 @@ private:
+ 
+                     const auto collision_wall_start = Clock::now();
+                     const double collision_cpu_start = processCpuSeconds();
++                    const RobotModel &robot_a = *robots[pair.robot_i];
++                    const RobotModel &robot_b = *robots[pair.robot_j];
++                    if (robotsApart(cache_a.prims, transforms_a, cache_b.prims, transforms_b))
++                        return true;
++                    const bool filter =
++                        RobotModel::mayAllowContact(robot_a, robot_b);
+                     for (const auto &prim_a : cache_a.prims) {
+                         Transform3 world_a =
+                             eigenAffineToFcl(
+@@ -1684,6 +1823,10 @@ private:
+                                     prim_a.link_index)]) *
+                             prim_a.tf_link;
+                         for (const auto &prim_b : cache_b.prims) {
++                            if (filter && RobotModel::contactAllowed(
++                                              robot_a, prim_a.link_index,
++                                              robot_b, prim_b.link_index))
++                                continue;
+                             Transform3 world_b =
+                                 eigenAffineToFcl(
+                                     transforms_b[static_cast<std::size_t>(
+@@ -2032,7 +2175,8 @@ private:
+     std::vector<ObstacleCylinder> env_cylinders_;
+     std::vector<CollisionGeometryPtr> env_geoms_;
+     std::vector<Transform3> env_transforms_;
+-    mutable std::unordered_map<const RobotModel *, RobotPrimCache> robot_cache_;
++    // Keyed on RobotModel::instanceId(): a model address can be reused.
++    mutable std::unordered_map<std::uint64_t, RobotPrimCache> robot_cache_;
+     mutable ValidationWorkStats last_work_stats_;
+ };
+ 
+diff --git a/src/comotion/collision/SphereCollisionBackend.cpp b/src/comotion/collision/SphereCollisionBackend.cpp
+index b17c12b..b556912 100644
+--- a/src/comotion/collision/SphereCollisionBackend.cpp
++++ b/src/comotion/collision/SphereCollisionBackend.cpp
+@@ -136,13 +136,14 @@ public:
+                        const std::vector<ObstacleSphere> &obstacles,
+                        const std::vector<ObstacleCylinder> &cylinders) const override {
+         auto spheres = robot.getCollisionSpheres(config);
++        const double pad = robot.collisionPadding();
+         for (auto &rs : spheres) {
+             for (auto &obs : obstacles) {
+-                if (spheresCollide(rs.center, rs.radius, obs.center, obs.radius))
++                if (spheresCollide(rs.center, rs.radius + pad, obs.center, obs.radius))
+                     return false;
+             }
+             for (auto &cyl : cylinders) {
+-                if (sphereCylinderCollide(rs.center, rs.radius, cyl))
++                if (sphereCylinderCollide(rs.center, rs.radius + pad, cyl))
+                     return false;
+             }
+         }
+@@ -158,9 +159,8 @@ public:
+                 if (spheres[i].link_index == spheres[j].link_index)
+                     continue;
+ 
+-                const auto &li = robot.links()[spheres[i].link_index];
+-                const auto &lj = robot.links()[spheres[j].link_index];
+-                if (robot.isSelfCollisionDisabled(li.name, lj.name))
++                if (robot.isSelfCollisionDisabled(spheres[i].link_index,
++                                                  spheres[j].link_index))
+                     continue;
+ 
+                 if (spheresCollide(spheres[i].center, spheres[i].radius,
+@@ -177,15 +177,72 @@ public:
+                      const std::vector<double> &config_b) const override {
+         auto spheres_a = robot_a.getCollisionSpheres(config_a);
+         auto spheres_b = robot_b.getCollisionSpheres(config_b);
+-        return areSphereSetsPairValid(spheres_a, spheres_b);
++        return areSphereSetsPairValid(spheres_a, spheres_b, robot_a, robot_b);
++    }
++
++    /// Sphere pair `sa` of robot_a, `sb` of robot_b is exempt (allowed contact).
++    static bool contactExempt(bool filter, const RobotModel &robot_a,
++                              const CollisionSphere &sa,
++                              const RobotModel &robot_b,
++                              const CollisionSphere &sb) {
++        return filter && RobotModel::contactAllowed(robot_a, sa.link_index,
++                                                    robot_b, sb.link_index);
++    }
++
++    /// Bounding sphere of a sphere set (centroid, farthest reach).
++    static std::pair<Eigen::Vector3d, double>
++    boundingSphere(const std::vector<CollisionSphere> &spheres) {
++        Eigen::Vector3d c = Eigen::Vector3d::Zero();
++        for (const auto &s : spheres)
++            c += s.center;
++        c /= static_cast<double>(spheres.size());
++        double r = 0.0;
++        for (const auto &s : spheres)
++            r = std::max(r, (s.center - c).norm() + s.radius);
++        return {c, r};
++    }
++
++    /// Two sphere sets whose bounding spheres (plus `pad`) are apart cannot
++    /// collide: an O(n + m) test before the O(n m) one.
++    static bool setsApart(const std::vector<CollisionSphere> &spheres_a,
++                          const std::vector<CollisionSphere> &spheres_b, double pad) {
++        if (spheres_a.empty() || spheres_b.empty())
++            return true;
++        const auto [ca, ra] = boundingSphere(spheres_a);
++        const auto [cb, rb] = boundingSphere(spheres_b);
++        const double reach = ra + rb + pad;
++        return (ca - cb).squaredNorm() > reach * reach;
++    }
++
++    /// areSphereSetsPairValid with both bounding spheres already computed.
++    static bool posedPairValid(const std::vector<CollisionSphere> &spheres_a,
++                               const std::pair<Eigen::Vector3d, double> &bounds_a,
++                               const RobotModel &robot_a,
++                               const std::vector<CollisionSphere> &spheres_b,
++                               const std::pair<Eigen::Vector3d, double> &bounds_b,
++                               const RobotModel &robot_b) {
++        if (spheres_a.empty() || spheres_b.empty())
++            return true;
++        const double reach = bounds_a.second + bounds_b.second +
++                             robot_a.collisionPadding() + robot_b.collisionPadding();
++        if ((bounds_a.first - bounds_b.first).squaredNorm() > reach * reach)
++            return true;
++        return areSphereSetsPairValid(spheres_a, spheres_b, robot_a, robot_b);
+     }
+ 
+     static bool areSphereSetsPairValid(
+         const std::vector<CollisionSphere> &spheres_a,
+-        const std::vector<CollisionSphere> &spheres_b) {
++        const std::vector<CollisionSphere> &spheres_b,
++        const RobotModel &robot_a, const RobotModel &robot_b) {
++        if (setsApart(spheres_a, spheres_b,
++                      robot_a.collisionPadding() + robot_b.collisionPadding()))
++            return true;
++        const bool filter = RobotModel::mayAllowContact(robot_a, robot_b);
++        const double pad = robot_a.collisionPadding() + robot_b.collisionPadding();
+         for (auto &sa : spheres_a) {
+             for (auto &sb : spheres_b) {
+-                if (spheresCollide(sa.center, sa.radius, sb.center, sb.radius))
++                if (spheresCollide(sa.center, sa.radius + pad, sb.center, sb.radius) &&
++                    !contactExempt(filter, robot_a, sa, robot_b, sb))
+                     return false;
+             }
+         }
+@@ -194,11 +251,15 @@ public:
+ 
+     static bool areSphereSetsPairValidExhaustive(
+         const std::vector<CollisionSphere> &spheres_a,
+-        const std::vector<CollisionSphere> &spheres_b) {
++        const std::vector<CollisionSphere> &spheres_b,
++        const RobotModel &robot_a, const RobotModel &robot_b) {
++        const bool filter = RobotModel::mayAllowContact(robot_a, robot_b);
++        const double pad = robot_a.collisionPadding() + robot_b.collisionPadding();
+         bool valid = true;
+         for (const auto &sa : spheres_a) {
+             for (const auto &sb : spheres_b) {
+-                if (spheresCollide(sa.center, sa.radius, sb.center, sb.radius))
++                if (spheresCollide(sa.center, sa.radius + pad, sb.center, sb.radius) &&
++                    !contactExempt(filter, robot_a, sa, robot_b, sb))
+                     valid = false;
+             }
+         }
+@@ -211,15 +272,16 @@ public:
+         const std::vector<ObstacleCylinder> &cylinders) {
+         bool valid = true;
+         const auto spheres = robot.getCollisionSpheres(config);
++        const double pad = robot.collisionPadding();
+         for (const auto &sphere : spheres) {
+             for (const auto &obstacle : obstacles) {
+-                if (spheresCollide(sphere.center, sphere.radius,
++                if (spheresCollide(sphere.center, sphere.radius + pad,
+                                    obstacle.center, obstacle.radius)) {
+                     valid = false;
+                 }
+             }
+             for (const auto &cylinder : cylinders) {
+-                if (sphereCylinderCollide(sphere.center, sphere.radius,
++                if (sphereCylinderCollide(sphere.center, sphere.radius + pad,
+                                           cylinder)) {
+                     valid = false;
+                 }
+@@ -236,9 +298,8 @@ public:
+             for (std::size_t j = i + 1; j < spheres.size(); ++j) {
+                 if (spheres[i].link_index == spheres[j].link_index)
+                     continue;
+-                const auto &li = robot.links()[spheres[i].link_index];
+-                const auto &lj = robot.links()[spheres[j].link_index];
+-                if (robot.isSelfCollisionDisabled(li.name, lj.name))
++                if (robot.isSelfCollisionDisabled(spheres[i].link_index,
++                                                  spheres[j].link_index))
+                     continue;
+                 if (spheresCollide(spheres[i].center, spheres[i].radius,
+                                    spheres[j].center, spheres[j].radius)) {
+@@ -395,8 +456,8 @@ public:
+                             robots[j]->getCollisionSpheres(interp[j]);
+                         mark_timestep(static_cast<std::size_t>(step));
+                         ++last_work_stats_.robot_pair_checks_completed;
+-                        if (!areSphereSetsPairValidExhaustive(spheres_i,
+-                                                              spheres_j)) {
++                        if (!areSphereSetsPairValidExhaustive(
++                                spheres_i, spheres_j, *robots[i], *robots[j])) {
+                             valid = false;
+                         }
+                     }
+@@ -601,6 +662,12 @@ public:
+             *std::min_element(effective_starts.begin(), effective_starts.end());
+         ActiveRobotSchedule schedule(effective_starts);
+         std::vector<std::size_t> active;
++        const std::size_t n = paths.size();
++        std::vector<std::vector<double>> scan_cfg(n), scan_prev(n);
++        std::vector<char> scan_posed(n, 0), scan_moved(n, 1);
++        std::vector<char> scan_pair_ok(n * (n - 1) / 2 + 1, 0);
++        std::vector<std::vector<CollisionSphere>> scan_spheres(n);
++        std::vector<std::pair<Eigen::Vector3d, double>> scan_bounds(n);
+         for (std::size_t t = global_begin; t < end; ++t) {
+             schedule.activateThrough(t, active);
+             if (options.check_environment) {
+@@ -619,22 +686,39 @@ public:
+                 }
+             }
+ 
++            // Each robot posed once per timestep (not once per pair); a pair
++            // whose robots both hold the configuration they had at t - 1,
++            // where the pair was valid, is valid again.
++            for (const std::size_t r : active) {
++                configAt(paths[r], t, scan_cfg[r]);
++                scan_moved[r] = !scan_posed[r] || scan_cfg[r] != scan_prev[r];
++                if (scan_moved[r]) {
++                    scan_spheres[r] = robots[r]->getCollisionSpheres(scan_cfg[r]);
++                    scan_bounds[r] = scan_spheres[r].empty()
++                                         ? std::pair<Eigen::Vector3d, double>{Eigen::Vector3d::Zero(), 0.0}
++                                         : boundingSphere(scan_spheres[r]);
++                    scan_prev[r] = scan_cfg[r];
++                    scan_posed[r] = 1;
++                }
++            }
+             for (std::size_t ai = 0; ai < active.size(); ++ai) {
+                 const std::size_t i = active[ai];
+                 for (std::size_t aj = ai + 1; aj < active.size(); ++aj) {
+                     const std::size_t j = active[aj];
+-                    if (effective_pair_starts[pairFrontierIndex(
+-                            i, j, paths.size())] > t)
++                    const std::size_t pair = pairFrontierIndex(i, j, paths.size());
++                    if (effective_pair_starts[pair] > t)
+                         continue;
+-                    const auto &config_i = configAt(paths[i], t);
+-                    const auto &config_j = configAt(paths[j], t);
+-                    if (!isValidPair(*robots[i], config_i, *robots[j], config_j)) {
++                    if (scan_pair_ok[pair] && !scan_moved[i] && !scan_moved[j])
++                        continue;
++                    if (!posedPairValid(scan_spheres[i], scan_bounds[i], *robots[i],
++                                        scan_spheres[j], scan_bounds[j], *robots[j])) {
+                         return CompositeConflict{ConflictScope::InterRobot,
+                                                  static_cast<int>(i),
+                                                  static_cast<int>(j), t, 0.0,
+-                                                 ConflictKind::Vertex, config_i,
+-                                                 config_j};
++                                                 ConflictKind::Vertex, scan_cfg[i],
++                                                 scan_cfg[j]};
+                     }
++                    scan_pair_ok[pair] = 1;
+                 }
+             }
+             assignActivePathStarts(next_t_begin_by_robot_out, active, t + 1);
+@@ -713,7 +797,8 @@ public:
+                         continue;
+                     const auto &config_i = configAt(paths[i], t);
+                     const auto &config_j = configAt(paths[j], t);
+-                    if (!areSphereSetsPairValid(spheresFor(i), spheresFor(j))) {
++                    if (!areSphereSetsPairValid(spheresFor(i), spheresFor(j),
++                                                *robots[i], *robots[j])) {
+                         const CompositeConflict conflict{
+                             ConflictScope::InterRobot, static_cast<int>(i),
+                             static_cast<int>(j), t, 0.0, ConflictKind::Vertex,
+@@ -951,16 +1036,11 @@ private:
+ 
+                     const auto pairSetsValid =
+                         [&](const std::vector<CollisionSphere> &spheres_a,
+-                            const std::vector<CollisionSphere> &spheres_b) {
+-                            for (const auto &sa : spheres_a) {
+-                                for (const auto &sb : spheres_b) {
+-                                    if (spheresCollide(sa.center, sa.radius,
+-                                                       sb.center, sb.radius)) {
+-                                        return false;
+-                                    }
+-                                }
+-                            }
+-                            return true;
++                            const std::vector<CollisionSphere> &spheres_b,
++                            const RobotModel &robot_a,
++                            const RobotModel &robot_b) {
++                            return areSphereSetsPairValid(spheres_a, spheres_b,
++                                                          robot_a, robot_b);
+                         };
+ 
+                     for (const auto &pair : worker_pairs[worker_index]) {
+@@ -976,7 +1056,9 @@ private:
+                         const double collision_cpu_start = processCpuSeconds();
+                         const bool pair_valid =
+                             pairSetsValid(spheresFor(pair.robot_i),
+-                                          spheresFor(pair.robot_j));
++                                          spheresFor(pair.robot_j),
++                                          *robots[pair.robot_i],
++                                          *robots[pair.robot_j]);
+                         collision_worker_wall_seconds +=
+                             elapsedWallSeconds(collision_wall_start);
+                         collision_worker_cpu_seconds +=
+diff --git a/src/comotion/collision/VampCollisionBackend.cpp b/src/comotion/collision/VampCollisionBackend.cpp
+index 3e43d05..f93af79 100644
+--- a/src/comotion/collision/VampCollisionBackend.cpp
++++ b/src/comotion/collision/VampCollisionBackend.cpp
+@@ -620,11 +620,8 @@ bool packedRobotPackValidExhaustive(
+                 representative[j].link_index) {
+                 continue;
+             }
+-            const auto &link_i =
+-                robot.links()[representative[i].link_index];
+-            const auto &link_j =
+-                robot.links()[representative[j].link_index];
+-            if (robot.isSelfCollisionDisabled(link_i.name, link_j.name))
++            if (robot.isSelfCollisionDisabled(representative[i].link_index,
++                                              representative[j].link_index))
+                 continue;
+ 
+             const auto distances = vamp::collision::sphere_sphere_sql2(
+@@ -3165,7 +3162,7 @@ private:
+ 
+     const EnvironmentVector &environmentForRobot(const RobotModel &robot) const {
+         auto key = baseTransformKey(robot);
+-        auto &cache = sphere_env_cache_[&robot];
++        auto &cache = sphere_env_cache_[robot.instanceId()];
+         const bool cache_hit = cache.valid && cache.revision == environment_revision_ &&
+                                cache.base_transform == key;
+         if (!cache_hit) {
+@@ -3203,7 +3200,8 @@ private:
+     std::vector<ObstacleCylinder> world_cylinders_;
+     std::size_t environment_revision_ = 0;
+     VampValidationStrategy strategy_{};
+-    mutable std::unordered_map<const RobotModel *, SphereEnvironmentCache>
++    // Keyed on RobotModel::instanceId(): a model address can be reused.
++    mutable std::unordered_map<std::uint64_t, SphereEnvironmentCache>
+         sphere_env_cache_;
+     mutable ValidationWorkStats last_work_stats_;
+ };
+diff --git a/src/comotion/robot/RobotModel.cpp b/src/comotion/robot/RobotModel.cpp
+index 7215be3..7dab28c 100644
+--- a/src/comotion/robot/RobotModel.cpp
++++ b/src/comotion/robot/RobotModel.cpp
+@@ -8,11 +8,94 @@
+ #include <algorithm>
+ #include <stdexcept>
+ #include <map>
++#include <atomic>
+ 
+ namespace comotion {
+ 
+ namespace pt = boost::property_tree;
+ 
++namespace {
++std::uint64_t nextInstanceId() {
++    static std::atomic<std::uint64_t> counter{1};
++    return counter.fetch_add(1, std::memory_order_relaxed);
++}
++} // namespace
++
++RobotModel::RobotModel() : instance_id_(nextInstanceId()) {}
++
++RobotModel::RobotModel(const RobotModel &other)
++    : links_(other.links_), joints_(other.joints_),
++      base_transform_(other.base_transform_),
++      robot_family_(other.robot_family_),
++      link_name_to_index_(other.link_name_to_index_),
++      link_parent_chain_(other.link_parent_chain_),
++      disabled_collisions_(other.disabled_collisions_),
++      contact_id_(other.contact_id_),
++      allowed_contacts_(other.allowed_contacts_),
++      collision_padding_(other.collision_padding_),
++      instance_id_(nextInstanceId()) {
++    buildKinematicChain();
++}
++
++RobotModel &RobotModel::operator=(const RobotModel &other) {
++    if (this == &other)
++        return *this;
++    links_ = other.links_;
++    joints_ = other.joints_;
++    base_transform_ = other.base_transform_;
++    robot_family_ = other.robot_family_;
++    link_name_to_index_ = other.link_name_to_index_;
++    link_parent_chain_ = other.link_parent_chain_;
++    disabled_collisions_ = other.disabled_collisions_;
++    contact_id_ = other.contact_id_;
++    allowed_contacts_ = other.allowed_contacts_;
++    collision_padding_ = other.collision_padding_;
++    instance_id_ = nextInstanceId();
++    buildKinematicChain();
++    return *this;
++}
++
++void RobotModel::allowContact(const std::string &own_link, int other_contact_id,
++                              const std::string &other_link) {
++    const int index = linkIndex(own_link);
++    if (index < 0)
++        throw std::invalid_argument("RobotModel::allowContact: unknown link " +
++                                    own_link);
++    allowed_contacts_.push_back({index, other_contact_id, other_link});
++}
++
++bool RobotModel::allowsContactWith(int own_link, const RobotModel &other,
++                                   int other_link) const {
++    if (other.contact_id_ < 0)
++        return false;
++    for (const auto &rule : allowed_contacts_) {
++        if (rule.own_link != own_link || rule.other_contact_id != other.contact_id_)
++            continue;
++        if (rule.other_link.empty() ||
++            other.links_[static_cast<std::size_t>(other_link)].name == rule.other_link)
++            return true;
++    }
++    return false;
++}
++
++bool RobotModel::mayAllowContact(const RobotModel &a, const RobotModel &b) {
++    const auto names = [](const RobotModel &x, const RobotModel &y) {
++        if (y.contact_id_ < 0)
++            return false;
++        for (const auto &rule : x.allowed_contacts_)
++            if (rule.other_contact_id == y.contact_id_)
++                return true;
++        return false;
++    };
++    return names(a, b) || names(b, a);
++}
++
++bool RobotModel::contactAllowed(const RobotModel &a, int link_a,
++                                const RobotModel &b, int link_b) {
++    return a.allowsContactWith(link_a, b, link_b) ||
++           b.allowsContactWith(link_b, a, link_a);
++}
++
+ static std::string resolveMeshFilename(const std::string &filename,
+                                         const std::string &urdf_dir) {
+     namespace fs = std::filesystem;
+@@ -191,6 +274,7 @@ void RobotModel::loadURDF(const std::string &urdf_path) {
+ void RobotModel::buildKinematicChain() {
+     active_joints_.clear();
+     link_parent_chain_.resize(links_.size(), std::make_pair(-1, -1));
++    joint_config_index_.assign(joints_.size(), -1);
+ 
+     for (int j = 0; j < static_cast<int>(joints_.size()); ++j) {
+         auto &joint = joints_[j];
+@@ -205,9 +289,30 @@ void RobotModel::buildKinematicChain() {
+         link_parent_chain_[child_idx] = std::make_pair(j, parent_it->second);
+ 
+         if (joint.type == "revolute" || joint.type == "prismatic") {
++            joint_config_index_[static_cast<std::size_t>(j)] =
++                static_cast<int>(active_joints_.size());
+             active_joints_.push_back(&joints_[j]);
+         }
+     }
++    rebuildSelfCollisionMask();
++}
++
++void RobotModel::rebuildSelfCollisionMask() {
++    const std::size_t n = links_.size();
++    self_disabled_mask_.assign(n * n, 0);
++    for (std::size_t i = 0; i < n; ++i)
++        for (std::size_t j = i + 1; j < n; ++j)
++            if (isSelfCollisionDisabled(links_[i].name, links_[j].name))
++                self_disabled_mask_[i * n + j] = self_disabled_mask_[j * n + i] = 1;
++}
++
++bool RobotModel::isSelfCollisionDisabled(int link_a, int link_b) const {
++    const std::size_t n = links_.size();
++    if (self_disabled_mask_.size() != n * n) // never built: name lookup
++        return isSelfCollisionDisabled(links_[static_cast<std::size_t>(link_a)].name,
++                                       links_[static_cast<std::size_t>(link_b)].name);
++    return self_disabled_mask_[static_cast<std::size_t>(link_a) * n +
++                               static_cast<std::size_t>(link_b)] != 0;
+ }
+ 
+ void RobotModel::loadSRDF(const std::string &srdf_path) {
+@@ -224,6 +329,7 @@ void RobotModel::loadSRDF(const std::string &srdf_path) {
+         if (l1 > l2) std::swap(l1, l2);
+         disabled_collisions_.insert({l1, l2});
+     }
++    rebuildSelfCollisionMask();
+ }
+ 
+ void RobotModel::setBaseTransform(const Eigen::Affine3d &T) {
+@@ -326,12 +432,6 @@ std::vector<Eigen::Affine3d> RobotModel::getLinkTransforms(
+     std::vector<Eigen::Affine3d> transforms(links_.size(),
+                                              Eigen::Affine3d::Identity());
+ 
+-    // Map active joint name -> config value
+-    std::map<std::string, double> joint_values;
+-    for (int i = 0; i < static_cast<int>(active_joints_.size()) &&
+-                    i < static_cast<int>(config.size()); ++i) {
+-        joint_values[active_joints_[i]->name] = config[i];
+-    }
+ 
+     // Compute transforms following parent chain
+     // We need a topological ordering. Since URDF is a tree, we can use
+@@ -346,8 +446,12 @@ std::vector<Eigen::Affine3d> RobotModel::getLinkTransforms(
+         const auto &joint = joints_[joint_idx];
+         Eigen::Affine3d joint_transform = joint.origin;
+ 
+-        auto it = joint_values.find(joint.name);
+-        double q = (it != joint_values.end()) ? it->second : 0.0;
++        const int ci = joint_config_index_.size() == joints_.size()
++                           ? joint_config_index_[static_cast<std::size_t>(joint_idx)]
++                           : -1;
++        const double q = (ci >= 0 && ci < static_cast<int>(config.size()))
++                             ? config[static_cast<std::size_t>(ci)]
++                             : 0.0;
+ 
+         if (joint.type == "revolute") {
+             joint_transform =
+@@ -371,6 +475,10 @@ std::vector<CollisionSphere> RobotModel::getCollisionSpheres(
+     auto transforms = getLinkTransforms(config);
+ 
+     std::vector<CollisionSphere> world_spheres;
++    std::size_t count = 0;
++    for (const auto &link : links_)
++        count += link.collision_spheres.size();
++    world_spheres.reserve(count);
+     for (auto &link : links_) {
+         if (link.collision_spheres.empty()) continue;
+         const auto &T = transforms[link.index];
+diff --git a/src/comotion/robot/RobotModel.h b/src/comotion/robot/RobotModel.h
+index 254ad9e..af5e0f8 100644
+--- a/src/comotion/robot/RobotModel.h
++++ b/src/comotion/robot/RobotModel.h
+@@ -1,6 +1,7 @@
+ #pragma once
+ 
+ #include <Eigen/Geometry>
++#include <cstdint>
+ #include <string>
+ #include <vector>
+ #include <map>
+@@ -61,7 +62,18 @@ class RobotModel {
+ public:
+     enum class RobotFamily { Unknown, Sphere, Panda, UR5, Planar3 };
+ 
+-    RobotModel() = default;
++    RobotModel();
++    // Copies rebuild the active-joint table (it points into joints_) and get
++    // a new instanceId(), so caches keyed on a model never see a copy as the
++    // original.
++    RobotModel(const RobotModel &other);
++    RobotModel &operator=(const RobotModel &other);
++    virtual ~RobotModel() = default;
++
++    /// Unique per model object (copies included); stable for its lifetime.
++    /// Backends key per-model caches on it instead of the object address,
++    /// which a later model may reuse.
++    std::uint64_t instanceId() const { return instance_id_; }
+ 
+     void loadURDF(const std::string &urdf_path);
+     void loadSRDF(const std::string &srdf_path);
+@@ -87,18 +99,50 @@ public:
+ 
+     bool isSelfCollisionDisabled(const std::string &link_a,
+                                  const std::string &link_b) const;
++    /// Index form of isSelfCollisionDisabled, O(1) (link indices).
++    bool isSelfCollisionDisabled(int link_a, int link_b) const;
+ 
+     const std::vector<LinkInfo> &links() const { return links_; }
+     const std::vector<JointInfo> &joints() const { return joints_; }
+ 
+     int linkIndex(const std::string &name) const;
+ 
++    // Collision padding (metres): added to every collision sphere's radius
++    // in environment and inter-robot checks, not in self-collision checks
++    // (links of one robot may sit closer than twice the padding). Supported
++    // by the Spheres backend; Fcl and Vamp refuse a nonzero padding.
++    void setCollisionPadding(double pad) { collision_padding_ = pad; }
++    double collisionPadding() const { return collision_padding_; }
++
++    // Allowed inter-robot contacts. Inter-robot checks of every backend skip
++    // a pair of links when either robot allows that contact (e.g. gripper
++    // fingers touching the object they grasp). A rule on this robot names one
++    // of its links, the contact id of the other robot, and optionally one
++    // link of that robot ("" = any of its links). Contact ids are chosen by
++    // the caller; the default -1 matches no rule.
++    void setContactId(int id) { contact_id_ = id; }
++    int contactId() const { return contact_id_; }
++    void allowContact(const std::string &own_link, int other_contact_id,
++                      const std::string &other_link = "");
++    void clearAllowedContacts() { allowed_contacts_.clear(); }
++    bool hasAllowedContacts() const { return !allowed_contacts_.empty(); }
++    /// True when a rule of `a` names `b` or a rule of `b` names `a`
++    /// (cheap check before testing link pairs).
++    static bool mayAllowContact(const RobotModel &a, const RobotModel &b);
++    /// True when link `link_a` of `a` and link `link_b` of `b` may touch.
++    static bool contactAllowed(const RobotModel &a, int link_a,
++                               const RobotModel &b, int link_b);
++
+ protected:
+     static Eigen::Affine3d parseOrigin(const std::string &xyz_str,
+                                         const std::string &rpy_str);
+     static Eigen::Vector3d parseVec3(const std::string &s);
+ 
++    // Also rebuilds the joint lookup table and the self-collision mask.
+     void buildKinematicChain();
++    /// Subclasses that edit disabled_collisions_ (or links_) after loading
++    /// must call this (or buildKinematicChain) so index queries see it.
++    void rebuildSelfCollisionMask();
+ 
+     std::vector<LinkInfo> links_;
+     std::vector<JointInfo> joints_;
+@@ -111,6 +155,25 @@ protected:
+     std::vector<std::pair<int, int>> link_parent_chain_;
+ 
+     std::set<std::pair<std::string, std::string>> disabled_collisions_;
++    // links x links, 1 = self-collision disabled (from disabled_collisions_).
++    std::vector<char> self_disabled_mask_;
++    // joints_ index -> index into a configuration (-1: not active).
++    std::vector<int> joint_config_index_;
++
++    struct AllowedContact {
++        int own_link;
++        int other_contact_id;
++        std::string other_link; // empty: any link of the other robot
++    };
++    int contact_id_ = -1;
++    std::vector<AllowedContact> allowed_contacts_;
++    double collision_padding_ = 0.0;
++
++private:
++    bool allowsContactWith(int own_link, const RobotModel &other,
++                           int other_link) const;
++
++    std::uint64_t instance_id_;
+ };
+ 
+ } // namespace comotion

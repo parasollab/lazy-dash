@@ -1,0 +1,153 @@
+lazydash patch to CoMotion, applied after 0001 by external/bootstrap_comotion.sh.
+Exact culls (validity answers unchanged; only fewer primitive tests):
+
+1. Fcl backend: a capsule test before each robot-vs-environment pair. A
+   cylinder lies inside the capsule around its axis segment (a sphere is a
+   capsule of length 0), so a primitive whose bounding sphere misses that
+   capsule cannot touch it. Thin long cylinders (the converted shelf boards
+   and wall plates) have bounding spheres far larger than themselves, and FCL
+   fits an OBB/RSS to the shape on every mesh-vs-shape call; that fitting was
+   85% of the motion query on double_shelf2-4.
+2. Spheres backend: isValidSingle tests the robot's bounding sphere against
+   each obstacle once, then only the obstacles that reach it against each
+   sphere (was every sphere x every obstacle; 63% of layer 2 on wall-8-6-4).
+3. Spheres backend: isSelfCollisionFree reads the self-collision mask
+   directly (RobotModel::selfCollisionMask) instead of a call per pair.
+
+--- a/src/comotion/collision/FclCollisionBackend.cpp
++++ b/src/comotion/collision/FclCollisionBackend.cpp
+@@ -865,6 +865,7 @@
+     void rebuildEnvironmentObjects() {
+         env_geoms_.clear();
+         env_transforms_.clear();
++        env_capsules_.clear();
+         for (const auto &o : env_spheres_) {
+             auto g = prepareGeometry(std::make_shared<fcl::Sphere<S>>(o.radius));
+             Transform3 T = Transform3::Identity();
+@@ -872,12 +873,15 @@
+                 Vector3(o.center.x(), o.center.y(), o.center.z());
+             env_geoms_.push_back(std::move(g));
+             env_transforms_.push_back(T);
++            env_capsules_.push_back({T.translation(), Vector3::UnitZ(), 0, o.radius});
+         }
+         for (const auto &c : env_cylinders_) {
+             double lz = 2.0 * c.half_height;
+             auto g = prepareGeometry(std::make_shared<fcl::Cylinder<S>>(c.radius, lz));
+             env_geoms_.push_back(std::move(g));
+             env_transforms_.push_back(cylinderWorldPose(c));
++            env_capsules_.push_back({env_transforms_.back().translation(),
++                                     env_transforms_.back().linear().col(2), c.half_height, c.radius});
+         }
+     }
+ 
+@@ -906,6 +910,8 @@
+                 eigenAffineToFcl(link_tf[static_cast<size_t>(prim.link_index)]) *
+                 prim.tf_link;
+             for (size_t e = 0; e < env_geoms_.size(); ++e) {
++                if (envApart(prim, world, e))
++                    continue;
+                 if (fclPairCollide(prim.geom, world, env_geoms_[e],
+                                    env_transforms_[e]))
+                     return false;
+@@ -1043,6 +1049,8 @@
+                     link_tf[static_cast<std::size_t>(prim.link_index)]) *
+                 prim.tf_link;
+             for (std::size_t e = 0; e < env_geoms_.size(); ++e) {
++                if (envApart(prim, world, e))
++                    continue;
+                 if (fclPairCollide(prim.geom, world, env_geoms_[e],
+                                    env_transforms_[e])) {
+                     valid = false;
+@@ -2175,6 +2183,24 @@
+     std::vector<ObstacleCylinder> env_cylinders_;
+     std::vector<CollisionGeometryPtr> env_geoms_;
+     std::vector<Transform3> env_transforms_;
++    // Per environment geometry: its axis segment (centre, unit axis, half
++    // length) and radius as a capsule that contains it (a sphere: length 0).
++    // Thin long cylinders (shelf boards, wall plates) have bounding spheres
++    // far larger than themselves; the capsule test culls those pairs exactly.
++    struct EnvCapsule {
++        Vector3 center, axis;
++        S half = 0, radius = 0;
++    };
++    std::vector<EnvCapsule> env_capsules_;
++
++    /// A primitive at `world` cannot touch environment geometry `e`.
++    bool envApart(const GeomPrim &prim, const Transform3 &world, std::size_t e) const {
++        const auto &c = env_capsules_[e];
++        const Vector3 p = world * prim.geom->aabb_center - c.center;
++        const S t = std::clamp(p.dot(c.axis), -c.half, c.half);
++        const S reach = c.radius + prim.geom->aabb_radius;
++        return (p - t * c.axis).squaredNorm() > reach * reach;
++    }
+     // Keyed on RobotModel::instanceId(): a model address can be reused.
+     mutable std::unordered_map<std::uint64_t, RobotPrimCache> robot_cache_;
+     mutable ValidationWorkStats last_work_stats_;
+--- a/src/comotion/collision/SphereCollisionBackend.cpp
++++ b/src/comotion/collision/SphereCollisionBackend.cpp
+@@ -136,14 +136,29 @@
+                        const std::vector<ObstacleSphere> &obstacles,
+                        const std::vector<ObstacleCylinder> &cylinders) const override {
+         auto spheres = robot.getCollisionSpheres(config);
++        if (spheres.empty())
++            return true;
+         const double pad = robot.collisionPadding();
++        // Only obstacles that reach the robot's bounding sphere can touch one
++        // of its spheres (exact cull: every sphere lies inside it).
++        const auto [bc, br] = boundingSphere(spheres);
++        std::vector<const ObstacleSphere *> near_spheres;
++        std::vector<const ObstacleCylinder *> near_cylinders;
++        for (const auto &obs : obstacles)
++            if (spheresCollide(bc, br + pad, obs.center, obs.radius))
++                near_spheres.push_back(&obs);
++        for (const auto &cyl : cylinders)
++            if (sphereCylinderCollide(bc, br + pad, cyl))
++                near_cylinders.push_back(&cyl);
++        if (near_spheres.empty() && near_cylinders.empty())
++            return true;
+         for (auto &rs : spheres) {
+-            for (auto &obs : obstacles) {
+-                if (spheresCollide(rs.center, rs.radius + pad, obs.center, obs.radius))
++            for (const auto *obs : near_spheres) {
++                if (spheresCollide(rs.center, rs.radius + pad, obs->center, obs->radius))
+                     return false;
+             }
+-            for (auto &cyl : cylinders) {
+-                if (sphereCylinderCollide(rs.center, rs.radius + pad, cyl))
++            for (const auto *cyl : near_cylinders) {
++                if (sphereCylinderCollide(rs.center, rs.radius + pad, *cyl))
+                     return false;
+             }
+         }
+@@ -154,13 +169,18 @@
+         const RobotModel &robot,
+         const std::vector<double> &config) const override {
+         auto spheres = robot.getCollisionSpheres(config);
++        const auto &mask = robot.selfCollisionMask();
++        const std::size_t n = robot.links().size();
++        const bool use_mask = mask.size() == n * n;
+         for (size_t i = 0; i < spheres.size(); ++i) {
+             for (size_t j = i + 1; j < spheres.size(); ++j) {
+                 if (spheres[i].link_index == spheres[j].link_index)
+                     continue;
+ 
+-                if (robot.isSelfCollisionDisabled(spheres[i].link_index,
+-                                                  spheres[j].link_index))
++                if (use_mask ? mask[static_cast<std::size_t>(spheres[i].link_index) * n +
++                                    static_cast<std::size_t>(spheres[j].link_index)] != 0
++                             : robot.isSelfCollisionDisabled(spheres[i].link_index,
++                                                             spheres[j].link_index))
+                     continue;
+ 
+                 if (spheresCollide(spheres[i].center, spheres[i].radius,
+--- a/src/comotion/robot/RobotModel.h
++++ b/src/comotion/robot/RobotModel.h
+@@ -101,6 +101,8 @@
+                                  const std::string &link_b) const;
+     /// Index form of isSelfCollisionDisabled, O(1) (link indices).
+     bool isSelfCollisionDisabled(int link_a, int link_b) const;
++    /// links x links, 1 = self-collision disabled (empty until built).
++    const std::vector<char> &selfCollisionMask() const { return self_disabled_mask_; }
+ 
+     const std::vector<LinkInfo> &links() const { return links_; }
+     const std::vector<JointInfo> &joints() const { return joints_; }

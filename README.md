@@ -40,7 +40,7 @@ leave validity answers unchanged). The build also makes the Python module
 
 ```bash
 ./build/lazydash_solve resources/scenes/paper/sorting-4robots-16objects.json \
-    --seed 1 --time-limit 300 --out result.json
+    --seed 1 --time-limit 300 --out results/result.json
 ```
 
 It prints one line of JSON statistics and exits 0 on success: `success`,
@@ -48,7 +48,7 @@ It prints one line of JSON statistics and exits 0 on success: `success`,
 (`task_query_time`, `task_conflict_time`, `motion_query_time`,
 `conflict_resolution_time`, in seconds), representation sizes (`ht_vertices`,
 `ht_hyperarcs`, `hm_vertices`, `hm_hyperarcs`) and constraint and conflict
-counts. Options: `--seed N`, `--time-limit S`, `--out result.json` (the plan:
+counts. Options: `--seed N`, `--time-limit S`, `--out FILE` (the plan:
 joint paths of every arm, object paths, the task plan and an arm timeline),
 `--stride K` (keep every K-th timestep in `--out`), `--log` (the planner's log
 on stderr), `--verbose` (progress), and tuning values `--stage-time S`,
@@ -56,7 +56,7 @@ on stderr), `--verbose` (progress), and tuning values `--stage-time S`,
 (motion planning). Watch a result in the browser:
 
 ```bash
-python3 viewer/serve.py        # http://127.0.0.1:8765/viewer/ : open result.json in the result viewer
+python3 viewer/serve.py        # http://127.0.0.1:8765/viewer/ : pick result.json in the result viewer
 ```
 
 From Python (after the build, with `python/` on the path):
@@ -120,14 +120,13 @@ names the build folder, default `build`).
 python3 viewer/serve.py    # http://127.0.0.1:8765/viewer/
 ```
 
-- **One solve:** `result.html?file=result.json` plays back a `--out` file
-  (arms, blocks, the arm timeline, statistics).
+- **One solve:** `result.html` plays back a `--out` file (arms, blocks, the
+  arm timeline, statistics); it lists the files in `results/`.
 - **A benchmark run:** `results.html` (default `results/paper/results.json`)
   plots planning time per layer, representation sizes, success rate and
   makespan per scenario against the paper's runs, as in the paper's figures.
-  For another trials file:
-  `python3 runner/aggregate_results.py lazydash=results/extra/trials.jsonl --out results/extra/results.json`,
-  then `results.html?file=results/extra/results.json`.
+  The extra suite has no paper runs to compare with: see
+  `results/extra/summary.md`.
 - **Videos and a results page:** `viewer/make_videos.sh` renders one solve per
   scenario to mp4, and `viewer/make_report.py` builds a self-contained page
   of videos, timelines and results; see `viewer/README.md` for its
@@ -143,8 +142,8 @@ there), or start from a generator:
 
 ```bash
 cd python
-uv run --no-project --with numpy python -m lazydash.scenarios ring --arms 6 --blocks 12 --bays --stack 2 -o ../my-ring.json
-uv run --no-project --with numpy python -m lazydash.scenarios workcell packing -o ../my-packing.json
+uv run --no-project --with numpy python -m lazydash.scenarios ring --arms 6 --blocks 12 --bays --stack 2 -o ../resources/scenes/mine/my-ring.json
+uv run --no-project --with numpy python -m lazydash.scenarios workcell packing -o ../resources/scenes/mine/my-packing.json
 ```
 
 Other generators: `sorting`, `wall`; options `--grasp-set faces` (grasps
@@ -156,10 +155,14 @@ the generator seed (`-s0`).
 Then check the scene, solve it and watch the plan:
 
 ```bash
-python3 viewer/serve.py    # scene viewer: http://127.0.0.1:8765/viewer/scene.html?file=my-ring.json
-./build/lazydash_solve my-ring.json --out my-ring-result.json
-                           # result viewer: http://127.0.0.1:8765/viewer/result.html?file=my-ring-result.json
+python3 viewer/serve.py    # scene viewer: http://127.0.0.1:8765/viewer/scene.html, pick mine/my-ring.json
+./build/lazydash_solve resources/scenes/mine/my-ring.json --out results/my-ring.json
+                           # result viewer: http://127.0.0.1:8765/viewer/result.html, pick my-ring.json
 ```
+
+`resources/scenes/mine/` and `results/` are ignored by git. The viewers list
+these folders, and the result viewer shows a scene's goals and scenery when
+the scene is under `resources/scenes/`.
 
 The scene viewer renders the scene, edits it live and lists problems (an
 object inside an obstacle, out of reach or out of bounds); `build/ht_diag

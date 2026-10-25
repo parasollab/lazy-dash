@@ -365,5 +365,5 @@ splitter($("gv"), top, "x", (x, b) => top.style.setProperty("--side", clamp(b.wi
 splitter($("gh"), app, "y", (y, b) => app.style.setProperty("--gantt", clamp(b.height - y, 80, b.height - 200) + "px"));
 
 const initial = query("file");
-fileSelect($("pick"), "results", p => p.endsWith(".json") && !p.endsWith(".stats.json"), openPath, initial);
+fileSelect($("pick"), "results", p => p.endsWith(".json") && !p.endsWith(".stats.json") && !p.endsWith("/results.json"), openPath, initial);
 if (initial) openPath(initial);

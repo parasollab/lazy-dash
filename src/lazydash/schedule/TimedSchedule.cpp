@@ -55,14 +55,14 @@ TimedSchedule::TimedSchedule(const OptimisticSchedule &sm, const TaskSchedule &s
         const int s0 = stageOf(static_cast<int>(step), 0), s1 = stageOf(static_cast<int>(step), 1);
         auto &events = object_events_[static_cast<std::size_t>(t.object)];
         if (t.type == TransitionType::Pick) {
-            events.push_back({0, true, t.robot, t.grasp, -1, {}, s0}); // closed after the approach
+            events.push_back({0, true, t.robot, t.grasp, -1, Eigen::Vector3d::Zero(), s0}); // closed after the approach
         } else if (t.type == TransitionType::Place) {
             const auto &a = sm.anchors[step];
             events.push_back({0, false, -1, -1, hg.objectHead(st.steps[step].arc),
                               a ? Eigen::Vector3d(a->object_pose.translation()) : Eigen::Vector3d::Zero().eval(),
                               s0}); // opened at the goal or move-out
         } else if (t.type == TransitionType::Handover) {
-            events.push_back({0, true, t.robot2, t.grasp2, -1, {}, s0}); // receiver closed
+            events.push_back({0, true, t.robot2, t.grasp2, -1, Eigen::Vector3d::Zero(), s0}); // receiver closed
             // D: stage barriers of the exchange.
             const int giver_prev = previousOf(t.robot, s1);
             if (giver_prev >= 0)

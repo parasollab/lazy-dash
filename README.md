@@ -114,6 +114,25 @@ The script builds, runs the tests, then solves every scene and seed with an
 1800 s limit (`JOBS` solves in parallel, default: the number of cores; `BUILD`
 names the build folder, default `build`).
 
+## View results
+
+```bash
+python3 viewer/serve.py    # http://127.0.0.1:8765/viewer/
+```
+
+- **One solve:** `result.html?file=result.json` plays back a `--out` file
+  (arms, blocks, the arm timeline, statistics).
+- **A benchmark run:** `results.html` (default `results/paper/results.json`)
+  plots planning time per layer, representation sizes, success rate and
+  makespan per scenario against the paper's runs, as in the paper's figures.
+  For another trials file:
+  `python3 runner/aggregate_results.py lazydash=results/extra/trials.jsonl --out results/extra/results.json`,
+  then `results.html?file=results/extra/results.json`.
+- **Videos and a results page:** `viewer/make_videos.sh` renders one solve per
+  scenario to mp4, and `viewer/make_report.py` builds a self-contained page
+  of videos, timelines and results; see `viewer/README.md` for its
+  dependencies.
+
 ## Your own scenes
 
 A scene is one JSON file (`lazydash.scene/1`): arms, sphere and cylinder

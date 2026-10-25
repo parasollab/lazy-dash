@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lazy-DaSH Scene Viewer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="common/theme.css">
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.160.1/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.1/examples/jsm/",
+  "three/examples/jsm/": "https://cdn.jsdelivr.net/npm/three@0.160.1/examples/jsm/",
+  "urdf-loader": "https://cdn.jsdelivr.net/npm/urdf-loader@0.12.6/src/URDFLoader.js"
+} }
+</script>
+<style>
+.app { grid-template-columns: minmax(0, 1fr) 5px var(--side, 420px); }
+.side { display: grid; grid-template-rows: var(--editor, 58%) 5px minmax(0, 1fr); min-width: 0; min-height: 0; }
+.side .pane { display: flex; flex-direction: column; }
+#editor {
+  flex: 1; min-height: 0; width: 100%; resize: none; border: 0; padding: 8px 12px; background: var(--surface);
+  font: 12px/1.5 var(--font-mono); tab-size: 2; white-space: pre; overflow: auto; outline-offset: -2px;
+}
+#status { font-size: 12px; color: var(--muted); text-align: right; background: none; border: 0; padding: 0; cursor: default; }
+#status.bad { color: var(--error); cursor: pointer; text-decoration: underline dotted; }
+#checks { list-style: none; margin: 0; padding: 4px 0; overflow: auto; flex: 1; min-height: 0; }
+#checks li button {
+  display: grid; grid-template-columns: 14px 1fr; gap: 6px; width: 100%; text-align: left; background: none; border: 0;
+  padding: 4px 12px; font-size: 12.5px; cursor: pointer; line-height: 1.4;
+}
+#checks li button:hover { background: var(--surface-2); }
+#checks li button[aria-current="true"] { background: var(--surface-2); box-shadow: inset 3px 0 0 var(--accent); }
+.dot { width: 9px; height: 9px; border-radius: 50%; margin-top: 4px; }
+.dot.error { background: var(--error); }
+.dot.warning { background: var(--warn); }
+#checks li.ok { padding: 6px 12px; color: var(--muted); font-size: 12.5px; }
+.foot { padding: 6px 12px 8px; border-top: 1px solid var(--rule); }
+#summary { font-size: 12px; color: var(--muted); }
+@media (max-width: 760px) {
+  .app { display: flex; flex-direction: column; overflow: visible; }
+  #viewPane { height: 56vh; flex: none; }
+  .side { display: flex; flex-direction: column; }
+  .side .pane { height: 48vh; }
+  .side .pane + .gutter + .pane { height: auto; min-height: 30vh; }
+}
+</style>
+</head>
+<body>
+<header class="bar">
+  <h1><a href="./">Lazy-DaSH</a> Scene</h1>
+  <select id="pick" class="sel" hidden aria-label="Scene in the repository" data-placeholder="Scenes in resources/scenes"></select>
+  <button id="open" class="btn" type="button">Open file</button>
+  <span class="file" id="file">No scene loaded</span>
+  <button id="watch" class="btn" type="button" aria-pressed="false" disabled
+    title="Reload when the file changes on disk (files opened from the repository)">Watch file</button>
+  <button id="save" class="btn" type="button" disabled>Save</button>
+  <button id="theme" class="btn" type="button"></button>
+</header>
+<main class="app" id="app">
+  <section class="pane" id="viewPane" aria-label="3D view">
+    <div class="view3d" id="view"></div>
+    <div class="overlay tl">
+      <span>Arms</span>
+      <span class="seg" id="model"><button type="button" data-v="mesh" aria-pressed="true">meshes</button><button type="button" data-v="spheres" aria-pressed="false">spheres</button></span>
+      <span>Scenery</span>
+      <span class="seg" id="scenery"><button type="button" data-v="primitives" aria-pressed="true">primitives</button><button type="button" data-v="boxes" aria-pressed="false">boxes</button><button type="button" data-v="hidden" aria-pressed="false">hidden</button></span>
+    </div>
+    <div class="overlay bl key" aria-label="Legend">
+      <span><i style="background:#d91f1a"></i>block start</span>
+      <span><i class="wire" style="color:#d91f1a"></i>goal alternative</span>
+      <span><i style="background:var(--s3);opacity:.5"></i>placement region</span>
+      <span><i style="background:var(--obstacle)"></i>obstacle</span>
+      <span><i style="background:var(--wall);opacity:.7"></i>wall</span>
+      <span><i class="line" style="background:var(--faint)"></i>bounds</span>
+    </div>
+    <div class="drop-hint" id="hint"><p>Pick a scene above, or drop a <b>scene JSON</b> here.</p></div>
+  </section>
+  <div class="gutter v" id="gv" role="separator" aria-orientation="vertical"></div>
+  <section class="side" id="side">
+    <div class="pane">
+      <div class="head"><h2>Scene JSON</h2><button id="status" type="button" tabindex="-1"></button></div>
+      <textarea id="editor" spellcheck="false" aria-label="Scene JSON" placeholder="Scene JSON"></textarea>
+    </div>
+    <div class="gutter h" id="gh" role="separator" aria-orientation="horizontal"></div>
+    <div class="pane">
+      <div class="head"><h2>Checks</h2><span id="summary"></span></div>
+      <ul id="checks"></ul>
+      <p class="note foot">Point and sphere tests only. For IK and capability per pose run <code>build/ht_diag &lt;scene&gt;</code>.</p>
+    </div>
+  </section>
+</main>
+<script type="module" src="scene.js"></script>
+</body>
+</html>

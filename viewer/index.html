@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lazy-DaSH Viewers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="common/theme.css">
+<style>
+body { overflow: auto; }
+.page { max-width: 980px; margin: 0 auto; padding: 40px 16px; display: grid; gap: 24px; }
+h1 { font: 600 30px/1.1 var(--font-display); margin: 0; }
+.sub { color: var(--muted); margin: 6px 0 0; max-width: 70ch; }
+.tools { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+.tool { display: grid; gap: 8px; align-content: start; background: var(--surface); border: 1px solid var(--rule); border-radius: 8px;
+  padding: 16px; color: inherit; text-decoration: none; }
+.tool:hover { border-color: var(--accent); }
+.tool h2 { font: 600 18px var(--font-display); color: var(--ink); text-transform: none; letter-spacing: 0.01em; }
+.tool p { margin: 0; color: var(--muted); font-size: 13.5px; }
+.tool .in { font-size: 12.5px; }
+.top { display: flex; justify-content: space-between; align-items: start; gap: 12px; flex-wrap: wrap; }
+.status { font-size: 13px; color: var(--muted); }
+.tool code { overflow-wrap: anywhere; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="top">
+    <div>
+      <h1>Lazy-DaSH Viewers</h1>
+      <p class="sub">Browser tools for the multi-robot task and motion planner (arXiv 2504.05552): check scenes, play back solves, compare evaluations with the paper.</p>
+    </div>
+    <button id="theme" class="btn" type="button"></button>
+  </div>
+  <div class="tools">
+    <a class="tool" href="scene.html">
+      <h2>Scene viewer</h2>
+      <p>Render a scene in 3D, edit its JSON with live re-render or watch the file on disk, and run quick checks (schema, reach, overlaps, joint limits).</p>
+      <p class="in">Opens <code>resources/scenes/**/*.json</code> (format <code>lazydash.scene/1</code>).</p>
+    </a>
+    <a class="tool" href="result.html">
+      <h2>Result viewer</h2>
+      <p>Play back a solve: arms and blocks over time, the arm timeline synced to the playhead, planning statistics, a gripper trace per arm.</p>
+      <p class="in">Opens what <code>lazydash_solve &lt;scene&gt; --out result.json</code> writes.</p>
+    </a>
+    <a class="tool" href="results.html">
+      <h2>Results browser</h2>
+      <p>Evaluation curves per scene family against the paper's runs: planning time by stage, representation sizes, success, makespan, table.</p>
+      <p class="in">Opens the JSON from <code>runner/aggregate_results.py</code>.</p>
+    </a>
+  </div>
+  <p class="status" id="status"></p>
+</div>
+<script type="module">
+import { $, initTheme, launcher } from "./common/util.js";
+initTheme($("theme"));
+launcher().then(ok => {
+  $("status").textContent = ok ? "Served by viewer/serve.py: repository files are listed in each tool, and the scene viewer saves in place."
+    : "Not served by viewer/serve.py: open files with the button or by drag and drop. Run python viewer/serve.py for repository listings.";
+});
+</script>
+</body>
+</html>

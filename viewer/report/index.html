@@ -1,0 +1,465 @@
+<title>Lazy-DaSH Results</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one scenario at a time: tabs on top, the run and its timeline, then its results. */
+:root {
+  --bg: #f5f7fa;
+  --surface: #ffffff;
+  --ink: #12161c;
+  --muted: #59616e;
+  --faint: #8a929e;
+  --rule: #dce1e8;
+  --accent: #2a78d6;
+  --series-ours: #2a78d6;
+  --series-paper: #7d8592;
+  --carry: #1baf7a;
+  --empty: #c9d0da;
+  --stage: #12161c;
+  --layer-1: #86b6ef;
+  --layer-2: #3987e5;
+  --layer-3: #1c5cab;
+  --layer-4: #0d366b;
+  --font-display: "IBM Plex Sans Condensed", "Arial Narrow", system-ui, sans-serif;
+  --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f1215; --surface: #171b20; --ink: #e8ebef; --muted: #a2aab6; --faint: #747d8a; --rule: #2a3038;
+    --accent: #3987e5; --series-ours: #3987e5; --series-paper: #9aa2ae;
+    --carry: #199e70; --empty: #3a424d; --stage: #e8ebef;
+    --layer-1: #184f95; --layer-2: #2a78d6; --layer-3: #6da7ec; --layer-4: #b7d3f6;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f1215; --surface: #171b20; --ink: #e8ebef; --muted: #a2aab6; --faint: #747d8a; --rule: #2a3038;
+  --accent: #3987e5; --series-ours: #3987e5; --series-paper: #9aa2ae;
+  --carry: #199e70; --empty: #3a424d; --stage: #e8ebef;
+  --layer-1: #184f95; --layer-2: #2a78d6; --layer-3: #6da7ec; --layer-4: #b7d3f6;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink); font: 14px/1.5 var(--font-body);
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0 32px;
+}
+.wrap { max-width: 1240px; margin: 0 auto; display: grid; gap: 20px; }
+header { display: grid; gap: 12px; padding-top: 20px; }
+.brand { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 14px; }
+h1 { font: 600 26px/1.1 var(--font-display); letter-spacing: 0.005em; margin: 0; text-wrap: balance; }
+.sub { color: var(--muted); margin: 0; }
+nav { display: grid; gap: 10px; }
+.tabs { display: flex; gap: 2px; border-bottom: 1px solid var(--rule); overflow-x: auto; }
+.tab {
+  font: 500 15px var(--font-display); letter-spacing: 0.02em; color: var(--muted); background: none;
+  border: 0; border-bottom: 2px solid transparent; padding: 8px 14px; cursor: pointer; white-space: nowrap;
+}
+.tab[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--accent); }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip {
+  font: 500 13px var(--font-body); color: var(--muted); background: var(--surface);
+  border: 1px solid var(--rule); border-radius: 999px; padding: 4px 12px; cursor: pointer;
+}
+.chip[aria-pressed="true"] { color: var(--surface); background: var(--ink); border-color: var(--ink); }
+.tab:focus-visible, .chip:focus-visible, .gantt:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.run { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: 20px; align-items: start; }
+video { width: 100%; max-width: 100%; aspect-ratio: 16 / 9; background: #000; border-radius: 6px; display: block; }
+.facts { display: grid; gap: 16px; min-width: 0; }
+.scene-name { font: 600 20px/1.2 var(--font-display); margin: 0; }
+.scene-meta { color: var(--muted); margin: 2px 0 0; font-size: 13px; }
+.tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--rule); border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; }
+.tile { background: var(--surface); padding: 10px 12px; display: grid; gap: 2px; }
+.tile .k { font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.tile .v { font: 500 22px/1.15 var(--font-mono); font-variant-numeric: tabular-nums; }
+.tile .v small { font-size: 12px; color: var(--muted); font-family: var(--font-body); }
+.layers { display: grid; gap: 6px; }
+.layers .k { font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.lbar { display: flex; height: 10px; border-radius: 3px; overflow: hidden; gap: 2px; background: var(--surface); }
+.lbar span { display: block; height: 100%; min-width: 2px; }
+.lkey { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 12px; color: var(--muted); }
+.lkey i { display: inline-block; width: 9px; height: 9px; border-radius: 2px; margin-right: 5px; vertical-align: -1px; }
+section.panel { background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; padding: 14px 16px 12px; display: grid; gap: 10px; min-width: 0; }
+.panel-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 6px 16px; }
+h2 { font: 600 16px/1.2 var(--font-display); letter-spacing: 0.01em; margin: 0; }
+.legend { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 12px; color: var(--muted); }
+.legend i { display: inline-block; width: 14px; height: 9px; border-radius: 2px; margin-right: 5px; vertical-align: -1px; }
+.legend i.tick { width: 2px; height: 11px; border-radius: 0; }
+.legend i.line { height: 2px; vertical-align: 3px; }
+.gantt-scroll { overflow-x: auto; }
+.gantt { display: block; width: 100%; min-width: 560px; cursor: crosshair; touch-action: pan-y; }
+.plots { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.plot { display: grid; gap: 4px; min-width: 0; }
+.plot h3 { font: 500 13px var(--font-body); color: var(--muted); margin: 0; }
+.plot svg { display: block; width: 100%; height: auto; }
+svg text { font-family: var(--font-body); }
+.axis text { fill: var(--muted); font-size: 11px; }
+.axis line, .axis path { stroke: var(--rule); }
+.grid line { stroke: var(--rule); stroke-dasharray: 2 3; }
+details { font-size: 13px; }
+summary { cursor: pointer; color: var(--muted); }
+.table-scroll { overflow-x: auto; }
+table { border-collapse: collapse; font-variant-numeric: tabular-nums; margin-top: 8px; }
+th, td { padding: 3px 10px; text-align: right; border-bottom: 1px solid var(--rule); white-space: nowrap; }
+th { font-weight: 500; color: var(--muted); }
+td:first-child, th:first-child { text-align: left; }
+.note { color: var(--muted); font-size: 12px; margin: 0; max-width: 72ch; }
+.tip {
+  position: fixed; z-index: 20; pointer-events: none; background: var(--ink); color: var(--bg);
+  font: 12px/1.4 var(--font-body); padding: 6px 9px; border-radius: 5px; max-width: 260px; white-space: pre-line;
+}
+@media (max-width: 860px) {
+  .run { grid-template-columns: minmax(0, 1fr); }
+  .plots { grid-template-columns: minmax(0, 1fr); }
+}
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="brand">
+      <h1>Lazy-DaSH Results</h1>
+      <p class="sub">UR5e arms on CoMotion against the paper's runs</p>
+    </div>
+    <nav>
+      <div class="tabs" role="tablist" id="tabs"></div>
+      <div class="chips" id="chips"></div>
+    </nav>
+  </header>
+
+  <div class="run">
+    <video id="video" controls muted playsinline preload="metadata"></video>
+    <div class="facts">
+      <div>
+        <p class="scene-name" id="scene-name">Loading results…</p>
+        <p class="scene-meta" id="scene-meta"></p>
+      </div>
+      <div class="tiles" id="tiles"></div>
+      <div class="layers">
+        <span class="k">Planning time by layer</span>
+        <div class="lbar" id="lbar"></div>
+        <div class="lkey" id="lkey"></div>
+      </div>
+    </div>
+  </div>
+
+  <section class="panel" aria-labelledby="gantt-h">
+    <div class="panel-head">
+      <h2 id="gantt-h">Arm timeline</h2>
+      <div class="legend">
+        <span><i style="background:var(--empty)"></i>moving, hand empty</span>
+        <span><i style="background:var(--carry)"></i>carrying a block</span>
+        <span><i class="tick" style="background:var(--stage)"></i>grasp or release</span>
+        <span><i class="line" style="background:var(--stage);opacity:.45"></i>handover</span>
+      </div>
+    </div>
+    <div class="gantt-scroll"><svg class="gantt" id="gantt" tabindex="0" aria-label="Arm timeline"></svg></div>
+    <p class="note">Gaps are waits. Click the timeline to move the video there.</p>
+  </section>
+
+  <section class="panel" aria-labelledby="res-h">
+    <div class="panel-head">
+      <h2 id="res-h">Against the paper</h2>
+      <div class="legend">
+        <span><i class="line" style="background:var(--series-ours)"></i>lazydash</span>
+        <span><i class="line" style="background:var(--series-paper)"></i>paper</span>
+      </div>
+    </div>
+    <div class="plots" id="plots"></div>
+    <p class="note">Medians over solved runs (ours: 50 seeds for Sorting and Wall, 10 for Shelf-wall and Stocking; the paper: 20). Makespans are in the paper's timesteps (ours divided by 4.02).</p>
+    <details>
+      <summary>Table</summary>
+      <div class="table-scroll" id="table"></div>
+    </details>
+  </section>
+</div>
+<div class="tip" id="tip" hidden></div>
+
+<script>
+const NS = "http://www.w3.org/2000/svg";
+const $ = id => document.getElementById(id);
+const el = (tag, attrs = {}, parent) => {
+  const n = document.createElementNS(NS, tag);
+  for (const [k, v] of Object.entries(attrs)) n.setAttribute(k, v);
+  if (parent) parent.appendChild(n);
+  return n;
+};
+const fmt = (x, d = 1) => x == null ? "–" : Number(x).toFixed(d);
+const SERIES = [
+  ["ours", "lazydash", "var(--series-ours)", ""],
+  ["paper", "paper", "var(--series-paper)", "5 4"],
+];
+const LAYERS = [
+  ["task_query_time", "1 task query", "var(--layer-1)"],
+  ["task_conflict_time", "2 task conflicts", "var(--layer-2)"],
+  ["motion_query_time", "3 motion", "var(--layer-3)"],
+  ["conflict_resolution_time", "4 conflict resolution", "var(--layer-4)"],
+];
+
+let DATA, current, makespan = 1, playhead;
+const tip = $("tip");
+function showTip(text, x, y) {
+  tip.textContent = text;
+  tip.hidden = false;
+  const w = tip.offsetWidth, h = tip.offsetHeight;
+  tip.style.left = Math.min(window.innerWidth - w - 8, x + 12) + "px";
+  tip.style.top = Math.max(8, y - h - 10) + "px";
+}
+const hideTip = () => { tip.hidden = true; };
+
+function niceStep(span, target) {
+  const raw = span / target, p = Math.pow(10, Math.floor(Math.log10(raw)));
+  for (const m of [1, 2, 2.5, 5, 10]) if (m * p >= raw) return m * p;
+  return 10 * p;
+}
+
+/* ---------- navigation ---------- */
+function variants() { return DATA.families.flatMap(f => f.variants.map(v => [f, v])); }
+function select(id, push = true) {
+  const pair = variants().find(([, v]) => v.id === id) || variants()[0];
+  const [fam, v] = pair;
+  current = v;
+  $("tabs").querySelectorAll(".tab").forEach(b => b.setAttribute("aria-selected", b.dataset.id === fam.id));
+  const chips = $("chips");
+  chips.replaceChildren();
+  for (const x of fam.variants) {
+    const b = document.createElement("button");
+    b.className = "chip"; b.type = "button"; b.textContent = x.label; b.id = "chip-" + x.id;
+    b.setAttribute("aria-pressed", x.id === v.id);
+    b.onclick = () => select(x.id);
+    chips.appendChild(b);
+  }
+  if (push) { try { history.replaceState(null, "", "#" + v.id); } catch (e) {} }
+  render(fam, v);
+}
+
+function render(fam, v) {
+  const r = v.run;
+  makespan = r.makespan_s;
+  const video = $("video");
+  video.src = v.video;
+  $("scene-name").textContent = `${fam.label}: ${v.label}`;
+  $("scene-meta").textContent = `${r.arms} arms, ${r.objects} blocks · seed 1 · ${v.scene}`;
+  const tiles = [
+    ["Makespan", `${fmt(r.makespan_s)} <small>s</small>`],
+    ["Planning time", `${fmt(r.planning_s)} <small>s</small>`],
+    ["Transitions", `${r.transitions} <small>${r.handovers} handovers</small>`],
+    ["Constraints", `${r.stats.task_constraints} <small>task</small> ${r.stats.motion_constraints} <small>motion</small>`],
+  ];
+  $("tiles").innerHTML = tiles.map(([k, val]) => `<div class="tile"><span class="k">${k}</span><span class="v">${val}</span></div>`).join("");
+  const total = LAYERS.reduce((s, [k]) => s + r.stats[k], 0) || 1;
+  $("lbar").innerHTML = LAYERS.map(([k, , c]) => `<span style="flex:${r.stats[k] / total};background:${c}" title="${k}"></span>`).join("");
+  $("lkey").innerHTML = LAYERS.map(([k, label, c]) => `<span><i style="background:${c}"></i>${label} ${fmt(r.stats[k])} s</span>`).join("");
+  drawGantt(r);
+  drawPlots(v.results);
+  drawTable(v.results);
+}
+
+/* ---------- Gantt ---------- */
+function drawGantt(r) {
+  const svg = $("gantt");
+  svg.replaceChildren();
+  const rowH = r.arms > 9 ? 13 : r.arms > 4 ? 18 : 24, gap = 4;
+  const left = 34, right = 10, top = 6, axisH = 22;
+  const W = 1000, plotW = W - left - right;
+  const H = top + r.arms * (rowH + gap) + axisH;
+  svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+  const x = t => left + (t / makespan) * plotW;
+  const yRow = a => top + a * (rowH + gap);
+  // axis and grid
+  const ax = el("g", { class: "axis" }, svg), grid = el("g", { class: "grid" }, svg);
+  const step = niceStep(makespan, 8);
+  for (let t = 0; t <= makespan + 1e-9; t += step) {
+    el("line", { x1: x(t), x2: x(t), y1: top, y2: H - axisH + 2 }, grid);
+    const tx = el("text", { x: x(t), y: H - 6, "text-anchor": "middle" }, ax);
+    tx.textContent = `${Math.round(t)} s`;
+  }
+  for (let a = 0; a < r.arms; a++) {
+    const t = el("text", { x: left - 6, y: yRow(a) + rowH / 2 + 4, "text-anchor": "end" }, ax);
+    t.textContent = "r" + a;
+  }
+  const bars = el("g", {}, svg), ticks = el("g", {}, svg), links = el("g", { opacity: 0.45 }, svg);
+  const byRow = Array.from({ length: r.arms }, () => []);
+  const handover = new Map();
+  for (const e of r.timeline) {
+    const [arm, s, end, kind, action, object, holding] = e;
+    byRow[arm].push(e);
+    if (kind === "move") {
+      el("rect", { x: x(s), y: yRow(arm), width: Math.max(0.6, x(end) - x(s) - 0.6), height: rowH, rx: 1.5,
+                   fill: holding ? "var(--carry)" : "var(--empty)" }, bars);
+    } else {
+      el("rect", { x: x(s), y: yRow(arm) - 1, width: Math.max(1.6, x(end) - x(s)), height: rowH + 2, fill: "var(--stage)" }, ticks);
+      if (action === "handover") {
+        const key = e[7];
+        if (!handover.has(key)) handover.set(key, []);
+        handover.get(key).push([arm, s]);
+      }
+    }
+  }
+  for (const pts of handover.values()) {
+    const arms = [...new Set(pts.map(p => p[0]))];
+    if (arms.length < 2) continue;
+    const t = Math.min(...pts.map(p => p[1]));
+    const ys = arms.map(a => yRow(a) + rowH / 2);
+    el("line", { x1: x(t), x2: x(t), y1: Math.min(...ys), y2: Math.max(...ys), stroke: "var(--stage)", "stroke-width": 1 }, links);
+  }
+  byRow.forEach(row => row.sort((p, q) => p[1] - q[1]));
+  playhead = el("line", { x1: left, x2: left, y1: top - 4, y2: H - axisH + 2, stroke: "var(--accent)", "stroke-width": 2 }, svg);
+  // hover and seek
+  const toLocal = ev => {
+    const b = svg.getBoundingClientRect();
+    return [(ev.clientX - b.left) * (W / b.width), (ev.clientY - b.top) * (H / b.height)];
+  };
+  svg.onpointermove = ev => {
+    const [px, py] = toLocal(ev);
+    const a = Math.floor((py - top) / (rowH + gap)), t = ((px - left) / plotW) * makespan;
+    if (a < 0 || a >= r.arms || t < 0 || t > makespan) return hideTip();
+    const hit = byRow[a].find(e => e[1] - 0.15 <= t && t <= e[2] + 0.15);
+    if (!hit) return showTip(`r${a} waiting\nt = ${fmt(t)} s`, ev.clientX, ev.clientY);
+    const [, s, end, kind, action, object, holding] = hit;
+    const what = kind === "stage" ? `${action} o${object} (grasp or release)`
+               : holding ? `carrying o${object} to ${action}` : `moving to ${action} o${object}`;
+    showTip(`r${a} · ${what}\n${fmt(s)}–${fmt(end)} s`, ev.clientX, ev.clientY);
+  };
+  svg.onpointerleave = hideTip;
+  svg.onclick = ev => {
+    const [px] = toLocal(ev);
+    const t = Math.min(makespan, Math.max(0, ((px - left) / plotW) * makespan));
+    const v = $("video");
+    if (v.duration) v.currentTime = (t / makespan) * v.duration;
+  };
+  svg.onkeydown = ev => {
+    const v = $("video");
+    if (!v.duration) return;
+    if (ev.key === "ArrowRight") v.currentTime = Math.min(v.duration, v.currentTime + v.duration / 40);
+    else if (ev.key === "ArrowLeft") v.currentTime = Math.max(0, v.currentTime - v.duration / 40);
+    else return;
+    ev.preventDefault();
+  };
+  svg._x = x;
+  movePlayhead();
+}
+function movePlayhead() {
+  const v = $("video"), svg = $("gantt");
+  if (!playhead || !svg._x) return;
+  const f = v.duration ? v.currentTime / v.duration : 0;
+  const px = svg._x(f * makespan);
+  playhead.setAttribute("x1", px);
+  playhead.setAttribute("x2", px);
+}
+(function loop() { movePlayhead(); requestAnimationFrame(loop); })();
+
+/* ---------- result plots ---------- */
+function drawPlots(res) {
+  const box = $("plots");
+  box.replaceChildren();
+  plot(box, res, "success rate", p => p.success == null ? null : 100 * p.success, { min: 0, max: 100, unit: "%", d: 0 });
+  plot(box, res, "Planning time (s, log)", p => p.time, { log: true, unit: " s", d: 1 });
+  plot(box, res, "Makespan (paper timesteps)", p => p.makespan, { min: 0, unit: "", d: 0 });
+}
+function plot(box, res, title, get, o) {
+  const wrap = document.createElement("div");
+  wrap.className = "plot";
+  wrap.innerHTML = `<h3>${title}</h3>`;
+  box.appendChild(wrap);
+  const W = 360, H = 220, L = 44, R = 70, T = 10, B = 26;
+  const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": title }, wrap);
+  const pts = SERIES.map(([k, label, color, dash]) => ({ k, label, color, dash,
+    p: (res[k] || []).map(q => [q.objects, get(q), q]).filter(q => q[1] != null && (!o.log || q[1] > 0)) }));
+  const xs = pts.flatMap(s => s.p.map(q => q[0])), ys = pts.flatMap(s => s.p.map(q => q[1]));
+  if (!xs.length) return;
+  const x0 = 0, x1 = Math.max(...xs) * 1.04;
+  let y0, y1, ty;
+  if (o.log) {
+    y0 = Math.pow(10, Math.floor(Math.log10(Math.min(...ys))));
+    y1 = Math.pow(10, Math.ceil(Math.log10(Math.max(...ys))));
+    ty = v => T + (H - T - B) * (1 - (Math.log10(v) - Math.log10(y0)) / (Math.log10(y1) - Math.log10(y0)));
+  } else {
+    y0 = o.min ?? 0; y1 = o.max ?? Math.max(...ys) * 1.08;
+    ty = v => T + (H - T - B) * (1 - (v - y0) / (y1 - y0));
+  }
+  const tx = v => L + (W - L - R) * ((v - x0) / (x1 - x0));
+  const ax = el("g", { class: "axis" }, svg), grid = el("g", { class: "grid" }, svg);
+  const yt = [];
+  if (o.log) for (let v = y0; v <= y1 * 1.0001; v *= 10) yt.push(v);
+  else { const s = niceStep(y1 - y0, 4); for (let v = y0; v <= y1 + 1e-9; v += s) yt.push(v); }
+  for (const v of yt) {
+    el("line", { x1: L, x2: W - R, y1: ty(v), y2: ty(v) }, grid);
+    const t = el("text", { x: L - 6, y: ty(v) + 4, "text-anchor": "end" }, ax);
+    t.textContent = o.log ? (v >= 1 ? v : v.toString()) : (v >= 1000 ? `${v / 1000}k` : v);
+  }
+  const xstep = niceStep(x1 - x0, 5);
+  for (let v = xstep; v <= x1; v += xstep) {
+    const t = el("text", { x: tx(v), y: H - 8, "text-anchor": "middle" }, ax);
+    t.textContent = v;
+  }
+  const xl = el("text", { x: W - R, y: H - 8, "text-anchor": "start", dx: 6 }, ax);
+  xl.textContent = "blocks";
+  el("line", { x1: L, x2: W - R, y1: H - B, y2: H - B }, ax);
+  // series, the paper's first so ours sit on top
+  const labels = [];
+  for (const s of [...pts].reverse()) {
+    if (!s.p.length) continue;
+    const d = s.p.map((q, i) => `${i ? "L" : "M"}${tx(q[0]).toFixed(1)},${ty(q[1]).toFixed(1)}`).join("");
+    el("path", { d, fill: "none", stroke: s.color, "stroke-width": 2, "stroke-dasharray": s.dash, "stroke-linejoin": "round" }, svg);
+    for (const q of s.p) el("circle", { cx: tx(q[0]), cy: ty(q[1]), r: 4, fill: s.color, stroke: "var(--surface)", "stroke-width": 2 }, svg);
+    const last = s.p[s.p.length - 1];
+    labels.push({ y: ty(last[1]), x: tx(last[0]), text: s.k === "paper" ? "paper" : "lazydash" });
+  }
+  // direct labels at the right, nudged apart
+  labels.sort((a, b) => a.y - b.y);
+  for (let i = 1; i < labels.length; i++) if (labels[i].y - labels[i - 1].y < 12) labels[i].y = labels[i - 1].y + 12;
+  for (const l of labels) {
+    const t = el("text", { x: l.x + 7, y: l.y + 4, fill: "var(--muted)", "font-size": 11 }, svg);
+    t.textContent = l.text;
+  }
+  // hover: nearest point
+  const all = pts.flatMap(s => s.p.map(q => ({ s, q, cx: tx(q[0]), cy: ty(q[1]) })));
+  const ring = el("circle", { r: 7, fill: "none", stroke: "var(--ink)", "stroke-width": 1.5, visibility: "hidden" }, svg);
+  svg.addEventListener("pointermove", ev => {
+    const b = svg.getBoundingClientRect();
+    const px = (ev.clientX - b.left) * (W / b.width), py = (ev.clientY - b.top) * (H / b.height);
+    let best = null, bd = 1e9;
+    for (const a of all) { const d = (a.cx - px) ** 2 + (a.cy - py) ** 2; if (d < bd) { bd = d; best = a; } }
+    if (!best || bd > 900) { ring.setAttribute("visibility", "hidden"); return hideTip(); }
+    ring.setAttribute("cx", best.cx); ring.setAttribute("cy", best.cy); ring.setAttribute("visibility", "visible");
+    showTip(`${best.s.label}, ${best.q[0]} blocks\n${fmt(best.q[1], o.d)}${o.unit} (${best.q[2].runs} runs)`, ev.clientX, ev.clientY);
+  });
+  svg.addEventListener("pointerleave", () => { ring.setAttribute("visibility", "hidden"); hideTip(); });
+}
+
+function drawTable(res) {
+  const objs = [...new Set(SERIES.flatMap(([k]) => (res[k] || []).map(p => p.objects)))].sort((a, b) => a - b);
+  const cell = (k, n, f, d) => { const p = (res[k] || []).find(q => q.objects === n); return p ? fmt(f(p), d) : "–"; };
+  let h = "<table><tr><th>blocks</th>";
+  for (const [, label] of SERIES) h += `<th>${label} success</th><th>time s</th><th>makespan</th>`;
+  h += "</tr>";
+  for (const n of objs) {
+    h += `<tr><td>${n}</td>`;
+    for (const [k] of SERIES)
+      h += `<td>${cell(k, n, p => p.success == null ? null : 100 * p.success, 0)}%</td><td>${cell(k, n, p => p.time, 1)}</td><td>${cell(k, n, p => p.makespan, 0)}</td>`;
+    h += "</tr>";
+  }
+  $("table").innerHTML = h + "</table>";
+}
+
+/* ---------- boot ---------- */
+fetch("data.json").then(r => r.json()).then(d => {
+  DATA = d;
+  const tabs = $("tabs");
+  for (const f of d.families) {
+    const b = document.createElement("button");
+    b.className = "tab"; b.type = "button"; b.role = "tab"; b.dataset.id = f.id; b.id = "tab-" + f.id;
+    b.textContent = f.label;
+    b.onclick = () => select(f.variants[0].id);
+    tabs.appendChild(b);
+  }
+  const want = (location.hash || "").slice(1);
+  select(variants().some(([, v]) => v.id === want) ? want : d.families[0].variants[0].id, false);
+}).catch(() => { $("scene-name").textContent = "The results data did not load. Reload the page to try again."; });
+window.addEventListener("resize", hideTip);
+</script>
